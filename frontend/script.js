@@ -20,3 +20,11 @@ function sendMessage() {
 
   input.value = "";
 }
+
+document
+  .getElementById("user-input")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  });
