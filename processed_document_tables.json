@@ -40,7 +40,12 @@
           596.16
         ],
         "row_count": 8,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -68,12 +73,12 @@
           "All mosquito and other flying insect pest control activities resulting in a discharge to waters of the United States"
         ],
         [
-          "",
+          "1.1.1(a) - Mosquito and Other Flying Insect Pest Control",
           "Mosquito control districts, or similar pest control districts",
           "All mosquito and other flying insect pest control activities resulting in a discharge to waters of the United States"
         ],
         [
-          "",
+          "1.1.1(a) - Mosquito and Other Flying Insect Pest Control",
           "Local governments or other entities that exceed the annual treatment area threshold identified here",
           "Adulticide treatment if more than 6,400 acres during a calendar year"
         ],
@@ -83,12 +88,12 @@
           "All weed and algae pest control activities resulting in a discharge to waters of the United States"
         ],
         [
-          "",
+          "1.1.1(b) - Weed and Algae Pest Control",
           "Irrigation and weed control districts, or similar pest control districts",
           "All weed and algae pest control activities resulting in a discharge to waters of the United States"
         ],
         [
-          "",
+          "1.1.1(b) - Weed and Algae Pest Control",
           "Local governments or other entities that exceed the annual treatment area threshold identified here",
           "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)"
         ],
@@ -98,7 +103,7 @@
           "All animal pest control activities resulting in a discharge to waters of the United States"
         ],
         [
-          "",
+          "1.1.1(c) - Animal Pest Control",
           "Local governments or other entities that exceed the annual treatment area threshold identified here",
           "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)"
         ],
@@ -108,7 +113,7 @@
           "All forest canopy pest control activities resulting in a discharge to waters of the United States"
         ],
         [
-          "",
+          "1.1.1.(d) - Forest Canopy Pest Control",
           "Local governments or other entities that exceed the annual treatment area threshold identified here",
           "Treatment if more than 6,400 acres during a calendar year"
         ]
@@ -121,7 +126,12 @@
           696.36
         ],
         "row_count": 12,
-        "column_count": 3
+        "column_count": 3,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 6,
+          "applied": true
+        }
       }
     },
     {
@@ -167,7 +177,12 @@
           473.16
         ],
         "row_count": 5,
-        "column_count": 3
+        "column_count": 3,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -203,7 +218,12 @@
           614.5195
         ],
         "row_count": 3,
-        "column_count": 3
+        "column_count": 3,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -251,7 +271,12 @@
           482.28
         ],
         "row_count": 7,
-        "column_count": 2
+        "column_count": 2,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -265,10 +290,10 @@
           "Substanceb"
         ],
         [
-          ""
+          "Substanceb"
         ],
         [
-          ""
+          "Substanceb"
         ],
         [
           "Aldrin"
@@ -315,7 +340,12 @@
           719.2030512820512
         ],
         "row_count": 15,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 2,
+          "applied": true
+        }
       }
     },
     {
@@ -419,7 +449,12 @@
           305.7437837837838
         ],
         "row_count": 10,
-        "column_count": 6
+        "column_count": 6,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -433,10 +468,10 @@
           "Substanceb"
         ],
         [
-          ""
+          "Substanceb"
         ],
         [
-          ""
+          "Substanceb"
         ],
         [
           "Heptachlor epoxide"
@@ -474,7 +509,12 @@
           695.8637837837838
         ],
         "row_count": 12,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 2,
+          "applied": true
+        }
       }
     },
     {
@@ -562,7 +602,12 @@
           695.9890909090908
         ],
         "row_count": 17,
-        "column_count": 2
+        "column_count": 2,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -662,7 +707,12 @@
           716.52
         ],
         "row_count": 27,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -795,7 +845,12 @@
           694.2
         ],
         "row_count": 38,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -916,7 +971,12 @@
           722.6796666666665
         ],
         "row_count": 34,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1031,7 +1091,12 @@
           695.4
         ],
         "row_count": 32,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1161,7 +1226,12 @@
           708.3599999999999
         ],
         "row_count": 37,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1297,7 +1367,12 @@
           708.0
         ],
         "row_count": 39,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1430,7 +1505,12 @@
           722.3996666666667
         ],
         "row_count": 38,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1545,7 +1625,12 @@
           695.4
         ],
         "row_count": 32,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1567,7 +1652,12 @@
           99.60000000000002
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1598,7 +1688,12 @@
           737.2599479166669
         ],
         "row_count": 4,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1620,7 +1715,12 @@
           742.8000000000001
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1648,12 +1748,12 @@
           "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
         ],
         [
-          "",
+          "1.1.1(a) - Mosquito and Other Flying Insect Pest Control",
           "Mosquito control districts, or similar pest control districts.",
           "All activities resulting in a discharge for which the Decision-maker is responsible for pest control."
         ],
         [
-          "",
+          "1.1.1(a) - Mosquito and Other Flying Insect Pest Control",
           "Local governments or other entities who exceed the annual treatment area threshold identified here.",
           "Adulticide treatment if more than 6,400 acres during a calendar year."
         ],
@@ -1663,12 +1763,12 @@
           "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
         ],
         [
-          "",
+          "1.1.1(b) - Weed and Algae Pest Control",
           "Irrigation and weed control districts, or similar pest control districts.",
           "All activities resulting in a discharge for which the Decision-maker is responsible for pest control."
         ],
         [
-          "",
+          "1.1.1(b) - Weed and Algae Pest Control",
           "Local governments or other entities who exceed the annual treatment area threshold identified here.",
           "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)."
         ],
@@ -1678,7 +1778,7 @@
           "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
         ],
         [
-          "",
+          "1.1.1(c) - Animal Pest Control",
           "Local governments or other entities who exceed the annual treatment area threshold identified here.",
           "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)."
         ],
@@ -1688,7 +1788,7 @@
           "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
         ],
         [
-          "",
+          "1.1.1.(d) - Forest Canopy Pest Control",
           "Local governments or other entities who exceed the annual treatment area threshold identified here.",
           "Treatment if more than 6,400 acres during a calendar year."
         ]
@@ -1701,7 +1801,12 @@
           741.36
         ],
         "row_count": 12,
-        "column_count": 3
+        "column_count": 3,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 6,
+          "applied": true
+        }
       }
     },
     {
@@ -1737,7 +1842,12 @@
           715.92
         ],
         "row_count": 3,
-        "column_count": 3
+        "column_count": 3,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1768,7 +1878,12 @@
           172.31999999999994
         ],
         "row_count": 2,
-        "column_count": 3
+        "column_count": 3,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1804,7 +1919,12 @@
           628.5595
         ],
         "row_count": 3,
-        "column_count": 3
+        "column_count": 3,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1832,7 +1952,12 @@
           691.3199999999999
         ],
         "row_count": 3,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1863,7 +1988,12 @@
           708.7198125000001
         ],
         "row_count": 4,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1885,7 +2015,12 @@
           591.3598125000001
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1916,7 +2051,12 @@
           734.519625
         ],
         "row_count": 4,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1944,7 +2084,12 @@
           748.0794999999998
         ],
         "row_count": 3,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -1966,7 +2111,12 @@
           655.319625
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2027,7 +2177,12 @@
           641.2398333333334
         ],
         "row_count": 14,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2055,7 +2210,12 @@
           382.935
         ],
         "row_count": 3,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2077,7 +2237,12 @@
           493.68
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2186,7 +2351,12 @@
           654.255
         ],
         "row_count": 30,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2208,7 +2378,12 @@
           230.03999999999996
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2266,7 +2441,12 @@
           700.9799999999999
         ],
         "row_count": 13,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2295,7 +2475,7 @@
           "10 permit (e.g., FWS ECOSphere number, ECO Section 7 consultation number):"
         ],
         [
-          ""
+          "10 permit (e.g., FWS ECOSphere number, ECO Section 7 consultation number):"
         ],
         [
           "C5. What is the date the permit(s) was granted?"
@@ -2354,7 +2534,12 @@
           625.6200000000001
         ],
         "row_count": 23,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 1,
+          "applied": true
+        }
       }
     },
     {
@@ -2442,7 +2627,12 @@
           707.8800000000001
         ],
         "row_count": 23,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2504,7 +2694,7 @@
           "letter generated by IPaC):"
         ],
         [
-          ""
+          "letter generated by IPaC):"
         ],
         [
           "D5. What is the date the consultation was completed?"
@@ -2548,7 +2738,12 @@
           676.6200000000001
         ],
         "row_count": 29,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 1,
+          "applied": true
+        }
       }
     },
     {
@@ -2576,7 +2771,12 @@
           143.94
         ],
         "row_count": 3,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2598,7 +2798,12 @@
           225.60000000000002
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2647,7 +2852,12 @@
           681.72
         ],
         "row_count": 10,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2711,7 +2921,12 @@
           418.19975
         ],
         "row_count": 15,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2781,7 +2996,12 @@
           704.0
         ],
         "row_count": 17,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2857,7 +3077,12 @@
           405.0798333333333
         ],
         "row_count": 19,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2879,7 +3104,12 @@
           459.36
         ],
         "row_count": 1,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -2955,7 +3185,12 @@
           694.04
         ],
         "row_count": 19,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     },
     {
@@ -3040,7 +3275,12 @@
           571.64
         ],
         "row_count": 22,
-        "column_count": 1
+        "column_count": 1,
+        "merged_cell_filldown": {
+          "column_index": 0,
+          "filled": 0,
+          "applied": false
+        }
       }
     }
   ]
