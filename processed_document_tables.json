@@ -1,0 +1,3047 @@
+{
+  "tables": [
+    {
+      "table_id": "table_p1_t1",
+      "page_number": 1,
+      "headers": [
+        "PRE-PUBLICATION NOTICE. All 10 U.S. Environmental Protection Agency Regions signed the following"
+      ],
+      "rows": [
+        [
+          "document on December 10, 2024, and EPA is submitting it for publication in the Federal Register (FR). This"
+        ],
+        [
+          "document is not disseminated for purposes of EPA's Information Quality Guidelines and does not represent an"
+        ],
+        [
+          "Agency determination or policy. While we have taken steps to ensure the accuracy of this Internet version of the"
+        ],
+        [
+          "document, it is not the official version. Please refer to the official version in a forthcoming FR publication, which"
+        ],
+        [
+          "will appear on the Government Printing Office's govinfo website (https://www.govinfo.gov/app/collection/fr). It will"
+        ],
+        [
+          "also appear on Regulations.gov (https://www.regulations.gov) in Docket No. EPA-HQ-OW-2023-0268. Once the"
+        ],
+        [
+          "official version of this document is published in the FR, this version will be removed from the internet and replaced"
+        ],
+        [
+          "with a link to the official version."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.0,
+          492.6,
+          534.72,
+          596.16
+        ],
+        "row_count": 8,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p11_t1",
+      "page_number": 11,
+      "headers": [
+        "PGP Part/ Pesticide Use",
+        "Which Decision-makers Must Submit NOIs?",
+        "For Which Pesticide Application Activities?"
+      ],
+      "rows": [
+        [
+          "All four use patterns identified in Part 1.1.1",
+          "Any Decision-maker with an eligible discharge to a Tier 3 water (Outstanding National Resource Water) consistent with Part 1.1.2.2",
+          "Activities resulting in a discharge to a Tier 3 water"
+        ],
+        [
+          "All four use patterns identified in Part 1.1.1",
+          "Any Decision-maker with an eligible discharge to waters of the United States, including application of a pesticide as part of pesticide research and development, that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants (i.e., these Listed Resources of Concern overlap with the Project Action Area)",
+          "Activities resulting in a discharge to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants (i.e., these Listed Resources of Concern overlap with the Project Action Area)"
+        ],
+        [
+          "1.1.1(a) - Mosquito and Other Flying Insect Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations",
+          "All mosquito and other flying insect pest control activities resulting in a discharge to waters of the United States"
+        ],
+        [
+          "",
+          "Mosquito control districts, or similar pest control districts",
+          "All mosquito and other flying insect pest control activities resulting in a discharge to waters of the United States"
+        ],
+        [
+          "",
+          "Local governments or other entities that exceed the annual treatment area threshold identified here",
+          "Adulticide treatment if more than 6,400 acres during a calendar year"
+        ],
+        [
+          "1.1.1(b) - Weed and Algae Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations",
+          "All weed and algae pest control activities resulting in a discharge to waters of the United States"
+        ],
+        [
+          "",
+          "Irrigation and weed control districts, or similar pest control districts",
+          "All weed and algae pest control activities resulting in a discharge to waters of the United States"
+        ],
+        [
+          "",
+          "Local governments or other entities that exceed the annual treatment area threshold identified here",
+          "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)"
+        ],
+        [
+          "1.1.1(c) - Animal Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations",
+          "All animal pest control activities resulting in a discharge to waters of the United States"
+        ],
+        [
+          "",
+          "Local governments or other entities that exceed the annual treatment area threshold identified here",
+          "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)"
+        ],
+        [
+          "1.1.1.(d) - Forest Canopy Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations",
+          "All forest canopy pest control activities resulting in a discharge to waters of the United States"
+        ],
+        [
+          "",
+          "Local governments or other entities that exceed the annual treatment area threshold identified here",
+          "Treatment if more than 6,400 acres during a calendar year"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.00050000000005,
+          153.96000000000004,
+          540.0004999999994,
+          696.36
+        ],
+        "row_count": 12,
+        "column_count": 3
+      }
+    },
+    {
+      "table_id": "table_p13_t1",
+      "page_number": 13,
+      "headers": [
+        "Operator Type",
+        "NOI Submission Deadline",
+        "Discharge Authorization Date2"
+      ],
+      "rows": [
+        [
+          "Any Decision-maker with any discharge to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants, except for those discharges in response to a Declared Pest Emergency Situation.",
+          "At least 30 days before any discharge to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern5 to pollutants.",
+          "No earlier than 30 days after EPA posts on the Internet a receipt of a complete and accurate NOI.3,5"
+        ],
+        [
+          "Any Decision-maker with a discharge in response to a Declared Pest Emergency Situation, except for any discharges to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants.",
+          "No later than 30 days after beginning discharge in response to a Declared Pest Emergency Situation.",
+          "Immediately upon beginning to discharge for activities conducted in response to a Declared Pest Emergency Situation. Note: Decision-makers must notify and coordinate with FWS and NMFS prior to discharge."
+        ],
+        [
+          "Any Decision-maker with any discharge to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants, in response to a Declared Pest Emergency Situation.",
+          "No later than 15 days after beginning to discharge in response to a Declared Pest Emergency Situation.",
+          "Immediately upon beginning to discharge for activities conducted in response to a Declared Pest Emergency Situation for a period of at least 60 days.4 Note: Decision-makers must notify and coordinate with FWS and NMFS prior to discharge."
+        ],
+        [
+          "Any Decision-maker who exceeds any annual treatment area threshold.",
+          "At least 10 days before exceeding an annual treatment area threshold.",
+          "No earlier than 10 days after EPA posts on the Internet receipt of a complete and accurate NOI."
+        ],
+        [
+          "Any Decision-maker otherwise required to submit an NOI as identified in Table 1-1.",
+          "At least 10 days before any discharge for which an NOI is required.",
+          "No earlier than 10 days after EPA posts on the Internet receipt of a complete and accurate NOI."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.0005,
+          98.27949999999998,
+          540.0005000000001,
+          473.16
+        ],
+        "row_count": 5,
+        "column_count": 3
+      }
+    },
+    {
+      "table_id": "table_p14_t1",
+      "page_number": 14,
+      "headers": [
+        "Operator Type",
+        "NOI Submission Deadline",
+        "Discharge Authorization Date"
+      ],
+      "rows": [
+        [
+          "Any Decision-maker requiring permit coverage for a pest management area not identified on a previously submitted NOI for this permit, except for discharges to any; (1) Tier 3 water or (2) Waters of the United States that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants. Except for such waters, changes other than identification of a new pest management area or a new pesticide use pattern do not require a revised NOI submittal.",
+          "At least 10 days before beginning to discharge in that newly identified area unless discharges are in response to a Declared Pest Emergency Situation in which case not later than 30 days after beginning discharge.",
+          "No earlier than 10 days after EPA posts on the Internet the receipt of a complete and accurate NOI unless discharges are in response to a Declared Pest Emergency Situation in which case coverage is available immediately upon beginning to discharge from activities conducted in response to Declared Pest Emergency Situation. Note: For Declared Pest Emergency Situation, Decision-makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ],
+        [
+          "Any Decision-maker discharging to a Tier 3 water not identified by name on a previously submitted NOI for this permit, except for discharges to Tier 3 waters that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants.",
+          "At least 10 days before beginning to discharge in that newly identified Tier 3 water unless discharges are in response to a Declared Pest Emergency Situation in which case not later than 30 days after beginning discharge.",
+          "No earlier than 10 days after EPA posts on the Internet receipt of a complete and accurate NOI unless discharges are in response to a Declared Pest Emergency Situation in which case coverage is available immediately upon beginning to discharge from activities conducted in response to Declared Pest Emergency Situation. Note: For Declared Pest Emergency Situation, Decision-makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ],
+        [
+          "Any Decision-maker with any discharge to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants, not identified on a previously submitted NOI for this permit. This includes changes in any treatment area, pesticide product, method or rate of application, or approximate dates of applications.",
+          "At least 30 days before beginning to discharge in that newly identified water that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants unless discharges are in response to a Declared Pest Emergency Situation in which case not later than 15 days after beginning discharge.",
+          "No earlier than 30 days after EPA posts on the Internet receipt of a complete and accurate NOI unless discharges are in response to a Declared Pest Emergency Situation in which case coverage is available immediately upon beginning to discharge from activities conducted in response to Declared Pest Emergency Situation. Note: For Declared Pest Emergency Situation, Decision-makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          73.20000000000002,
+          117.12,
+          539.7600000000001,
+          614.5195
+        ],
+        "row_count": 3,
+        "column_count": 3
+      }
+    },
+    {
+      "table_id": "table_p34_t1",
+      "page_number": 34,
+      "headers": [
+        "PGP Part",
+        "Applicable Type of Operator"
+      ],
+      "rows": [
+        [
+          "7.1",
+          "Recordkeeping: All Operators"
+        ],
+        [
+          "7.2",
+          "Recordkeeping: All Operators who are For-Hire Applicators as defined in Appendix A"
+        ],
+        [
+          "7.3",
+          "Recordkeeping: Any Decision-maker required to submit an NOI and who is a small entity1"
+        ],
+        [
+          "7.4",
+          "Recordkeeping: Any Decision-maker required to submit an NOI and who is a large entity2"
+        ],
+        [
+          "7.5",
+          "Retention of Records: All Operators"
+        ],
+        [
+          "7.6",
+          "Annual Reporting: Any Decision-maker required to submit an NOI and who is a large entity2"
+        ],
+        [
+          "7.7",
+          "Annual Reporting: Any Decision-maker with discharges to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern as defined in Appendix A, and who is a small entity1 to pollutants"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          103.56000000000004,
+          232.08000000000004,
+          539.7600000000001,
+          482.28
+        ],
+        "row_count": 7,
+        "column_count": 2
+      }
+    },
+    {
+      "table_id": "table_p72_t1",
+      "page_number": 72,
+      "headers": [
+        "Table 1 Fresh water aquatic and human health* toxic substance criteria for surface waters with ceremonial, designated aquatic life uses, or from which fish are caught for human consumption"
+      ],
+      "rows": [
+        [
+          "Substanceb"
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          "Aldrin"
+        ],
+        [
+          "Chlordane"
+        ],
+        [
+          "2-Chlorophenol"
+        ],
+        [
+          "3-Methyl-4-Chlorophenol"
+        ],
+        [
+          "Chlorpyrifos"
+        ],
+        [
+          "4,4'-DDT"
+        ],
+        [
+          "4,4'-DDE"
+        ],
+        [
+          "4,4'-DDD"
+        ],
+        [
+          "Demeton"
+        ],
+        [
+          "Diazinon"
+        ],
+        [
+          "1,2-Dichlorobenzene"
+        ],
+        [
+          "1,3-Dichlorobenzene"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          79.56705882352938,
+          309.64000000000004,
+          547.0729411764709,
+          719.2030512820512
+        ],
+        "row_count": 15,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p73_t1",
+      "page_number": 73,
+      "headers": [
+        "1,4-Dichlorobenzene",
+        "106-46- 7",
+        "--",
+        "--",
+        "--",
+        "75f"
+      ],
+      "rows": [
+        [
+          "Dimethyl phthalate",
+          "131-11- 3",
+          "--",
+          "--",
+          "1100000",
+          "--"
+        ],
+        [
+          "Di-n-Butyl Phthalate",
+          "84-74-2",
+          "--",
+          "--",
+          "4500",
+          "--"
+        ],
+        [
+          "Dieldrin",
+          "60-57-1",
+          "0.056",
+          "0.24",
+          "0.000054",
+          "--"
+        ],
+        [
+          "Endosulfan, alpha",
+          "959-98- 8",
+          "0.056",
+          "0.22",
+          "89",
+          "--"
+        ],
+        [
+          "Endosulfan, beta",
+          "33213- 65-9",
+          "0.056",
+          "0.22",
+          "89",
+          "--"
+        ],
+        [
+          "Endosulfan Sulfate",
+          "1031- 07-8",
+          "--",
+          "--",
+          "89",
+          "--"
+        ],
+        [
+          "Endrin",
+          "72-20-8",
+          "0.036",
+          "0.086",
+          "0.06d",
+          "--"
+        ],
+        [
+          "Endrin Aldehyde",
+          "7421- 93-4",
+          "--",
+          "--",
+          "0.3",
+          "--"
+        ],
+        [
+          "Guthion",
+          "86-50-0",
+          "0.01",
+          "--",
+          "--",
+          "--"
+        ],
+        [
+          "Heptachlor",
+          "76-44-8",
+          "0.0038",
+          "0.52",
+          "0.000079",
+          "--"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          80.3345454545455,
+          73.01617021276596,
+          547.5145454545458,
+          305.7437837837838
+        ],
+        "row_count": 10,
+        "column_count": 6
+      }
+    },
+    {
+      "table_id": "table_p73_t2",
+      "page_number": 73,
+      "headers": [
+        "Table 1 Fresh water aquatic and human health* toxic substance criteria for surface waters with ceremonial, designated aquatic life uses, or from which fish are caught for human consumption"
+      ],
+      "rows": [
+        [
+          "Substanceb"
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          "Heptachlor epoxide"
+        ],
+        [
+          "alpha-BHC"
+        ],
+        [
+          "beta-BHC"
+        ],
+        [
+          "gamma-BHC (Lindane)"
+        ],
+        [
+          "Hexachlorocyclopentadiene"
+        ],
+        [
+          "Malathion"
+        ],
+        [
+          "Mirex"
+        ],
+        [
+          "Parathion"
+        ],
+        [
+          "Toxaphene"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          80.3345454545455,
+          325.36,
+          547.5145454545458,
+          695.8637837837838
+        ],
+        "row_count": 12,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p74_t1",
+      "page_number": 74,
+      "headers": [
+        "*",
+        "The values stated as Human Health Criteria for these substances are based on the assumption that fish from the surface waters covered by the PUEBLO OF SANDIA Water Quality Standards are consumed, but water from these surface waters is not regularly ingested. A risk 10-6 is assumed for carcinogens. Where no criterion exists based on fish consumption, MCLs and background conditions are used as the basis of the water quality standard of protection."
+      ],
+      "rows": [
+        [
+          "--",
+          "no criterion exists"
+        ],
+        [
+          "hd",
+          "hardness"
+        ],
+        [
+          "ln",
+          "natural log of number"
+        ],
+        [
+          "CF",
+          "Conversion Factor (for hardness dependent metals) For Cadmium: Acute CF is 1.136672-[ln(hd)(0.04l838)] Chronic CF is 1.101672-[ln(hd)(0.04l838)] For Lead: Acute CF is 1.46203-[ln(hd)(0.145712)] Chronic CF is 1.46203-[ln(hd)(0.145712)]"
+        ],
+        [
+          "a",
+          "Value based on using a dissolved method"
+        ],
+        [
+          "b",
+          "Total recoverable portion, unless indicated"
+        ],
+        [
+          "c",
+          "Chronic and acute toxicity averaging periods and exceedances are as specified by the U.S. Environmental Protection Agency in Quality Criteria for Water, 1986."
+        ],
+        [
+          "d",
+          "value based on current national recommended water quality criteria with respect to human health for the consumption of water + organism. These values can be found on http://www.epa.gov/waterscience/criteria/wqctable/index.html."
+        ],
+        [
+          "e",
+          "EPA has not calculated human health criterion for this contaminant. However, permit authorities should address this contaminant in NPDES permit actions using SANDIA's narrative criteria for toxics."
+        ],
+        [
+          "f",
+          "Based on Safe Drinking Water Act Maximum Contaminant Levels (MCLs)."
+        ],
+        [
+          "g",
+          "Concentrations of mercury from all sources shall not result in methyl mercury concentrations in fish tissue that exceed 0.3 mg/kg. This criterion is based on a fish consumption rate of 17.5 g/day."
+        ],
+        [
+          "h",
+          "This value cannot be exceeded by itself, or as part of Total Trihalomethanes that include: Bromodichloromethane (CASN 75-27-4) Dibromochlorornethane (CASN 124-48-1) Tribromomethane [Bromoform (CASN 75-25-2)] Trichloromethane [Chloroform (CASN 67-66-3)]"
+        ],
+        [
+          "i",
+          "Based on background conditions of the Rio Grande."
+        ],
+        [
+          "j",
+          "Value based on organoleptic effects criteria (e.g., taste and odor) in the current national recommended water quality criteria based on the \"Gold Book\" which is Quality Criteria for Water, 1986. EPA 440/5-86-001 (see http://www.epa.gov/waterscience/criteria/wqctable/index.html)."
+        ],
+        [
+          "ug",
+          "micrograms"
+        ],
+        [
+          "mg/l",
+          "milligrams/liter"
+        ],
+        [
+          "ug/l",
+          "Micrograms/liter"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          78.99000000000007,
+          91.5473684210526,
+          548.8586915887848,
+          695.9890909090908
+        ],
+        "row_count": 17,
+        "column_count": 2
+      }
+    },
+    {
+      "table_id": "table_p116_t1",
+      "page_number": 116,
+      "headers": [
+        "40 CFR § 122.41 - Conditions applicable to all permits."
+      ],
+      "rows": [
+        [
+          "The following conditions apply to all NPDES permits. Additional conditions applicable to"
+        ],
+        [
+          "NPDES permits are in §122.42. All conditions applicable to NPDES permits shall be"
+        ],
+        [
+          "incorporated into the permits either expressly or by reference. If incorporated by reference, a"
+        ],
+        [
+          "specific citation to these regulations (or the corresponding approved State regulations) must be"
+        ],
+        [
+          "given in the permit."
+        ],
+        [
+          "(a) Duty to comply. The permittee must comply with all conditions of this permit. Any"
+        ],
+        [
+          "permit noncompliance constitutes a violation of the Clean Water Act and is grounds for"
+        ],
+        [
+          "enforcement action; for permit termination, revocation and reissuance, or modification; or denial"
+        ],
+        [
+          "of a permit renewal application."
+        ],
+        [
+          "(1) The permittee shall comply with effluent standards or prohibitions established under"
+        ],
+        [
+          "section 307(a) of the Clean Water Act for toxic pollutants and with standards for sewage sludge"
+        ],
+        [
+          "use or disposal established under section 405(d) of the CWA within the time provided in the"
+        ],
+        [
+          "regulations that establish these standards or prohibitions or standards for sewage sludge use or"
+        ],
+        [
+          "disposal, even if the permit has not yet been modified to incorporate the requirement."
+        ],
+        [
+          "(2) The Clean Water Act provides that any person who violates section 301, 302, 306, 307,"
+        ],
+        [
+          "308, 318 or 405 of the Act, or any permit condition or limitation implementing any such sections"
+        ],
+        [
+          "in a permit issued under section 402, or any requirement imposed in a pretreatment program"
+        ],
+        [
+          "approved under sections 402(a)(3) or 402(b)(8) of the Act, is subject to a civil penalty not to"
+        ],
+        [
+          "exceed $25,000 per day for each violation. [See 40 CFR 19.4 for the most up-to date civil"
+        ],
+        [
+          "penalty amounts.]"
+        ],
+        [
+          "The Clean Water Act provides that any person who negligently violates sections 301, 302,"
+        ],
+        [
+          "306, 307, 308, 318, or 405 of the Act, or any condition or limitation implementing any of such"
+        ],
+        [
+          "sections in a permit issued under section 402 of the Act, or any requirement imposed in a"
+        ],
+        [
+          "pretreatment program approved under section 402(a)(3) or 402(b)(8) of the Act, is subject to"
+        ],
+        [
+          "criminal penalties of $2,500 to $25,000 per day of violation, or imprisonment of not more than 1"
+        ],
+        [
+          "year, or both. In the case of a second or subsequent conviction for a negligent violation, a person"
+        ],
+        [
+          "shall be subject to criminal penalties of not more than $50,000 per day of violation, or by"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          260.15999999999997,
+          541.4400000000004,
+          716.52
+        ],
+        "row_count": 27,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p117_t1",
+      "page_number": 117,
+      "headers": [
+        "imprisonment of not more than 2 years, or both. Any person who knowingly violates such"
+      ],
+      "rows": [
+        [
+          "sections, or such conditions or limitations is subject to criminal penalties of $5,000 to $50,000"
+        ],
+        [
+          "per day of violation, or imprisonment for not more than 3 years, or both. In the case of a second"
+        ],
+        [
+          "or subsequent conviction for a knowing violation, a person shall be subject to criminal penalties"
+        ],
+        [
+          "of not more than $100,000 per day of violation, or imprisonment of not more than 6 years, or"
+        ],
+        [
+          "both. Any person who knowingly violates section 301, 302, 303, 306, 307, 308, 318 or 405 of the"
+        ],
+        [
+          "Act, or any permit condition or limitation implementing any of such sections in a permit issued"
+        ],
+        [
+          "under section 402 of the Act, and who knows at that time that he thereby places another person"
+        ],
+        [
+          "in imminent danger of death or serious bodily injury, shall, upon conviction, be subject to a fine"
+        ],
+        [
+          "of not more than $250,000 or imprisonment of not more than 15 years, or both. In the case of a"
+        ],
+        [
+          "second or subsequent conviction for a knowing endangerment violation, a person shall be subject"
+        ],
+        [
+          "to a fine of not more than $500,000 or by imprisonment of not more than 30 years, or both. An"
+        ],
+        [
+          "organization as defined in section 309(c)(3)(B)(iii) of the CWA shall, upon conviction of"
+        ],
+        [
+          "violating the imminent danger provision, be subject to a fine of not more than $1,000,000 and"
+        ],
+        [
+          "can be fined up to $2,000,000 for second or subsequent convictions. [See 40 CFR 19.4 for the"
+        ],
+        [
+          "most up-to date civil penalty amounts.]"
+        ],
+        [
+          "(3) Any person may be assessed an administrative penalty by the Administrator for"
+        ],
+        [
+          "violating section 301, 302, 306, 307, 308, 318 or 405 of this Act, or any permit condition or"
+        ],
+        [
+          "limitation implementing any of such sections in a permit issued under section 402 of this Act."
+        ],
+        [
+          "Administrative penalties for Class I violations are not to exceed $10,000 per violation, with the"
+        ],
+        [
+          "maximum amount of any Class I penalty assessed not to exceed $25,000. Penalties for Class II"
+        ],
+        [
+          "violations are not to exceed $10,000 per day for each day during which the violation continues,"
+        ],
+        [
+          "with the maximum amount of any Class II penalty not to exceed $125,000. [See 40 CFR 19.4 for"
+        ],
+        [
+          "the most up-to-date civil penalty amounts]"
+        ],
+        [
+          "(b) Duty to reapply. If the permittee wishes to continue an activity regulated by this permit"
+        ],
+        [
+          "after the expiration date of this permit, the permittee must apply for and obtain a new permit."
+        ],
+        [
+          "(c) Need to halt or reduce activity not a defense. It shall not be a defense for a permittee in"
+        ],
+        [
+          "an enforcement action that it would have been necessary to halt or reduce the permitted activity"
+        ],
+        [
+          "in order to maintain compliance with the conditions of this permit."
+        ],
+        [
+          "(d) Duty to mitigate. The permittee shall take all reasonable steps to minimize or prevent"
+        ],
+        [
+          "any discharge or sludge use or disposal in violation of this permit which has a reasonable"
+        ],
+        [
+          "likelihood of adversely affecting human health or the environment."
+        ],
+        [
+          "(e) Proper operation and maintenance. The permittee shall at all times properly operate and"
+        ],
+        [
+          "maintain all facilities and systems of treatment and control (and related appurtenances) which are"
+        ],
+        [
+          "installed or used by the permittee to achieve compliance with the conditions of this permit."
+        ],
+        [
+          "Proper operation and maintenance also includes adequate laboratory controls and appropriate"
+        ],
+        [
+          "quality assurance procedures. This provision requires the operation of back-up or auxiliary"
+        ],
+        [
+          "facilities or similar systems which are installed by a permittee only when the operation is"
+        ],
+        [
+          "necessary to achieve compliance with the conditions of the permit."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          72.0,
+          541.4399999999999,
+          694.2
+        ],
+        "row_count": 38,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p118_t1",
+      "page_number": 118,
+      "headers": [
+        "(f) Permit actions. This permit may be modified, revoked and reissued, or terminated for"
+      ],
+      "rows": [
+        [
+          "cause. The filing of a request by the permittee for a permit modification, revocation and"
+        ],
+        [
+          "reissuance, or termination, or a notification of planned changes or anticipated noncompliance"
+        ],
+        [
+          "does not stay any permit condition."
+        ],
+        [
+          "(g) Property rights. This permit does not convey any property rights of any sort, or any"
+        ],
+        [
+          "exclusive privilege."
+        ],
+        [
+          "(h) Duty to provide information. The permittee shall furnish to the Director, within a"
+        ],
+        [
+          "reasonable time, any information which the Director may request to determine whether cause"
+        ],
+        [
+          "exists for modifying, revoking and reissuing, or terminating this permit or to determine"
+        ],
+        [
+          "compliance with this permit. The permittee shall also furnish to the Director upon request, copies"
+        ],
+        [
+          "of records required to be kept by this permit."
+        ],
+        [
+          "(i) Inspection and entry. The permittee shall allow the Director, or an authorized"
+        ],
+        [
+          "representative (including an authorized contractor acting as a representative of the"
+        ],
+        [
+          "Administrator), upon presentation of credentials and other documents as may be required by law,"
+        ],
+        [
+          "to:"
+        ],
+        [
+          "(1) Enter upon the permittee's premises where a regulated facility or activity is located or"
+        ],
+        [
+          "conducted, or where records must be kept under the conditions of this permit;"
+        ],
+        [
+          "(2) Have access to and copy, at reasonable times, any records that must be kept under the"
+        ],
+        [
+          "conditions of this permit;"
+        ],
+        [
+          "(3) Inspect at reasonable times any facilities, equipment (including monitoring and control"
+        ],
+        [
+          "equipment), practices, or operations regulated or required under this permit; and"
+        ],
+        [
+          "(4) Sample or monitor at reasonable times, for the purposes of assuring permit compliance"
+        ],
+        [
+          "or as otherwise authorized by the Clean Water Act, any substances or parameters at any location."
+        ],
+        [
+          "(j) Monitoring and records. (1) Samples and measurements taken for the purpose of"
+        ],
+        [
+          "monitoring shall be representative of the monitored activity."
+        ],
+        [
+          "(2) Except for records of monitoring information required by this permit related to the"
+        ],
+        [
+          "permittee's sewage sludge use and disposal activities, which shall be retained for a period of at"
+        ],
+        [
+          "least five years (or longer as required by 40 CFR part 503), the permittee shall retain records of"
+        ],
+        [
+          "all monitoring information, including all calibration and maintenance records and all original"
+        ],
+        [
+          "strip chart recordings for continuous monitoring instrumentation, copies of all reports required"
+        ],
+        [
+          "by this permit, and records of all data used to complete the application for this permit, for a"
+        ],
+        [
+          "period of at least 3 years from the date of the sample, measurement, report or application. This"
+        ],
+        [
+          "period may be extended by request of the Director at any time."
+        ],
+        [
+          "(3) Records of monitoring information shall include:"
+        ],
+        [
+          "(i) The date, exact place, and time of sampling or measurements;"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          72.0,
+          541.4400000000002,
+          722.6796666666665
+        ],
+        "row_count": 34,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p119_t1",
+      "page_number": 119,
+      "headers": [
+        "(ii) The individual(s) who performed the sampling or measurements;"
+      ],
+      "rows": [
+        [
+          "(iii) The date(s) analyses were performed;"
+        ],
+        [
+          "(iv) The individual(s) who performed the analyses;"
+        ],
+        [
+          "(v) The analytical techniques or methods used; and"
+        ],
+        [
+          "(vi) The results of such analyses."
+        ],
+        [
+          "(4) Monitoring must be conducted according to test procedures approved under 40 CFR Part"
+        ],
+        [
+          "136 unless another method is required under 40 CFR subchapters N or O."
+        ],
+        [
+          "(5) The Clean Water Act provides that any person who falsifies, tampers with, or knowingly"
+        ],
+        [
+          "renders inaccurate any monitoring device or method required to be maintained under this permit"
+        ],
+        [
+          "shall, upon conviction, be punished by a fine of not more than $10,000, or by imprisonment for"
+        ],
+        [
+          "not more than 2 years, or both. If a conviction of a person is for a violation committed after a"
+        ],
+        [
+          "first conviction of such person under this paragraph, punishment is a fine of not more than"
+        ],
+        [
+          "$20,000 per day of violation, or by imprisonment of not more than 4 years, or both. [See 40 CFR"
+        ],
+        [
+          "19.4 for the most up-to date civil penalty amounts.]"
+        ],
+        [
+          "(k) Signatory requirement. (1) All applications, reports, or information submitted to the"
+        ],
+        [
+          "Director shall be signed and certified. (See §122.22)"
+        ],
+        [
+          "(2) The CWA provides that any person who knowingly makes any false statement,"
+        ],
+        [
+          "representation, or certification in any record or other document submitted or required to be"
+        ],
+        [
+          "maintained under this permit, including monitoring reports or reports of compliance or non-"
+        ],
+        [
+          "compliance shall, upon conviction, be punished by a fine of not more than $10,000 per violation,"
+        ],
+        [
+          "or by imprisonment for not more than 6 months per violation, or by both. [See 40 CFR 19.4 for"
+        ],
+        [
+          "the most up-to date civil penalty amounts.]"
+        ],
+        [
+          "(l) Reporting requirements—(1) Planned changes. The permittee shall give notice to the"
+        ],
+        [
+          "Director as soon as possible of any planned physical alterations or additions to the permitted"
+        ],
+        [
+          "facility. Notice is required only when:"
+        ],
+        [
+          "(i) The alteration or addition to a permitted facility may meet one of the criteria for"
+        ],
+        [
+          "determining whether a facility is a new source in §122.29(b); or"
+        ],
+        [
+          "(ii) The alteration or addition could significantly change the nature or increase the quantity"
+        ],
+        [
+          "of pollutants discharged. This notification applies to pollutants which are subject neither to"
+        ],
+        [
+          "effluent limitations in the permit, nor to notification requirements under §122.42(a)(1)."
+        ],
+        [
+          "(iii) The alteration or addition results in a significant change in the permittee's sludge use or"
+        ],
+        [
+          "disposal practices, and such alteration, addition, or change may justify the application of permit"
+        ],
+        [
+          "conditions that are different from or absent in the existing permit, including notification of"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          72.0,
+          541.4400000000003,
+          695.4
+        ],
+        "row_count": 32,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p120_t1",
+      "page_number": 120,
+      "headers": [
+        "additional use or disposal sites not reported during the permit application process or not reported"
+      ],
+      "rows": [
+        [
+          "pursuant to an approved land application plan;"
+        ],
+        [
+          "(2) Anticipated noncompliance. The permittee shall give advance notice to the Director of"
+        ],
+        [
+          "any planned changes in the permitted facility or activity which may result in noncompliance with"
+        ],
+        [
+          "permit requirements."
+        ],
+        [
+          "(3) Transfers. This permit is not transferable to any person except after notice to the"
+        ],
+        [
+          "Director. The Director may require modification or revocation and reissuance of the permit to"
+        ],
+        [
+          "change the name of the permittee and incorporate such other requirements as may be necessary"
+        ],
+        [
+          "under the Clean Water Act. (See §122.61; in some cases, modification or revocation and"
+        ],
+        [
+          "reissuance is mandatory.)"
+        ],
+        [
+          "(4) Monitoring reports. Monitoring results shall be reported at the intervals specified"
+        ],
+        [
+          "elsewhere in this permit."
+        ],
+        [
+          "(i) Monitoring results must be reported on a Discharge Monitoring Report (DMR) or forms"
+        ],
+        [
+          "provided or specified by the Director for reporting results of monitoring of sludge use or disposal"
+        ],
+        [
+          "practices. As of December 21, 2016, all reports and forms submitted in compliance with this"
+        ],
+        [
+          "section must be submitted electronically by the permittee to the Director or initial recipient as"
+        ],
+        [
+          "defined in 40 CFR 127.2(b) in compliance with this section and 40 CFR Part 3 (including, in all"
+        ],
+        [
+          "cases, subpart D to Part 3), §122.22, and 40 CFR Part 127. Part 127 is not intended to undo"
+        ],
+        [
+          "existing requirements for electronic reporting. Prior to this date, and independent of Part 127,"
+        ],
+        [
+          "permittees may be required to report electronically if specified by a particular permit or if"
+        ],
+        [
+          "required to do so by state law."
+        ],
+        [
+          "(ii) If the permittee monitors any pollutant more frequently than required by the permit"
+        ],
+        [
+          "using test procedures approved under 40 CFR Part 136, or another method required for an"
+        ],
+        [
+          "industry-specific waste stream under 40 CFR subchapters N or O, the results of such monitoring"
+        ],
+        [
+          "shall be included in the calculation and reporting of the data submitted in the DMR or sludge"
+        ],
+        [
+          "reporting form specified by the (iii) Calculations for all limitations which require averaging of"
+        ],
+        [
+          "measurements shall utilize an arithmetic mean unless otherwise specified by the Director in the"
+        ],
+        [
+          "permit."
+        ],
+        [
+          "(5) Compliance schedules. Reports of compliance or noncompliance with, or any progress"
+        ],
+        [
+          "reports on, interim and final requirements contained in any compliance schedule of this permit"
+        ],
+        [
+          "shall be submitted no later than 14 days following each schedule date."
+        ],
+        [
+          "(6) Twenty-four hour reporting."
+        ],
+        [
+          "(i) The permittee shall report any noncompliance which may endanger health or the"
+        ],
+        [
+          "environment. Any information shall be provided orally within 24 hours from the time the"
+        ],
+        [
+          "permittee becomes aware of the circumstances. A report shall also be provided within 5 days of"
+        ],
+        [
+          "the time the permittee becomes aware of the circumstances. The report shall contain a"
+        ],
+        [
+          "description of the noncompliance and its cause; the period of noncompliance, including exact"
+        ],
+        [
+          "dates and times), and if the noncompliance has not been corrected, the anticipated time it is"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          72.0,
+          541.44,
+          708.3599999999999
+        ],
+        "row_count": 37,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p121_t1",
+      "page_number": 121,
+      "headers": [
+        "expected to continue; and steps taken or planned to reduce, eliminate, and prevent reoccurrence"
+      ],
+      "rows": [
+        [
+          "of the noncompliance. For noncompliance events related to combined sewer overflows, sanitary"
+        ],
+        [
+          "sewer overflows, or bypass events, these reports must include the data described above (with the"
+        ],
+        [
+          "exception of time of discovery) as well as the type of event (combined sewer overflows, sanitary"
+        ],
+        [
+          "sewer overflows, or bypass events), type of sewer overflow structure (e.g., manhole, combine"
+        ],
+        [
+          "sewer overflow outfall), discharge volumes untreated by the treatment works treating domestic"
+        ],
+        [
+          "sewage, types of human health and environmental impacts of the sewer overflow event, and"
+        ],
+        [
+          "whether the noncompliance was related to wet weather. As of December 21, 2020, all reports"
+        ],
+        [
+          "related to combined sewer overflows, sanitary sewer overflows, or bypass events submitted in"
+        ],
+        [
+          "compliance with this section must be submitted electronically by the permittee to the Director or"
+        ],
+        [
+          "initial recipient as defined in 40 CFR 127.2(b) in compliance with this section and 40 CFR Part 3"
+        ],
+        [
+          "(including, in all cases, subpart D to Part 3), §122.22, and 40 CFR Part 127. Part 127 is not"
+        ],
+        [
+          "intended to undo existing requirements for electronic reporting. Prior to this date, and"
+        ],
+        [
+          "independent of Part 127, permittees may be required to electronically submit reports related to"
+        ],
+        [
+          "combined sewer overflows, sanitary sewer overflows, or bypass events under this section by a"
+        ],
+        [
+          "particular permit or if required to do so by state law. The Director may also require permittees to"
+        ],
+        [
+          "electronically submit reports not related to combined sewer overflows, sanitary sewer overflows,"
+        ],
+        [
+          "or bypass events under this section."
+        ],
+        [
+          "(ii) The following shall be included as information which must be reported within 24 hours"
+        ],
+        [
+          "under this paragraph."
+        ],
+        [
+          "(A) Any unanticipated bypass which exceeds any effluent limitation in the permit. (See"
+        ],
+        [
+          "§122.41(g)."
+        ],
+        [
+          "(B) Any upset which exceeds any effluent limitation in the permit."
+        ],
+        [
+          "(C) Violation of a maximum daily discharge limitation for any of the pollutants listed by the"
+        ],
+        [
+          "Director in the permit to be reported within 24 hours. (See §122.44(g).)"
+        ],
+        [
+          "(iii) The Director may waive the written report on a case-by-case basis for reports under"
+        ],
+        [
+          "paragraph (l)(6)(ii) of this section if the oral report has been received within 24 hours."
+        ],
+        [
+          "(7) Other noncompliance. The permittee shall report all instances of noncompliance not"
+        ],
+        [
+          "reported under paragraphs (l)(4), (5), and (6) of this section, at the time monitoring reports are"
+        ],
+        [
+          "submitted. The reports shall contain the information listed in paragraph (l)(6). For"
+        ],
+        [
+          "noncompliance events related to combined sewer overflows, sanitary sewer overflows, or bypass"
+        ],
+        [
+          "events, these reports shall contain the information described in paragraph (l)(6) and the"
+        ],
+        [
+          "applicable required data in appendix A to 40 CFR Part 127. As of December 21, 2020 all reports"
+        ],
+        [
+          "related to combined sewer overflows, sanitary sewer overflows, or bypass events submitted in"
+        ],
+        [
+          "compliance with this section must be submitted electronically by the permittee to the Director or"
+        ],
+        [
+          "initial recipient as defined in 40 CFR 127.2(b) in compliance with this section and 40 CFR Part 3"
+        ],
+        [
+          "(including, in all cases, subpart D to Part 3), §122.22, and 40 CFR Part 127. Part 127 is not"
+        ],
+        [
+          "intended to undo existing requirements for electronic reporting. Prior to this date, and"
+        ],
+        [
+          "independent of Part 127, permittees may be required to electronically submit reports related to"
+        ],
+        [
+          "combined sewer overflows, sanitary sewer overflows, or bypass events under this section by a"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          72.0,
+          541.4399999999999,
+          708.0
+        ],
+        "row_count": 39,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p122_t1",
+      "page_number": 122,
+      "headers": [
+        "particular permit or if required to do so by state law. The Director may also require permittees to"
+      ],
+      "rows": [
+        [
+          "electronically submit reports not related to combined sewer overflows, sanitary sewer overflows,"
+        ],
+        [
+          "or bypass events under this section."
+        ],
+        [
+          "(8) Other information. Where the permittee becomes aware that it failed to submit any"
+        ],
+        [
+          "relevant facts in a permit application or submitted incorrect information in a permit application"
+        ],
+        [
+          "or in any report to the Director, it shall promptly submit such facts or information."
+        ],
+        [
+          "(9) Identification of the initial recipient for NPDES electronic reporting data. The owner,"
+        ],
+        [
+          "operator, or the duly authorized representative of an NPDES-regulated entity is required to"
+        ],
+        [
+          "electronically submit the required NPDES information (as specified in appendix A to 40 CFR"
+        ],
+        [
+          "Part 127) to the appropriate initial recipient, as determined by EPA, and as defined in §127.2(b)"
+        ],
+        [
+          "of this chapter. EPA will identify and publish the list of initial recipients on its Web site and in"
+        ],
+        [
+          "the FEDERAL REGISTER, by state and by NPDES data group [see §127.2(c) of this chapter]. EPA"
+        ],
+        [
+          "will update and maintain this listing."
+        ],
+        [
+          "(m) Bypass—(1) Definitions. (i) Bypass means the intentional diversion of waste streams"
+        ],
+        [
+          "from any portion of a treatment facility."
+        ],
+        [
+          "(ii) Severe property damage means substantial physical damage to property, damage to the"
+        ],
+        [
+          "treatment facilities which causes them to become inoperable, or substantial and permanent loss"
+        ],
+        [
+          "of natural resources which can reasonably be expected to occur in the absence of a bypass."
+        ],
+        [
+          "Severe property damage does not mean economic loss caused by delays in production."
+        ],
+        [
+          "(2) Bypass not exceeding limitations. The permittee may allow any bypass to occur which"
+        ],
+        [
+          "does not cause effluent limitations to be exceeded, but only if it also is for essential maintenance"
+        ],
+        [
+          "to assure efficient operation. These bypasses are not subject to the provisions of paragraphs"
+        ],
+        [
+          "(m)(3) and (m)(4) of this section."
+        ],
+        [
+          "(3) Notice—(i) Anticipated bypass. If the permittee knows in advance of the need for a"
+        ],
+        [
+          "bypass, it shall submit prior notice, if possible at least ten days before the date of the bypass. As"
+        ],
+        [
+          "of December 21, 2020 all notices submitted in compliance with this section must be submitted"
+        ],
+        [
+          "electronically by the permittee to the Director or initial recipient as defined in 40 CFR 127.2(b)"
+        ],
+        [
+          "in compliance with this section and 40 CFR Part 3 (including, in all cases, subpart D to Part 3),"
+        ],
+        [
+          "§122.22, and 40 CFR Part 127. Part 127 is not intended to undo existing requirements for"
+        ],
+        [
+          "electronic reporting. Prior to this date, and independent of Part 127, permittees may be required"
+        ],
+        [
+          "to report electronically if specified by a particular permit or if required to do so by state law."
+        ],
+        [
+          "(ii) Unanticipated bypass. The permittee shall submit notice of an unanticipated bypass as"
+        ],
+        [
+          "required in paragraph (l)(6) of this section (24-hour notice). As of December 21, 2020 all notices"
+        ],
+        [
+          "submitted in compliance with this section must be submitted electronically by the permittee to"
+        ],
+        [
+          "the Director or initial recipient as defined in 40 CFR 127.2(b) in compliance with this section"
+        ],
+        [
+          "and 40 CFR Part 3 (including, in all cases, subpart D to Part 3), §122.22, and 40 CFR Part 127."
+        ],
+        [
+          "Part 127 is not intended to undo existing requirements for electronic reporting. Prior to this date,"
+        ],
+        [
+          "and independent of Part 127, permittees may be required to report electronically if specified by a"
+        ],
+        [
+          "particular permit or if required to do so by state law."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          72.0,
+          541.4399999999999,
+          722.3996666666667
+        ],
+        "row_count": 38,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p123_t1",
+      "page_number": 123,
+      "headers": [
+        "(4) Prohibition of bypass. (i) Bypass is prohibited, and the Director may take enforcement"
+      ],
+      "rows": [
+        [
+          "action against a permittee for bypass, unless:"
+        ],
+        [
+          "(A) Bypass was unavoidable to prevent loss of life, personal injury, or severe property"
+        ],
+        [
+          "damage;"
+        ],
+        [
+          "(B) There were no feasible alternatives to the bypass, such as the use of auxiliary treatment"
+        ],
+        [
+          "facilities, retention of untreated wastes, or maintenance during normal periods of equipment"
+        ],
+        [
+          "downtime. This condition is not satisfied if adequate back-up equipment should have been"
+        ],
+        [
+          "installed in the exercise of reasonable engineering judgment to prevent a bypass which occurred"
+        ],
+        [
+          "during normal periods of equipment downtime or preventive maintenance; and"
+        ],
+        [
+          "(C) The permittee submitted notices as required under paragraph (m)(3) of this section."
+        ],
+        [
+          "(ii) The Director may approve an anticipated bypass, after considering its adverse effects, if"
+        ],
+        [
+          "the Director determines that it will meet the three conditions listed above in paragraph (m)(4)(i)"
+        ],
+        [
+          "of this section."
+        ],
+        [
+          "(n) Upset—(1) Definition. Upset means an exceptional incident in which there is"
+        ],
+        [
+          "unintentional and temporary noncompliance with technology based permit effluent limitations"
+        ],
+        [
+          "because of factors beyond the reasonable control of the permittee. An upset does not include"
+        ],
+        [
+          "noncompliance to the extent caused by operational error, improperly designed treatment"
+        ],
+        [
+          "facilities, inadequate treatment facilities, lack of preventive maintenance, or careless or improper"
+        ],
+        [
+          "operation."
+        ],
+        [
+          "(2) Effect of an upset. An upset constitutes an affirmative defense to an action brought for"
+        ],
+        [
+          "noncompliance with such technology based permit effluent limitations if the requirements of"
+        ],
+        [
+          "paragraph (n)(3) of this section are met. No determination made during administrative review of"
+        ],
+        [
+          "claims that noncompliance was caused by upset, and before an action for noncompliance, is final"
+        ],
+        [
+          "administrative action subject to judicial review."
+        ],
+        [
+          "(3) Conditions necessary for a demonstration of upset. A permittee who wishes to establish"
+        ],
+        [
+          "the affirmative defense of upset shall demonstrate, through properly signed, contemporaneous"
+        ],
+        [
+          "operating logs, or other relevant evidence that:"
+        ],
+        [
+          "(i) An upset occurred and the permittee can identify the cause(s) of the upset;"
+        ],
+        [
+          "(ii) The permitted facility was at the time being properly operated; and"
+        ],
+        [
+          "(iii) The permittee submitted notice of the upset as required in paragraph (l)(6)(ii)(B) of this"
+        ],
+        [
+          "section (24 hour notice)."
+        ],
+        [
+          "(iv) The permittee complied with any remedial measures required under paragraph (d) of"
+        ],
+        [
+          "this section."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.55999999999996,
+          72.0,
+          541.4400000000003,
+          695.4
+        ],
+        "row_count": 32,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p124_t1",
+      "page_number": 124,
+      "headers": [
+        "(4) Burden of proof. In any enforcement proceeding the permittee seeking to establish the"
+      ],
+      "rows": [
+        [
+          "occurrence of an upset has the burden of proof."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          70.56,
+          72.0,
+          541.44,
+          99.60000000000002
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p130_t1",
+      "page_number": 130,
+      "headers": [
+        "UNITED STATES ENVIRONMENTAL PROTECTION AGENCY WASHINGTON, DC 20460 Form Approved NOTICE OF INTENT (NOI) OF COVERAGE UNDER THE PESTICIDE OMB No. GENERAL PERMIT (PGP) FOR DISCHARGES FROM THE APPLICATION 2040-0004 OF PESTICIDES"
+      ],
+      "rows": [
+        [
+          "Submission of this completed Notice of Intent (NOI) constitutes notice that the Operator identified in Section B intends to be authorized to discharge pollutants to waters of the United States within the pest management area identified in Section C under EPA’s Pesticide General Permit. Submission of this NOI constitutes notice that the party identified in Section B of this form has read, understands, and meets the eligibility conditions of Part 1 of the permit; agrees to comply with all applicable terms and conditions of the permit; and understands that continued authorization under the permit is contingent on maintaining eligibility for coverage. To be granted coverage, all information required on this form must be completed. Please read and make sure you comply with all permit requirements, including the requirement for large entities to prepare a Pesticide Discharge Management Plan (PDMP) prior to NOI submittal. Refer to the instructions at the end of this form to complete your NOI."
+        ],
+        [
+          "Approval to Use Paper NOI Form (Electronic Submission Waiver) Has the EPA Regional Office granted you a waiver from electronic reporting*? YES NO If yes, check which waiver you have been granted, the name of the EPA Regional Office staff person who granted the waiver, and the date of approval: Waiver granted: The Decision-maker is physically located in a geographical area (i.e., ZIP code or census tract) that is identified as under-served for broadband Internet access in the most recent report from the Federal Communications Commission. The Decision-maker has limitations regarding available computer access or computer capability. Name of EPA staff person who granted the waiver: Date approval obtained: / / *Note: You are required to obtain approval from the applicable EPA Regional Office prior to using this paper NOI form. If you have not obtained a waiver, you must file this form electronically using EPA’s NPDES eReporting Tool (NeT) at https://www.epa.gov/npdes/pesticide-permitting."
+        ],
+        [
+          "A. Notice of Intent Status 1. Mark whether this is the first time you are requesting coverage under the 2026 PGP, or if this is a change of information for a discharge already covered under the 2026 PGP. If this is a change of information, supply the NPDES permit tracking number for the discharge. a. Original NOI Submission b. NOI Change of Information: (NPDES Permit Tracking Number) Please note: When selecting A.1.b please fill out Section B (Operator Name and Mailing Address) and the fields of the NOI that need to be modified."
+        ],
+        [
+          "B. Operator Information 1. Operator Name: 2. Operator Type (check one) and NAICS Code: a. Federal government b. State government c. Local government d. Mosquito control district (or similar) e. Irrigation control district (or similar) f. Weed control district (or similar) g. Other: If other, provide brief description of type of Operator: NAICS Code (if available): 3. Are you a large entity as defined in Appendix A of the permit? (check one): Yes No Please note: If you answer “Yes” to question 3 you are required to develop a Pesticide Discharge Management Plan (PDMP) and submit an Annual Report reflecting all pesticide uses for which you are requesting permit coverage under this NOI. 4. In which state are your pest management areas located? Please specify only one state per NOI: 5. Mailing Address: a. Street: b. City: c. State: d. ZIP Code: – e. Telephone: – – Ext f. Fax: – – g. Contact Name: h. E-mail:"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          54.00864864864865,
+          47.07999999999996,
+          557.9913513513513,
+          737.2599479166669
+        ],
+        "row_count": 4,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p133_t1",
+      "page_number": 133,
+      "headers": [
+        "2. If you checked Criterion F or Criterion G above, provide the following information for all discharges to waters of the United States and/or involve discharge-related activities that may expose FWS Listed Resources of Concern and/or NMFS Listed Resources of Concern to pollutants, including all IPaC resource lists identified within the Project Action Area for the pest management area for which permit coverage is being requested. Provide information to demonstrate the basis for your finding for each individual listed species or designated critical habitat. For discharges pursuant to Criterion G, Declared Pest Emergency Situations, information for items a through g should also include any discharges that have already occurred prior to NOI submission as well as the activities you performed in the 15 or 30 day period before submission of this NOI was required. In some cases, implementation of Pest Management Measures as specified in the permit involves a degree of “adaptive management” such that exact timing and quantities of applications cannot be determined in advance for the duration of the permit. In such cases, the permittee must provide the required information to the extent feasible and consistent with the implementation of the selected Pest Management Measures. See Appendix I of the PGP for the worksheet to help organize the supporting documentation needed for Criterion F and Criterion G a. Provide a map with geospatial data of the Project Action Area, including the pest management area, and a list generated within 90 days of NOI submittal that shows all FWS Listed Resources of Concern and NMFS Listed Resources of Concern in the Project Action Area using the EPA’s geospatial mapping tool at https://www.epa.gov/npdes/pesticide-permitting-ESA-procedures. b. Target Pest(s): c. Pesticide product(s) to be discharged and method of application: _________________________________________________________________ d. Planned quantity and rate of discharge(s) for each method of application: __________________________________________________________ e. Number of planned discharges: ____________ f. Approximate date(s) of planned discharge(s): _________________________________________________________________________________ g. Your rationale supporting your determination for each individual listed species and designated critical habitat that you meet the criterion for which you are submitting this NOI. For example, your determination may rely on the specific BMPs applied, visual monitoring, equipment and/or site inspections, and other appropriate measures that will be undertaken to avoid or eliminate the likelihood of any short- or long-term adverse effects to all FWS Listed Resources of Concern and NMFS Listed Resources of Concern. For certifications pursuant to Criterion G, indicate whether the discharge is likely to result in any short- or long-term adverse effect to FWS Listed Resources of Concern and NMFS Listed Resources of Concern in response to a pest emergency and, if so, any feasible measures to avoid or eliminate such short- or long-term adverse effects; for example, it is not sufficient to state that “integrated pest management procedures will be applied” without describing the specific measures to be taken. Include a statement verifying your notification and coordination with FWS and NMFS. The notification must be in the form of an email that identifies the appropriate FWS, NMFS and EPA contact(s) and includes a description of the action, a map with geospatial data of the Project Action Area, and a list of FWS Listed Resources of Concern and NMFS Listed Resources of Concern identified in the Project Action Area or a list from the EPA’s geospatial mapping tool showing no FWS Listed Resources of Concern and NMFS Listed Resources of Concern occur in the Project Action Area. (attach additional pages as necessary): _____________________________________________________________________________________________________________________ E. ATTACHMENTS: Select documents you are attaching to this NOI form. Question C.3, Land of Exclusive Federal Jurisdiction Question C.7,b, Tier 3 Waters Question C.8,b, Water Quality, Impaired Waters Question D, Endangered Species Protection. Criterion A. Criterion C. Criterion D. Criterion E. Criterion F. Criterion G. Question D, ESA Criterion Selection Worksheet. See Appendix I Pesticide Discharge Management Plan Others: _________________________________________________________________________________________________________"
+      ],
+      "rows": [
+        [
+          "F. Certification I certify under penalty of law that this document and all attachments were prepared under my direction or supervision in accordance with a system designed to assure that qualified personnel properly gather and evaluate the information submitted. On the basis of my inquiry of the person or persons who manage the system, or those persons directly responsible for gathering the information, the information submitted is, to the best of my knowledge and belief, true, accurate, and complete. I have no personal knowledge that the information submitted is other that true, accurate, and complete. I am aware that there are significant penalties for submitting false information, including the possibility of fine and imprisonment for knowing violations. Printed Name: Title: E-Mail: Signature/Responsible Official: Date: / / NOI Preparer (Complete if NOI was prepared by someone other than the certifier) Preparer Name: Organization: Phone: – – Ext Date: / / E-Mail:"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          53.97913043478261,
+          33.11987500000001,
+          558.0208695652174,
+          742.8000000000001
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p134_t1",
+      "page_number": 134,
+      "headers": [
+        "PGP Part/ Pesticide Use",
+        "Which Decision-Makers Must Submit NOIs?",
+        "For Which Pesticide Application Activities?"
+      ],
+      "rows": [
+        [
+          "All four use patterns identified in Part 1.1.1",
+          "Any Decision-maker with an eligible discharge to a Tier 3 water (Outstanding National Resource Water) consistent with Part 1.1.2.2.",
+          "Activities resulting in a discharge to a Tier 3 water."
+        ],
+        [
+          "All four use patterns identified in Part 1.1.1",
+          "Any Decision-maker with an eligible discharge to waters of the United States, including application of a pesticide as part of pesticide research and development, that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants",
+          "Activities resulting in a discharge to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutant"
+        ],
+        [
+          "1.1.1(a) - Mosquito and Other Flying Insect Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations.",
+          "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
+        ],
+        [
+          "",
+          "Mosquito control districts, or similar pest control districts.",
+          "All activities resulting in a discharge for which the Decision-maker is responsible for pest control."
+        ],
+        [
+          "",
+          "Local governments or other entities who exceed the annual treatment area threshold identified here.",
+          "Adulticide treatment if more than 6,400 acres during a calendar year."
+        ],
+        [
+          "1.1.1(b) - Weed and Algae Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations.",
+          "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
+        ],
+        [
+          "",
+          "Irrigation and weed control districts, or similar pest control districts.",
+          "All activities resulting in a discharge for which the Decision-maker is responsible for pest control."
+        ],
+        [
+          "",
+          "Local governments or other entities who exceed the annual treatment area threshold identified here.",
+          "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)."
+        ],
+        [
+          "1.1.1(c) - Animal Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations.",
+          "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
+        ],
+        [
+          "",
+          "Local governments or other entities who exceed the annual treatment area threshold identified here.",
+          "Treatment during a calendar year if more than either: 20 linear miles OR 80 acres of water (i.e., surface area)."
+        ],
+        [
+          "1.1.1.(d) - Forest Canopy Pest Control",
+          "Any Agency for which pest management for land resource stewardship is an integral part of the organization’s operations.",
+          "All activities resulting in a discharge for which the Federal or State agency is responsible for pest control."
+        ],
+        [
+          "",
+          "Local governments or other entities who exceed the annual treatment area threshold identified here.",
+          "Treatment if more than 6,400 acres during a calendar year."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          39.600500000000004,
+          160.67999999999995,
+          291.12,
+          741.36
+        ],
+        "row_count": 12,
+        "column_count": 3
+      }
+    },
+    {
+      "table_id": "table_p134_t2",
+      "page_number": 134,
+      "headers": [
+        "Operator Type",
+        "NOI Submission Deadline",
+        "Discharge Authorization Date2"
+      ],
+      "rows": [
+        [
+          "Any Decision-maker with any discharge to waters of the United States and/or discharge- related activities that may expose FWS Listed Resources of Concerns or NMFS Listed Resources of Concern to pollutants, except for those discharges in response to a Declared Pest Emergency Situation.",
+          "At least 30 days before any discharge to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants.5",
+          "No earlier than 30 days after EPA posts on the Internet a receipt of a complete and accurate NOI.3, 5"
+        ],
+        [
+          "Any Decision-maker with a discharge in response to a Declared Pest Emergency Situation for which that activity triggers the NOI requirement identified in Part 1.2.2, except for any discharges to waters of the United States and/or discharge-related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants.",
+          "No later than 30 days after beginning discharge in response to a Declared Pest Emergency Situation.",
+          "Immediately upon beginning to discharge for activities conducted in response to a Declared Pest Emergency Situation. Note: Decision- makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ],
+        [
+          "Any Decision-maker with any discharge to waters of the United States and/or discharge- related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants, in response to a Declared Pest Emergency Situation.",
+          "No later than 15 days after beginning to discharge in response to a Declared Pest Emergency Situation.",
+          "Immediately upon beginning to discharge for activities conducted in response to a Declared Pest Emergency Situation for a period of at least 60 days. 4 Note: Decision- makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          320.64000000000004,
+          360.3595,
+          572.4005,
+          715.92
+        ],
+        "row_count": 3,
+        "column_count": 3
+      }
+    },
+    {
+      "table_id": "table_p135_t1",
+      "page_number": 135,
+      "headers": [
+        "Operator Type",
+        "NOI Submission Deadline",
+        "Discharge Authorization Date2"
+      ],
+      "rows": [
+        [
+          "Any Decision-maker who exceeds any annual treatment area threshold.",
+          "At least 10 days before exceeding an annual treatment area threshold.",
+          "No earlier than 10 days after EPA posts on the Internet receipt of a complete and accurate NOI."
+        ],
+        [
+          "Any Decision-maker otherwise required to submit an NOI as identified in Table 1-1.",
+          "At least 10 days before any discharge for which an NOI is required.",
+          "No earlier than 10 days after EPA posts on the Internet receipt of a complete and accurate NOI."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          39.84,
+          52.67999999999995,
+          291.6005,
+          172.31999999999994
+        ],
+        "row_count": 2,
+        "column_count": 3
+      }
+    },
+    {
+      "table_id": "table_p135_t2",
+      "page_number": 135,
+      "headers": [
+        "Operator Type",
+        "NOI Submission Deadline",
+        "Discharge Authorization Date"
+      ],
+      "rows": [
+        [
+          "Any Decision-maker requiring permit coverage for a pest management area not identified on a previously submitted NOI for this permit, except for discharges to any; (1) Tier 3 water, or (2) waters of the United States that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants. Except for such waters, changes other than identification of a new pest management area or a new pesticide use pattern do not require a revised NOI submittal.",
+          "At least 10 days before beginning to discharge in that newly identified area unless discharges are in response to a Declared Pest Emergency Situation in which case not later than 30 days after beginning discharge.",
+          "No earlier than 10 days after EPA posts on the Internet the receipt of a complete and accurate NOI unless discharges are in response to a Declared Pest Emergency Situation in which case coverage is available immediately upon beginning to discharge from activities conducted in response to Declared Pest Emergency Situation. Note: For Declared Pest Emergency Situation, Decision-makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ],
+        [
+          "Any Decision-maker discharging to a Tier 3 water not identified by name on a previously submitted NOI for this permit, except for discharges to Tier 3 waters that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants.",
+          "At least 10 days before beginning to discharge in that newly identified area unless discharges are in response to a Declared Pest Emergency Situation in which case not later than 30 days after beginning discharge.",
+          "No earlier than 10 days after EPA posts on the Internet the receipt of a complete and accurate NOI unless discharges are in response to a Declared Pest Emergency Situation in which case coverage is available immediately upon beginning to discharge from activities conducted in response to Declared Pest Emergency Situation. Note: For Declared Pest Emergency Situation, Decision-makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ],
+        [
+          "Any Decision-maker with any discharge to waters of the United States and/or discharge- related activities that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants, not identified on a previously submitted NOI for this permit. This includes changes in any treatment area, pesticide product, method or rate of application, or approximate dates of applications.",
+          "At least 30 days before beginning to discharge in that newly identified treatment area that may expose FWS Listed Resources of Concern or NMFS Listed Resources of Concern to pollutants unless discharges are in response to a Declared Pest Emergency Situation in which case not later than 15 days after beginning discharge.",
+          "No earlier than 30 days after EPA posts on the Internet receipt of a complete and accurate NOI unless discharges are in response to a Declared Pest Emergency Situation in which case coverage is available immediately upon beginning to discharge from activities conducted in response to Declared Pest Emergency Situation. Note: For Declared Pest Emergency Situation, Decision-makers must notify and begin to coordinate with FWS and NMFS prior to discharge."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          320.64000000000004,
+          72.24000000000001,
+          572.16,
+          628.5595
+        ],
+        "row_count": 3,
+        "column_count": 3
+      }
+    },
+    {
+      "table_id": "table_p139_t1",
+      "page_number": 139,
+      "headers": [
+        "UNITED STATES ENVIRONMENTAL PROTECTION AGENCY Form Approved WASHINGTON, DC 20460 OMB No. NOTICE OF TERMINATION (NOT) OF COVERAGE UNDER THE PESTICIDE GENERAL PERMIT 2040-0004 (PGP) FOR DISCHARGES FROM THE APPLICATION OF PESTICIDES"
+      ],
+      "rows": [
+        [
+          "Approval to Use Paper NOT Form (Electronic Submission Waiver) Has the EPA Regional Office granted you a waiver from electronic reporting*? YES NO If yes, check which waiver you have been granted, the name of the EPA Regional Office staff person who granted the waiver, and the date of approval: Waiver granted: The Decision-maker is physically located in a geographical area (i.e., ZIP code or census tract) that is identified as under- served for broadband Internet access in the most recent report from the Federal Communications Commission. The Decision-maker has limitations regarding available computer access or computer capability. Name of EPA staff person who granted the waiver: Date approval obtained: • / / *Note: You are required to obtain approval from the applicable EPA Regional Office prior to using this paper NOT form. If you have not obtained a waiver, you must file this form electronically using EPA’s NPDES eReporting Tool (NeT) at https://www.epa.gov/npdes/pesticide-permitting."
+        ],
+        [
+          "A. Permit Information 1. NPDES Permit Tracking Number: 2. Reason for termination (check one only): a. You have ceased all discharges from the application of pesticides for which you obtained permit coverage and you do not expect to discharge during the remainder of the permit term. b. You have obtained permit coverage under an NPDES individual permit or alternative NPDES general permit for all pesticide discharges requiring NPDES permit coverage. c. A new Operator has taken over decision-making responsibility for the pest control activities covered under an existing NOI. Provide the transfer date and Date of transfer: / / the new Operator information. New Operator Name: Street: City: State: ZIP Code: – Telephone: – – Ext. E-mail:"
+        ],
+        [
+          "B. Operator Information 1. Operator Name: 2. Mailing Address: Street: – City: State: ZIP Code: Telephone: – – Ext. 3. Contact Name: E-mail:"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          40.92587793427226,
+          47.19970833333331,
+          571.07461032864,
+          691.3199999999999
+        ],
+        "row_count": 3,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p143_t1",
+      "page_number": 143,
+      "headers": [
+        "UNITED STATES ENVIRONMENTAL PROTECTION AGENCY WASHINGTON, DC 20460 Form Approved PESTICIDE DISCHARGE EVALUATION WORKSHEET FOR THE OMB No. PESTICIDE GENERAL PERMIT (PGP) FOR DISCHARGES FROM THE 2040-0004 APPLICATION OF PESTICIDES"
+      ],
+      "rows": [
+        [
+          "This worksheet is for any Operator who is also a Decision-maker required to submit a Notice of Intent (NOI) and is a small entity, as defined in Appendix A of the Pesticide General Permit (PGP). The information on this worksheet must be retained for each pesticide application activity."
+        ],
+        [
+          "A. General Information 1. Operator Name: NPDES Permit Tracking Number: 2. Worksheet Preparer Name: 3. Pest Management Area: # __ of ## ____ 4. Pest Management Area Name: ________________________________________________________________________________________ 5. Indicate the pesticide use pattern for the pest management area: a. Mosquito and Other Flying Insect Pests b. Weed and Algae Pests c. Animal Pests d. Forest Canopy Pests 6. For each treatment area (use additional pages for each treatment area): a. Provide a description of the treatment area within this pest management area, including location description: ______________________________________________________________________________________________________________ ______________________________________________________________________________________________________________ b. Size of treatment area (in acres or linear feet): _____ acres or ______ linear feet. c. Name or location of any waters of the United States to which discharges occurred: ______________________________________________________________________________________________________________ ______________________________________________________________________________________________________________"
+        ],
+        [
+          "B. Pest Evaluation 1. Identify the target pest(s) and explain why pest control is needed: __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ 2. Describe Pest Management Measure(s) implemented before the first pesticide application: __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________"
+        ],
+        [
+          "C. Pesticide Application 1. Name and contact information for pesticide Applicator(s): Company Name: Street: City: State: Zip Code: - Contact Name: Phone: – – Ext. E-mail:"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          40.33352112676058,
+          26.919999999999998,
+          591.106478873239,
+          708.7198125000001
+        ],
+        "row_count": 4,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p144_t1",
+      "page_number": 144,
+      "headers": [
+        "2. Pesticide application start date: / / Pesticide application end date: / / 3. Name of each pesticide product used, EPA registration number, and quantity of pesticide applied (as packaged or as formulated): Circle lbs or gallons. Product Name Product Name Product Name EPA Reg. No. EPA Reg. No. EPA Reg. No. Quantity Quantity Quantity (lbs or gallons) (lbs or gallons) (lbs or gallons) Application Application Application method: ____________________________ method: ____________________________ method: ___________________________ 4. Was visual monitoring conducted during pesticide application and/or post-application? If visual monitoring was conducted, the record must include the date, time, and location where visual monitoring was conducted. Yes. No. If no, describe why not? __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ 5. Were any adverse effects identified during visual monitoring? Yes. No. If yes, describe. __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________ __________________________________________________________________________________________________________________"
+      ],
+      "rows": [
+        [
+          "D. Certification I certify under penalty of law that this document and all attachments were prepared under my direction or supervision in accordance with a system designed to assure that qualified personnel properly gather and evaluate the information submitted. On the basis of my inquiry of the person or persons who manage the system, or those persons directly responsible for gathering the information, the information contained is, to the best of my knowledge and belief, true, accurate, and complete. I have no personal knowledge than the information submitted is other that true, accurate, and complete. I am aware that there are significant penalties for recording false information, including the possibility of fine and imprisonment for knowing violations. Printed Name: Title: E-Mail: Signature/Responsible Official: Date: / / Pesticide Discharge Evaluation Worksheet Preparer (Complete if worksheet was prepared by someone other than the certifier) Preparer Name: Organization: Phone: – – Ext. Date: / / E-Mail:"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          30.53984768211921,
+          47.45999999999998,
+          581.3164832214769,
+          591.3598125000001
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p147_t1",
+      "page_number": 147,
+      "headers": [
+        "UNITED STATES ENVIRONMENTAL PROTECTION AGENCY Form Approved WASHINGTON, DC 20460 OMB No. ANNUAL REPORTING FORM FOR THE PESTICIDE GENERAL PERMIT (PGP) FOR 2040-0004 DISCHARGES FROM THE APPLICATION OF PESTICIDES"
+      ],
+      "rows": [
+        [
+          "This form is for any Operator who is a Decision-maker required to submit an NOI. The annual report must be submitted no later than February 15 of the following year for all pesticide activities covered under the permit occurring during the previous calendar year as detailed in Part 7 of the permit."
+        ],
+        [
+          "Approval to Use Paper Annual Report Form (Electronic Submission Waiver) Has the EPA Regional Office granted you a waiver from electronic reporting*? YES NO If yes, check which waiver you have been granted, the name of the EPA Regional Office staff person who granted the waiver, and the date of approval: Waiver granted: The Decision-maker is physically located in a geographical area (i.e., ZIP code or census tract) that is identified as under-served for broadband Internet access in the most recent report from the Federal Communications Commission. The Decision-maker has limitations regarding available computer access or computer capability. Name of EPA staff person who granted the waiver: Date approval obtained: / / *Note: You are required to obtain approval from the applicable EPA Regional Office prior to using this paper annual reporting form. If you have not obtained a waiver, you must file this form electronically using EPA’s NPDES eReporting Tool (NeT) at https://www.epa.gov/npdes/pesticide-permitting."
+        ],
+        [
+          "A. General Information - For pesticides activities in calendar year: 1. NPDES Permit Tracking Number: 2. Operator Name: 3. Operator Contact Information: a. Street: b. City: c. State: d. ZIP Code: – e. Telephone: – – Ext f. Fax: – – 4. Contact Information: a. Contact Name: b. Title: c. E-mail:"
+        ],
+        [
+          "B. Adverse Incidents and Corrective Actions 1. Was an adverse incident observed and/or corrective actions taken for any pest management area for which you have coverage under the permit? a. No adverse incidents were observed or no corrective action was taken. (Proceed to Section C) b. Yes, an adverse incident was observed and/or a corrective action was taken. (Complete questions 2-6 for each pest management area in which adverse incidents were observed or corrective actions were taken. Copy this section for additional pest management areas). Pest Management Area #____ of ##____ 2. Pest Management Area Name: ___________________________________________________________________________________________________ 3. If applicable, provide the date for any adverse incidents as a result of those treatment(s), as described in Part 6.4 of the permit (use additional pages, if needed): Date of adverse incident observation: / / 4. Date and time the Operator contacted EPA to notify the Agency of the adverse incident, who the Operator spoke with at EPA, and any instructions received from EPA. a. Date: / / c. Who the Operator spoke with at EPA: ________________________________________ b. Time: ___________________________________________ d. Instructions received from EPA: ________________________________________________________________________ ________________________________________________________________________ 5. Date of submission of Thirty (30)-Day Adverse Incident Written Report: / / 6. Describe any corrective action(s), including spill responses, resulting from pesticide application activities and the rationale for such action(s), subsequent to those steps described in the Thirty (30)-Day Adverse Incident Written Report: ___________________________________________________________________________________________________________________________________ ___________________________________________________________________________________________________________________________________"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          40.32897196261689,
+          23.939781250000003,
+          580.311028037383,
+          734.519625
+        ],
+        "row_count": 4,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p153_t1",
+      "page_number": 153,
+      "headers": [
+        "UNITED STATES ENVIRONMENTAL PROTECTION AGENCY WASHINGTON, DC 20460 Form Approved THIRTY (30)-DAY ADVERSE INCIDENT WRITTEN REPORT FOR OMB No. THE PESTICIDE GENERAL PERMIT (PGP) 2040-0004 FOR DISCHARGES FROM THE APPLICATION OF PESTICIDES"
+      ],
+      "rows": [
+        [
+          "This form is for Operators required to submit a written report of any reportable adverse incidents to the appropriate EPA Regional office and to the state lead agency for pesticide regulation. Where multiple Operators are authorized for a discharge that results in an adverse incident, reporting by any one of the Operators constitutes compliance for all of the Operators, provided a copy of this report is also provided to all of the other authorized Operators within 30 days of the reportable adverse incident."
+        ],
+        [
+          "A. Reportable Adverse Incident Is the adverse incident reportable? Reporting of adverse incidents is not required under the PGP in the following situations: (a) An Operator is aware of facts that indicate that the adverse incident was not related to toxic effects or exposure from the pesticide application; (b) An Operator has been notified by EPA, and retains such notification, that the reporting requirement has been waived for this incident or category of incidents; (c) An Operator receives information of an adverse incident, but that information is clearly erroneous; or (d) An adverse incident occurs to pests that are similar in kind to potential target pests identified on the FIFRA label except as required in Part 6.4.3, Notification of Adverse Incident to Threatened or Endangered Species or Critical Habitat. Yes. You must complete this report and submit it to the appropriate EPA Regional office and to the state lead agency for pesticide regulation. No. STOP. You are not required to complete this report. However, you may consider using this form to document the incident and your rationale for why reporting of the adverse incident is not required. This information may be useful to support your rationale should you be questioned on such."
+        ],
+        [
+          "B. Information from the 24-Hour Adverse Incident Notification When an Operator observes or is otherwise made aware of an adverse incident, which may have resulted from a discharge from a pesticide application, the Operator must immediately notify the appropriate EPA Incident Reporting Contact, as identified at https://www.epa.gov/npdes/pesticide-permitting. This notification must be made by telephone within 24 hours of the Operator becoming aware of the adverse incident. Operators must include in the written report the information provided to EPA in the 24-hour adverse incident notification (PGP Part 6.4.1.1). Attach additional information if necessary. 1. Caller’s Contact Information: a. Name: b. Telephone Number: – – Ext 2. Operator Information: a. Operator Name: b. Mailing Address: Street: City: State: ZIP Code: – 3. NOI NPDES Permit Tracking Number: (Enter “NA” if not applicable) 4. Contact person, if different than the person providing the 24-hour notice under item 1 above: a. Name: b. Telephone Number: – – Ext 5. Describe how and when the Operator became aware of the adverse incident: ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ 6. Describe the location of the adverse incident: ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          31.334693877550993,
+          33.27979166666668,
+          580.6653061224491,
+          748.0794999999998
+        ],
+        "row_count": 3,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p154_t1",
+      "page_number": 154,
+      "headers": [
+        "7. Describe the adverse incident identified and the pesticide product, including EPA pesticide registration number in item 7a below, for each product applied in the area of the adverse incident: ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ a. EPA Pesticide Registration Number: EPA Pesticide Registration Number: 8. Describe any steps the Operator has taken or will take to correct, repair, remedy, clean up, or otherwise address any adverse effects: ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ 9. Identify any other Operators authorized for coverage under this permit for discharges from the pesticide application activities that resulted in the adverse incident and if so, provide details of your notification of those other Operator(s): ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________"
+      ],
+      "rows": [
+        [
+          "C. Date and Time the Operator Notified EPA of the Adverse Incident 1. Date EPA was contacted: / / 2. Time EPA was contacted: ______________________________ 3. Name and/or title of the person the Operator spoke with at EPA: a. Name: b. Title: 4. Instructions received from EPA: ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________ ____________________________________________________________________________________________________________________"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          31.317241379310307,
+          83.5195,
+          580.6827586206896,
+          655.319625
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p160_t1",
+      "page_number": 160,
+      "headers": [
+        "Relevant Definitions"
+      ],
+      "rows": [
+        [
+          "FWS Listed Resources of Concern – Federally-listed threatened and endangered species and"
+        ],
+        [
+          "designated critical habitat listed under the jurisdiction of the U.S. Fish and Wildlife Service"
+        ],
+        [
+          "(FWS) that are included in FWS biological opinion for EPA’s Pesticide General Permit."
+        ],
+        [
+          "NMFS Listed Resources of Concern – ESA-listed species and designated critical habitat"
+        ],
+        [
+          "under the jurisdiction of National Marine Fisheries Service (NMFS) that are within, or"
+        ],
+        [
+          "adjacent to, and/or affected by discharges within, areas where EPA is the permitting authority,"
+        ],
+        [
+          "as described in Appendix C of this permit."
+        ],
+        [
+          "Project Action Area - all areas to be affected directly or indirectly by the Operator’s"
+        ],
+        [
+          "discharge(s) to waters of the U.S. covered by the PGP and discharge-related activities in the"
+        ],
+        [
+          "Operator’s pest management area(s)."
+        ],
+        [
+          "Pest Management Area -- The area of land, including any water, for which an Operator has"
+        ],
+        [
+          "responsibility and is authorized to conduct pest management activities as covered by this"
+        ],
+        [
+          "permit (e.g., for an Operator who is a mosquito control district, the pest management area is"
+        ],
+        [
+          "the total area of the district)."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.30857142857144,
+          376.96,
+          539.6917142857143,
+          641.2398333333334
+        ],
+        "row_count": 14,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p163_t1",
+      "page_number": 163,
+      "headers": [
+        "☐ In determining my Project Action Area, I have identified and included all receiving"
+      ],
+      "rows": [
+        [
+          "waterbodies and adjacent lands that could receive pollutants from my discharges to"
+        ],
+        [
+          "waters of United States and discharge-related activities within the pest management"
+        ],
+        [
+          "area."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.73714285714287,
+          311.355,
+          539.2628571428573,
+          382.935
+        ],
+        "row_count": 3,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p163_t2",
+      "page_number": 163,
+      "headers": [
+        "Step 1 – Determine if FWS Listed Resources of Concern and/or NMFS"
+      ],
+      "rows": [
+        [
+          "Listed Resources of Concern are Present in the Project Action Area"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          80.64,
+          461.52000000000004,
+          531.3596666666666,
+          493.68
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p164_t1",
+      "page_number": 164,
+      "headers": [
+        "☐I confirm that I have used EPA’s geospatial mapping tool and my ESA eligibility"
+      ],
+      "rows": [
+        [
+          "determination is based on output generated by the tool within 90 days of seeking permit"
+        ],
+        [
+          "coverage to determine whether any FWS Listed Resources of Concern and NMFS Listed"
+        ],
+        [
+          "Resources of Concern are within my Project Action Area. I have confirmed there are"
+        ],
+        [
+          "FWS Listed Resources of Concern or that there are NMFS Listed Resources of Concern"
+        ],
+        [
+          "affected directly or indirectly in my Project Action Area; (check all that apply and"
+        ],
+        [
+          "proceed to Step 3 OR If your pesticide application is in response to a Declared Pest"
+        ],
+        [
+          "Emergency Situation, proceed to Step 6, Criterion G)"
+        ],
+        [
+          "☐FWS Listed Resources of Concern"
+        ],
+        [
+          "☐NMFS Listed Resources of Concern"
+        ],
+        [
+          "☐ I confirm that I have used EPA’s geospatial mapping tool and my ESA eligibility"
+        ],
+        [
+          "determination is based on output generated by the tool within 90 days of seeking permit"
+        ],
+        [
+          "coverage to determine whether any FWS Listed Resources of Concern and NMFS Listed"
+        ],
+        [
+          "Resources of Concern are within my Project Action Area. I have confirmed there are no"
+        ],
+        [
+          "FWS Listed Resources of Concern and that there are no NMFS Listed Resources of"
+        ],
+        [
+          "Concern affected directly or indirectly in my Project Action Area. If this pesticide"
+        ],
+        [
+          "application is in response to a Declared Pest Emergency Situation proceed to Step 6,"
+        ],
+        [
+          "Criterion G."
+        ],
+        [
+          "☐NO FWS Listed Resources of Concern AND"
+        ],
+        [
+          "☐NO NMFS Listed Resources of Concern"
+        ],
+        [
+          "You can certify that the activity meets Criterion A (check box on the NOI corresponding to"
+        ],
+        [
+          "Criterion A and submit the supporting documentation (e.g. map with geospatial data that"
+        ],
+        [
+          "includes the Project Action Area and the list generated through the geospatial mapping tool"
+        ],
+        [
+          "with no FWS Listed Resources of Concern and NMFS Listed Resources of Concern) with"
+        ],
+        [
+          "the NOI)."
+        ],
+        [
+          "Note that if you are not otherwise required to submit an NOI, you do not need to submit an"
+        ],
+        [
+          "NOI merely to document that you meet eligibility Criterion A. However, if you are required"
+        ],
+        [
+          "to submit an NOI anyway, you must document on the NOI that you meet eligibility Criterion"
+        ],
+        [
+          "A. If you received a waiver to file a paper NOI, you must submit a copy of the map and"
+        ],
+        [
+          "list generated through the geospatial mapping tool in Step 1 and your worksheet with"
+        ],
+        [
+          "your paper NOI."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.99,
+          159.31499999999997,
+          538.8342857142858,
+          654.255
+        ],
+        "row_count": 30,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p165_t1",
+      "page_number": 165,
+      "headers": [
+        "Step 3 – Determine if You Meet the Eligibility Requirement of Criterion C"
+      ],
+      "rows": [
+        [
+          "or Criterion D"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          78.19578947368421,
+          197.88,
+          533.5482352941177,
+          230.03999999999996
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p165_t2",
+      "page_number": 165,
+      "headers": [
+        "I have confirmed in Step 1 that there are FWS Listed Resources of Concern and/or NMFS"
+      ],
+      "rows": [
+        [
+          "Listed Resources of Concern in my Project Action Area."
+        ],
+        [
+          "☐ I can confirm that I have a permit or permits issued under Section 10 of the ESA that"
+        ],
+        [
+          "specifically addresses the effects of my discharges to waters of the United States and"
+        ],
+        [
+          "discharge-related activities on all FWS Listed Resources of Concern and NMFS Listed"
+        ],
+        [
+          "Resources of Concern affected directly or indirectly in my Project Action Area."
+        ],
+        [
+          "Issuance of ESA Section 10 permit. Potential take is authorized through the issuance of a"
+        ],
+        [
+          "permit under Section 10 of the ESA by the FWS and/or NMFS, as necessary, and this"
+        ],
+        [
+          "authorization addresses the effects of the discharges to waters of the United States and"
+        ],
+        [
+          "discharge-related activities on FWS Listed Resources of Concern and/or NMFS Listed"
+        ],
+        [
+          "Resources of Concern present in the Project Action Area."
+        ],
+        [
+          "C1. I confirm that both FWS Listed Resources of Concern and NMFS Listed Resources of"
+        ],
+        [
+          "Concern were considered in my evaluation and that I have used the EPA’s geospatial"
+        ],
+        [
+          "mapping tool as outlined in Step 1. I am providing the map and the list of all FWS Listed"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.65428571428572,
+          478.32,
+          539.5764705882353,
+          700.9799999999999
+        ],
+        "row_count": 13,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p166_t1",
+      "page_number": 166,
+      "headers": [
+        "Resources of Concern and NMFS Listed Resources of Concern from the geospatial"
+      ],
+      "rows": [
+        [
+          "mapping tool in Step 1. Yes ☐"
+        ],
+        [
+          "C2. Which Service provided the Section 10 permit? (check all that apply)"
+        ],
+        [
+          "FWS ☐ NMFS ☐"
+        ],
+        [
+          "C3. Identify the field or regional offices providing the permit(s):"
+        ],
+        [
+          "C4. Identify the permit number and other tracking numbers associated with the ESA Section"
+        ],
+        [
+          "10 permit (e.g., FWS ECOSphere number, ECO Section 7 consultation number):"
+        ],
+        [
+          ""
+        ],
+        [
+          "C5. What is the date the permit(s) was granted?"
+        ],
+        [
+          "FWS (MM/DD/YYY) __ __ / __ __ / __ __ __ __"
+        ],
+        [
+          "NMFS (MM/DD/YYY) __ __ / __ __ / __ __ __ __"
+        ],
+        [
+          "C6. Check to confirm that correspondence with FWS and/or NMFS and a copy of the Section"
+        ],
+        [
+          "10 permit or the permit number and other relevant tracking number(s) (e.g., FWS IPaC"
+        ],
+        [
+          "number, ECO Section 7 consultation number) is attached to your NOI. Check all that"
+        ],
+        [
+          "apply."
+        ],
+        [
+          "☐FWS ☐ NMFS"
+        ],
+        [
+          "If you can confirm the statement above and provide responses to C1-C6 above, you may"
+        ],
+        [
+          "certify eligibility under Criterion C for this pest management area on your NOI form"
+        ],
+        [
+          "and include your responses to C1-C6 as the supporting documentation. You are done"
+        ],
+        [
+          "with this worksheet. If you received a waiver to file a paper NOI, you must submit a copy"
+        ],
+        [
+          "of the map and list generated through the geospatial mapping tool in Step 1 and your"
+        ],
+        [
+          "worksheet with your paper NOI."
+        ],
+        [
+          "If you are unable to provide answers to questions C1-C6 above, you are not eligible under"
+        ],
+        [
+          "Criterion C, proceed below to Criterion D."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.6692307692308,
+          72.54000000000002,
+          539.1507692307694,
+          625.6200000000001
+        ],
+        "row_count": 23,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p167_t1",
+      "page_number": 167,
+      "headers": [
+        "☐ I have confirmed there are FWS Listed Resources of Concern and/or NMFS Listed"
+      ],
+      "rows": [
+        [
+          "Resources of Concern affected directly or indirectly in my Project Action Area. I can"
+        ],
+        [
+          "confirm that both of the following are true:"
+        ],
+        [
+          "Statement 1:"
+        ],
+        [
+          "☐ I can confirm that a prior consultation between a Federal agency and the Service(s) under"
+        ],
+        [
+          "ESA Section 7(a)(2) fully covers indirect and direct effects in the Project Action Area"
+        ],
+        [
+          "resulting from my proposed discharges to waters of the United States and discharge"
+        ],
+        [
+          "related activities. The result of this consultation was (check all that apply):"
+        ],
+        [
+          "☐The biological opinion(s) from either or both Service(s), as appropriate, concluded that"
+        ],
+        [
+          "the effects of pesticide discharges to waters of the United States and discharge-"
+        ],
+        [
+          "related activities within this pest management area that were authorized, funded, or"
+        ],
+        [
+          "to be carried out by the Federal action agency are not likely to jeopardize the"
+        ],
+        [
+          "continued existence of federally-listed species and are not likely to destroy or"
+        ],
+        [
+          "adversely modify federally-designated critical habitat in the Project Action Area, and"
+        ],
+        [
+          "the Reasonable and Prudent Measures to minimize take have been or are in the"
+        ],
+        [
+          "process of being implemented in accordance with the biological opinion(s);"
+        ],
+        [
+          "☐FWS ☐ NMFS"
+        ],
+        [
+          "or"
+        ],
+        [
+          "☐Written concurrence from either or both Service(s), as appropriate, with a finding that"
+        ],
+        [
+          "the pesticide discharges to waters of the United States and discharge-related"
+        ],
+        [
+          "activities within this pest management area that are authorized, funded, or to be"
+        ],
+        [
+          "carried out by the Federal agency is not likely to adversely affect federally-listed"
+        ],
+        [
+          "species or federally-designated critical habitat in the Project Action Area."
+        ],
+        [
+          "☐FWS ☐ NMFS"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.48,
+          317.34,
+          539.04,
+          707.8800000000001
+        ],
+        "row_count": 23,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p168_t1",
+      "page_number": 168,
+      "headers": [
+        "Statement 2:"
+      ],
+      "rows": [
+        [
+          "☐ I confirm that the consultation is not under and does not require reinitiation per 50 CFR"
+        ],
+        [
+          "§402.16."
+        ],
+        [
+          "ESA Section 7(a)(2) consultation has successfully concluded. A prior consultation under"
+        ],
+        [
+          "ESA Section 7(a)(2) has concluded and fully covers the effects of the discharges to waters of"
+        ],
+        [
+          "the United States and discharge-related activities on all FWS Listed Resources of Concern"
+        ],
+        [
+          "and/or NMFS Listed Resources of Concern identified in the Project Action Area."
+        ],
+        [
+          "D1. I confirm that both FWS Listed Resources of Concern and NMFS Listed Resources of"
+        ],
+        [
+          "Concern were considered in my evaluation and that I have used the EPA’s geospatial"
+        ],
+        [
+          "mapping tool as outlined in Step 1. I am providing the map and the list of all FWS Listed"
+        ],
+        [
+          "Resources of Concern and NMFS Listed Resources of Concern from the geospatial mapping"
+        ],
+        [
+          "tool in Step 1. Yes ☐"
+        ],
+        [
+          "D2. Identify the Federal action agency or agencies involved:"
+        ],
+        [
+          "D3. Identify the Service(s) field or regional offices providing the consultation:"
+        ],
+        [
+          "D4. As appropriate, identify the ECOSphere Project Code and Consultation Number for a"
+        ],
+        [
+          "FWS consultation and the ECO consultation number for a NMFS consultation and any"
+        ],
+        [
+          "other associated tracking numbers (e.g. FWS Project Code number- located at the top of"
+        ],
+        [
+          "letter generated by IPaC):"
+        ],
+        [
+          ""
+        ],
+        [
+          "D5. What is the date the consultation was completed?"
+        ],
+        [
+          "FWS consultation (MM/DD/YYYY) __ __ / __ __ / __ __ __ __"
+        ],
+        [
+          "NMFS consultation (MM/DD/YYYY) __ __ / __ __ / __ __ __ __"
+        ],
+        [
+          "D6. Check to confirm that correspondence and consultation identifying numbers from the"
+        ],
+        [
+          "consulting Service(s) documenting the biological opinion, conference opinion, or written"
+        ],
+        [
+          "concurrence is attached."
+        ],
+        [
+          "☐FWS ☐ NMFS"
+        ],
+        [
+          "If you can confirm the statements above and provide responses to D1-D6 above, you"
+        ],
+        [
+          "may certify eligibility under Criterion D for this pest management area on your NOI"
+        ],
+        [
+          "form and include your responses to D1-D6 as the supporting documentation. You are"
+        ],
+        [
+          "done with this worksheet. If you received a waiver to file a paper NOI, you must submit"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.45,
+          72.54000000000002,
+          539.15,
+          676.6200000000001
+        ],
+        "row_count": 29,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p169_t1",
+      "page_number": 169,
+      "headers": [
+        "a copy of the map and list generated through the geospatial mapping tool in Step 1 and"
+      ],
+      "rows": [
+        [
+          "your worksheet with your paper NOI."
+        ],
+        [
+          "If you are unable to provide answers to questions D1-D6 above, you are not eligible under"
+        ],
+        [
+          "Criterion D, proceed to Step 4."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.60000000000002,
+          72.54000000000002,
+          539.4277692307692,
+          143.94
+        ],
+        "row_count": 3,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p169_t2",
+      "page_number": 169,
+      "headers": [
+        "Step 4 - Determine if Measures Can Be Implemented to Avoid Adverse"
+      ],
+      "rows": [
+        [
+          "Effects"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          79.83333333333334,
+          193.43999999999994,
+          531.6423529411763,
+          225.60000000000002
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p169_t3",
+      "page_number": 169,
+      "headers": [
+        "I have confirmed in Step 1 that there are FWS Listed Resources of Concern and/or NMFS"
+      ],
+      "rows": [
+        [
+          "Listed Resources of Concern affected directly or indirectly in my Project Action Area."
+        ],
+        [
+          "☐ I have coordinated with the appropriate Service(s) and obtained written confirmation"
+        ],
+        [
+          "prior to NOI submission that the effects of planned activities are not likely to result in"
+        ],
+        [
+          "short- or long-term adverse effects for FWS Listed Resources of Concern and/or NMFS"
+        ],
+        [
+          "Listed Resources of Concern in my Project Action Area."
+        ],
+        [
+          "E1. I confirm that both FWS Listed Resources of Concern and NMFS Listed Resources of"
+        ],
+        [
+          "Concern were considered in my evaluation and that I have used the EPA’s geospatial"
+        ],
+        [
+          "mapping tool as outlined in Step 1. I am providing the map and the list of all FWS"
+        ],
+        [
+          "Listed Resources of Concern and NMFS Listed Resources of Concern from the"
+        ],
+        [
+          "geospatial mapping tool in Step 1. Yes ☐"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.60000000000002,
+          492.12,
+          539.4277692307692,
+          681.72
+        ],
+        "row_count": 10,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p170_t1",
+      "page_number": 170,
+      "headers": [
+        "E2. Which Service participated in coordination? (check all that apply) FWS ☐ NMFS ☐"
+      ],
+      "rows": [
+        [
+          "E3. Identify the field and/or regional office(s) that provided the coordination?"
+        ],
+        [
+          "E4. What is the date the coordination concluded?"
+        ],
+        [
+          "FWS (MM/DD/YYY) __ __ / __ __ / __ __ __ __"
+        ],
+        [
+          "NMFS (MM/DD/YYY) __ __ / __ __ / __ __ __ __"
+        ],
+        [
+          "E5. Check to confirm that written correspondence with the coordinating Service(s) is"
+        ],
+        [
+          "attached to the NOI. Check all that apply."
+        ],
+        [
+          "☐ FWS ☐ NMFS"
+        ],
+        [
+          "If you can confirm the statement above and provide responses to E1-E5 above, you may"
+        ],
+        [
+          "certify eligibility under Criterion E for this pest management area on your NOI form"
+        ],
+        [
+          "and include your responses to E1-E5 as the supporting documentation. You are done"
+        ],
+        [
+          "with this worksheet. If you received a waiver to file a paper NOI, you must submit a"
+        ],
+        [
+          "copy of the map and list generated through the geospatial mapping tool in Step 1 and"
+        ],
+        [
+          "your worksheet with your paper NOI."
+        ],
+        [
+          "If you are unable to provide answers to questions E1-E5 above, you are not eligible under"
+        ],
+        [
+          "Criterion E, proceed to Step 5."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.50333333333334,
+          72.0,
+          539.5087142857143,
+          418.19975
+        ],
+        "row_count": 15,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p171_t1",
+      "page_number": 171,
+      "headers": [
+        "I have confirmed there are FWS Listed Resources of Concern and/or NMFS Listed Resources"
+      ],
+      "rows": [
+        [
+          "of Concern affected directly or indirectly in my Project Action Area. I can confirm that the"
+        ],
+        [
+          "following is true."
+        ],
+        [
+          "☐ I can certify that short- or long-term adverse effects to FWS Listed Resources of Concern"
+        ],
+        [
+          "and/or NMFS Listed Resources of Concern are not likely as demonstrated in the answers for"
+        ],
+        [
+          "questions F1 through F7."
+        ],
+        [
+          "As part of certifying your compliance with Criterion F, you must submit information F1"
+        ],
+        [
+          "through F7 to support your findings, including:"
+        ],
+        [
+          "I confirm that I have or will implement appropriate measures necessary to avoid the"
+        ],
+        [
+          "likelihood of any short- or long-term adverse effects to FWS Listed Resources of Concern"
+        ],
+        [
+          "and/or NMFS Listed Resources of Concern. Yes ☐"
+        ],
+        [
+          "F1. Provide the map and the list of all FWS Listed Resources of Concern and NMFS Listed"
+        ],
+        [
+          "Resources of Concern from the geospatial mapping tool in Step 1."
+        ],
+        [
+          "F2. Target pest(s)"
+        ],
+        [
+          "F3. Pesticide product(s) to be discharged and method of application"
+        ],
+        [
+          "F4. Planned quantity and rate of discharge(s) for each method of application"
+        ],
+        [
+          "F5. Number of planned discharges"
+        ],
+        [
+          "F6. Approximate date(s) of planned discharge(s)"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.30857142857143,
+          254.43983333333333,
+          539.3255094339626,
+          704.0
+        ],
+        "row_count": 17,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p172_t1",
+      "page_number": 172,
+      "headers": [
+        "F7. Your rationale supporting your determination, for each individual listed species and"
+      ],
+      "rows": [
+        [
+          "designated critical habitat, that you meet the criterion for which you are submitting the"
+        ],
+        [
+          "NOI. For example, your determination may rely on the specific BMPs applied, visual"
+        ],
+        [
+          "monitoring, equipment and/or site inspections, and other appropriate measures that will"
+        ],
+        [
+          "be undertaken to avoid or eliminate the likelihood of any short- or long-term adverse"
+        ],
+        [
+          "effects to all FWS Listed Resources of Concern and NMFS Listed Resources of"
+        ],
+        [
+          "Concern."
+        ],
+        [
+          "If you can confirm the statement above and provide responses to F1-F7 above, you may"
+        ],
+        [
+          "certify eligibility under Criterion F for this pest management area on your NOI form"
+        ],
+        [
+          "and include your responses to F1-F7 as the supporting documentation. You are done"
+        ],
+        [
+          "with this worksheet. If you received a waiver to file a paper NOI, you must submit a"
+        ],
+        [
+          "copy of the map and list generated through the geospatial mapping tool in Step 1 and"
+        ],
+        [
+          "your worksheet with your paper NOI."
+        ],
+        [
+          "If you are unable to provide answers to questions F1-F7 above, you are not eligible under"
+        ],
+        [
+          "Criterion F. If you have determined that your pesticide application does not align with one of"
+        ],
+        [
+          "the Criteria above and is not in response to a Declared Pest Emergency Situation (Step 6),"
+        ],
+        [
+          "your discharges to waters of the United States and discharge-related activities are not eligible"
+        ],
+        [
+          "for coverage under the PGP. Proceed to Step 1 if you wish to evaluate again. If you require"
+        ],
+        [
+          "assistance with your re-evaluation please email pgp@epa.gov or visit this website:"
+        ],
+        [
+          "https://www.epa.gov/npdes/contact-us-pesticide-permitting."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.59111111111113,
+          72.87983333333331,
+          539.4515714285715,
+          405.0798333333333
+        ],
+        "row_count": 19,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p172_t2",
+      "page_number": 172,
+      "headers": [
+        "Step 6 – Determine if the Pesticide Application is in Response to a Declared"
+      ],
+      "rows": [
+        [
+          "Pest Emergency Situation"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          80.01500000000003,
+          427.2,
+          531.464347826087,
+          459.36
+        ],
+        "row_count": 1,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p173_t1",
+      "page_number": 173,
+      "headers": [
+        "☐ Statement 1: I have confirmed in Step 1 that there are FWS Listed Resources of Concern"
+      ],
+      "rows": [
+        [
+          "and/or NMFS Listed Resources of Concern affected directly or indirectly in my pest"
+        ],
+        [
+          "management area. My pesticide application is in response to a Declared Pest Emergency"
+        ],
+        [
+          "Situation, and I have coordinated with the appropriate Service(s)"
+        ],
+        [
+          "☐ FWS ☐ NMFS"
+        ],
+        [
+          "☐ Statement 2: I have confirmed in Step 1 that there are no FWS Listed Resources of"
+        ],
+        [
+          "Concern and/or NMFS Listed Resources of Concern in my pest management area. My"
+        ],
+        [
+          "pesticide application is in response to a Declared Pest Emergency Situation, and I have"
+        ],
+        [
+          "coordinated with the appropriate Service(s)."
+        ],
+        [
+          "☐ FWS ☐ NMFS"
+        ],
+        [
+          "Discharges are in response to a Declared Pest Emergency Situation. I confirm that I have or"
+        ],
+        [
+          "will implement appropriate measures to avoid the likelihood of any short- or long-term"
+        ],
+        [
+          "adverse effects to ESA-listed threatened or endangered species or their critical habitat. Yes"
+        ],
+        [
+          "☐"
+        ],
+        [
+          "Information provided for items G1 through G7 must also include any discharges that"
+        ],
+        [
+          "have already occurred in the days (up to 15) prior to NOI submission."
+        ],
+        [
+          "G1. Provide the map and the list of all FWS Listed Resources of Concern and NMFS Listed"
+        ],
+        [
+          "Resources of Concern from the geospatial mapping tool in Step 1."
+        ],
+        [
+          "G2. Target pest(s)"
+        ],
+        [
+          "G3. Pesticide product(s) to be discharged and method of application"
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.30857142857144,
+          290.0798333333334,
+          539.3122333333336,
+          694.04
+        ],
+        "row_count": 19,
+        "column_count": 1
+      }
+    },
+    {
+      "table_id": "table_p174_t1",
+      "page_number": 174,
+      "headers": [
+        "G4. Planned quantity and rate of discharge(s) for each method of application"
+      ],
+      "rows": [
+        [
+          "G5. Number of planned discharges"
+        ],
+        [
+          "G6. Approximate date(s) of planned discharge(s)"
+        ],
+        [
+          "G7. Indicate whether the discharge is likely to result in any short- or long-term adverse"
+        ],
+        [
+          "effects to FWS Listed Resources of Concern and/or NMFS Listed Resources of Concern"
+        ],
+        [
+          "in response to a pest emergency and, if so, any feasible measures that will be"
+        ],
+        [
+          "implemented to avoid or eliminate such short- or long-term adverse effects; for example,"
+        ],
+        [
+          "it is not sufficient to state that “integrated pest management procedures will be applied”"
+        ],
+        [
+          "without describing the specific measures to be taken."
+        ],
+        [
+          "A statement verifying the notification and coordination with FWS and NMFS. The"
+        ],
+        [
+          "notification must be in the form of an email that identifies the appropriate FWS, NMFS"
+        ],
+        [
+          "and EPA contact(s) and include a description of the action, a map with geospatial data of"
+        ],
+        [
+          "the Project Action Area, and a list of FWS Listed Resources of Concern and NMFS"
+        ],
+        [
+          "Listed Resources of Concern identified in the Project Action Area or showing no FWS"
+        ],
+        [
+          "and NMFS Listed Resources of Concern occur in the Project Action Area."
+        ],
+        [
+          "If you can confirm the statement above and provide responses to G1-G7 above, you may"
+        ],
+        [
+          "certify eligibility under Criterion G for this pest management area on your NOI and"
+        ],
+        [
+          "include your responses to G1-G7 as the supporting documentation. You are done with"
+        ],
+        [
+          "this worksheet. If you received a waiver to file a paper NOI, you must submit a copy of"
+        ],
+        [
+          "the map and the list generated through the geospatial mapping tool in Step 1 and your"
+        ],
+        [
+          "worksheet with your paper NOI."
+        ],
+        [
+          "If your pesticide application is not in response to a Declared Pest Emergency Situation,"
+        ],
+        [
+          "proceed to Step 1 to evaluate again."
+        ]
+      ],
+      "metadata": {
+        "bbox": [
+          72.30857142857144,
+          72.87999999999998,
+          539.3122333333336,
+          571.64
+        ],
+        "row_count": 22,
+        "column_count": 1
+      }
+    }
+  ]
+}

@@ -1,3 +1,5 @@
 langchain_community
 pypdf
 langchain-text-splitters
+pdfplumber>=0.10.0
+pandas>=2.0.0
