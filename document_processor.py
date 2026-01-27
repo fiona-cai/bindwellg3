@@ -1,21 +1,36 @@
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_core.documents import Document as LangChainDocument
+import re
+import json
 
 file_path = "./2026-pgp.pdf"
+
+out_path = "./heading-chunks.json"
 
 loader = PyPDFLoader(file_path)
 
 docs = loader.load()
 print(f"Loaded {len(docs)} pages")
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+# Combine all pages into one string so we can split by heading patterns like "1.0", "2.0", etc.
+full_text = "\n\n".join([d.page_content for d in docs])
 
-all_texts = []
-for i, document in enumerate(docs):
-	chunks = text_splitter.split_text(document.page_content)
-	print(f"Page {i+1}: {len(chunks)} chunks")
-	all_texts.extend(chunks)
+# Split on lines that start with a numbering pattern (e.g. 1.0, 2.0, 3.1)
+# The lookahead keeps the heading at the start of each split segment.
+sections = [s.strip() for s in re.split(r'(?m)^(?=\d+\.\d+)', full_text) if s.strip()]
 
-print(f"Total chunks: {len(all_texts)}")
-if all_texts:
-	print(all_texts[65])
+print(f"Found {len(sections)} sections based on headings")
+
+# Convert to LangChain Document objects with basic metadata
+lc_documents = []
+for i, sec in enumerate(sections):
+    meta = {"source": file_path, "section_index": i + 1}
+    lc_documents.append({"content": sec, "metadata": meta})
+    # lc_documents.append(LangChainDocument(page_content=sec, metadata=meta))
+
+print(f"Created {len(lc_documents)} LangChain Document objects")
+# if lc_documents:
+#     print(lc_documents[100].page_content[:1000])
+
+with open(out_path, 'w', encoding='utf-8') as json_file:
+    json.dump(lc_documents, json_file, indent=4)

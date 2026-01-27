@@ -1,3 +1,4 @@
 langchain_community
 pypdf
 langchain-text-splitters
+langchain
