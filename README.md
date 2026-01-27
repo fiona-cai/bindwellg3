@@ -8,4 +8,7 @@ pip install -r requirements.txt
 
 Install dependencies:
 
+Run
+```
 pip install sentence-transformers faiss-cpu numpy
+```
