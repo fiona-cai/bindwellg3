@@ -4,3 +4,6 @@ langchain-text-splitters
 langchain
 pdfplumber>=0.10.0
 pandas>=2.0.0
+sentence-transformers
+faiss-cpu
+numpy
