@@ -4,9 +4,6 @@ Run
 ```
 pip install -r requirements.txt
 ```
-## Setup
-
-Install dependencies:
 
 Run
 ```
