@@ -107,6 +107,50 @@ class PDFDocumentProcessor:
         # Remove special characters that might be artifacts
         text = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f]', '', text)
         return text.strip()
+
+    def fill_down_merged_cells(
+        self,
+        rows: List[List[str]],
+        col_idx: int = 0,
+    ) -> Dict[str, Any]:
+        """
+        Handle tables that visually use merged cells (e.g., left-most label spanning many rows).
+
+        pdfplumber often returns continuation rows with an empty string in the merged column.
+        For RAG + downstream structuring, it's usually better to "fill down" that value so
+        each row is self-contained.
+        """
+        if not rows:
+            return {"filled": 0, "applied": False}
+
+        # Heuristic: only apply if there are blanks in the column AND there is at least one
+        # non-empty value before a blank (typical merged-cell extraction artifact).
+        saw_value = False
+        blanks_after_value = 0
+        for r in rows:
+            cell = r[col_idx].strip() if col_idx < len(r) and r[col_idx] else ""
+            if cell:
+                saw_value = True
+            elif saw_value:
+                blanks_after_value += 1
+
+        if blanks_after_value == 0:
+            return {"filled": 0, "applied": False}
+
+        filled = 0
+        last_val = ""
+        for r in rows:
+            if col_idx >= len(r):
+                continue
+            cell = r[col_idx].strip() if r[col_idx] else ""
+            if cell:
+                last_val = r[col_idx]
+            else:
+                if last_val:
+                    r[col_idx] = last_val
+                    filled += 1
+
+        return {"filled": filled, "applied": True}
     
     def extract_tables_from_page(self, page, page_num: int) -> List[TableData]:
         """Extract all tables from a page with robust error handling"""
@@ -169,6 +213,9 @@ class PDFDocumentProcessor:
                         # Pad or truncate to match header count
                         normalized_row = row[:max_cols] + [""] * (max_cols - len(row))
                         normalized_rows.append(normalized_row)
+
+                    # Handle merged-cell style layouts (like 1.1.1(a) spanning multiple rows)
+                    filldown_stats = self.fill_down_merged_cells(normalized_rows, col_idx=0)
                     
                     table_obj = TableData(
                         table_id=f"table_p{page_num}_t{idx+1}",
@@ -178,7 +225,11 @@ class PDFDocumentProcessor:
                         metadata={
                             "bbox": table.bbox if hasattr(table, 'bbox') else None,
                             "row_count": len(normalized_rows),
-                            "column_count": len(headers)
+                            "column_count": len(headers),
+                            "merged_cell_filldown": {
+                                "column_index": 0,
+                                **filldown_stats,
+                            },
                         }
                     )
                     
