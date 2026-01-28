@@ -17,8 +17,10 @@ from pydantic import BaseModel, Field
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-from retrieval.retrieval import retrieve_chunks  # noqa: E402
+from langchain_core.documents import Document  # noqa: E402
 from langchain_openai import ChatOpenAI  # noqa: E402
+
+from retrieval.retrieval_langchain import retrieve_chunks  # noqa: E402
 
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "heading-chunks.json")
@@ -105,7 +107,7 @@ class TableSummary:
 
 class AskRequest(BaseModel):
     question: str = Field(..., min_length=1)
-    top_k: int = Field(5, ge=1, le=10)
+    top_k: int = Field(5, ge=1, le=100)
 
 
 class AskResult(BaseModel):
@@ -358,27 +360,27 @@ def ask(req: AskRequest) -> AskResponse:
             pass
         raise
 
-    results = [
+    results: List[AskResult] = [
         AskResult(
-            content=c["content"],
-            section_index=c["metadata"]["section_index"],
+            content=c.page_content,
+            section_index=c.metadata["section_index"],
             score=1.0,
-            source=c["metadata"]["source"],
-            snippet=c["content"],
+            source=c.metadata["source"],
+            snippet=c.page_content,
         )
         for c in chunks
     ]
     return AskResponse(question=req.question, top_k=req.top_k, results=results)
 
 
-def _build_excerpt_block(chunks: List[Dict[str, Any]]) -> Tuple[str, List[ChatCitation]]:
+def _build_excerpt_block(chunks: List[Document]) -> Tuple[str, List[ChatCitation]]:
     citations: List[ChatCitation] = []
     parts: List[str] = []
     for i, c in enumerate(chunks, start=1):
-        meta = c.get("metadata") or {}
+        meta = c.metadata or {}
         section_index = int(meta.get("section_index") or 0)
         source = str(meta.get("source") or "")
-        content = str(c.get("content") or "")
+        content = str(c.page_content or "")
         citations.append(ChatCitation(ref=i, section_index=section_index, source=source))
         parts.append(
             f"[{i}] (section {section_index}; source: {source})\n{content}".strip()
@@ -474,6 +476,15 @@ def chat(req: ChatRequest) -> ChatResponse:
 
 @app.get("/api/tables")
 def list_tables(query: Optional[str] = None, limit: int = 50, offset: int = 0) -> Dict[str, Any]:
+    return _list_tables_impl(query=query, limit=limit, offset=offset)
+
+
+@app.get("/api/tables/{table_id}")
+def get_table(table_id: str) -> Dict[str, Any]:
+    return _get_table_impl(table_id)
+
+
+def _list_tables_impl(query: Optional[str], limit: int, offset: int) -> Dict[str, Any]:
     limit = max(1, min(int(limit), 200))
     offset = max(0, int(offset))
     q_tokens = _tokenize(query or "")
@@ -534,8 +545,7 @@ def list_tables(query: Optional[str] = None, limit: int = 50, offset: int = 0) -
     }
 
 
-@app.get("/api/tables/{table_id}")
-def get_table(table_id: str) -> Dict[str, Any]:
+def _get_table_impl(table_id: str) -> Dict[str, Any]:
     table = _tables_by_id().get(table_id)
     if not table:
         raise HTTPException(status_code=404, detail=f"Table not found: {table_id}")

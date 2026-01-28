@@ -31,7 +31,15 @@ async function _getJson(url) {
 }
 
 function _formatAskResponse(data) {
-  if (!data || !Array.isArray(data.results) || data.results.length === 0) {
+  if (!data) return "No response.";
+
+  // New: prefer the LLM answer if present
+  if (typeof data.answer === "string" && data.answer.trim() !== "") {
+    return data.answer.trim();
+  }
+
+  // Fallback: show retrieval-only view
+  if (!Array.isArray(data.results) || data.results.length === 0) {
     return "No matches found. Try rephrasing your question.";
   }
   const top = data.results[0];

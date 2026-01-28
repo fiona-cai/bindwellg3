@@ -13,9 +13,11 @@ if sys.platform == "darwin":
     os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
 
 import json
-import faiss
+# import faiss
 import numpy as np
 # from sentence_transformers import SentenceTransformer
+from langchain_community.vectorstores import FAISS
+import os
 
 from langchain_openai import OpenAIEmbeddings
 
