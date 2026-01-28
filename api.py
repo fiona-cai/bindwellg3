@@ -14,13 +14,12 @@ from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from retrieval_langchain.retrieval import retrieve_chunks
+from retrieval.retrieval_langchain import retrieve_chunks
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-from retrieval.retrieval import retrieve_chunks  # noqa: E402
 
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "heading-chunks.json")
@@ -83,7 +82,7 @@ class TableSummary:
 
 class AskRequest(BaseModel):
     question: str = Field(..., min_length=1)
-    top_k: int = Field(5, ge=1, le=10)
+    top_k: int = Field(5, ge=1, le=100)
 
 
 class AskResult(BaseModel):

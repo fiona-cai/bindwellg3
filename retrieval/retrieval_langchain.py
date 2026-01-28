@@ -74,12 +74,13 @@ bm25.k = 5
 
 def retrieve_chunks(question, k=10):
     # query_embedding = model.encode([question]).astype("float32")
-    bm25.k = k
+    sample_rerank_k = 20
+    bm25.k = sample_rerank_k
     hybrid_retriever = EnsembleRetriever(
         retrievers=[bm25, 
                     faiss_store.as_retriever(
                         search_kwargs={
-                            "k": k,
+                            "k": sample_rerank_k,
                             "score_threshold": 0.2
                         })],
         weights=[0.2, 0.8] 
@@ -87,7 +88,7 @@ def retrieve_chunks(question, k=10):
 
     # results = hybrid_retriever.invoke(question)
 
-    compressor = FlashrankRerank()
+    compressor = FlashrankRerank(top_n=k)
     compression_retriever = ContextualCompressionRetriever(
         base_compressor=compressor, base_retriever=hybrid_retriever
     )
