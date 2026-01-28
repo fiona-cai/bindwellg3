@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
+from openai import OpenAI
 from pydantic import BaseModel, Field
 
 from retrieval.retrieval_langchain import retrieve_chunks
@@ -96,7 +97,247 @@ class AskResult(BaseModel):
 class AskResponse(BaseModel):
     question: str
     top_k: int
+    answer: str
     results: List[AskResult]
+
+
+@lru_cache(maxsize=1)
+def _openai_client() -> OpenAI:
+    return OpenAI()
+
+
+def _format_sources(results: List[AskResult], max_sources: int = 5) -> str:
+    if not results:
+        return ""
+    lines: List[str] = []
+    for r in results[:max_sources]:
+        src = r.source or ""
+        lines.append(f"- section {r.section_index} ({src})")
+    return "\n".join(lines)
+
+
+def _list_tables_impl(query: Optional[str] = None, limit: int = 50, offset: int = 0) -> Dict[str, Any]:
+    limit = max(1, min(int(limit), 200))
+    offset = max(0, int(offset))
+    q_tokens = _tokenize(query or "")
+
+    tables = list(_tables_by_id().values())
+    summaries: List[Tuple[float, TableSummary]] = []
+    for t in tables:
+        headers = list(t.get("headers") or [])
+        rows = list(t.get("rows") or [])
+        row_count = len(rows)
+        column_count = len(headers) if headers else (len(rows[0]) if rows else 0)
+
+        haystack = " ".join(headers)
+        if rows:
+            sample_rows = rows[: min(10, len(rows))]
+            haystack += " " + " ".join(" ".join(map(str, r)) for r in sample_rows)
+
+        if q_tokens:
+            hay_tokens = set(_tokenize(haystack))
+            score = float(sum(1 for qt in q_tokens if qt in hay_tokens))
+            if score <= 0:
+                continue
+        else:
+            score = 1.0
+
+        summaries.append(
+            (
+                score,
+                TableSummary(
+                    table_id=str(t.get("table_id")),
+                    page_number=int(t.get("page_number") or 0),
+                    headers=[str(h) for h in headers],
+                    row_count=row_count,
+                    column_count=column_count,
+                ),
+            )
+        )
+
+    summaries.sort(key=lambda x: (x[0], x[1].page_number), reverse=True)
+    page = summaries[offset : offset + limit]
+
+    return {
+        "query": query or "",
+        "offset": offset,
+        "limit": limit,
+        "total": len(summaries),
+        "tables": [
+            {
+                "table_id": s.table_id,
+                "page_number": s.page_number,
+                "headers": s.headers,
+                "row_count": s.row_count,
+                "column_count": s.column_count,
+            }
+            for _, s in page
+        ],
+    }
+
+
+def _get_table_impl(table_id: str) -> Dict[str, Any]:
+    table = _tables_by_id().get(table_id)
+    if not table:
+        raise HTTPException(status_code=404, detail=f"Table not found: {table_id}")
+    return table
+
+
+def _tool_search_document(query: str, k: int = 5) -> Dict[str, Any]:
+    chunks = retrieve_chunks(query, k=k)
+    out: List[Dict[str, Any]] = []
+    for c in chunks:
+        meta = c.get("metadata") or {}
+        content = str(c.get("content") or "")
+        out.append(
+            {
+                "section_index": int(meta.get("section_index") or 0),
+                "source": str(meta.get("source") or ""),
+                "content": content,
+            }
+        )
+    return {"query": query, "k": k, "results": out}
+
+
+def _llm_answer_with_tools(question: str, initial_results: List[AskResult], top_k: int) -> str:
+    """
+    Uses an OpenAI chat model with function/tool calling to answer the question.
+
+    Tools:
+      - search_document(query, k)
+      - list_tables(query, limit, offset)
+      - get_table(table_id)
+    """
+    model = os.environ.get("OPENAI_CHAT_MODEL", "gpt-4o-mini")
+
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "search_document",
+                "description": "Search the EPA PGP document chunks for relevant passages.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string"},
+                        "k": {"type": "integer", "minimum": 1, "maximum": 10, "default": 5},
+                    },
+                    "required": ["query"],
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "list_tables",
+                "description": "Search extracted tables by header/row text and return table summaries.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string", "default": ""},
+                        "limit": {"type": "integer", "minimum": 1, "maximum": 50, "default": 10},
+                        "offset": {"type": "integer", "minimum": 0, "default": 0},
+                    },
+                    "required": [],
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "get_table",
+                "description": "Get a specific extracted table by table_id.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"table_id": {"type": "string"}},
+                    "required": ["table_id"],
+                },
+            },
+        },
+    ]
+
+    context = ""
+    if initial_results:
+        context = "\n\n".join(
+            f"[section {r.section_index} | {r.source}]\n{r.content}" for r in initial_results[:top_k]
+        )
+
+    system = (
+        "You are an EPA Pesticide General Permit (PGP) assistant. "
+        "Answer using ONLY the provided document passages and tool results. "
+        "If you are unsure or the answer is not in the provided material, say so. "
+        "Cite sources inline like [section 12]."
+    )
+
+    messages: List[Dict[str, Any]] = [
+        {"role": "system", "content": system},
+        {
+            "role": "user",
+            "content": (
+                f"Question: {question}\n\n"
+                f"Top retrieved passages:\n{context}\n\n"
+                "You may call tools if you need more context or table details."
+            ),
+        },
+    ]
+
+    # Tool-calling loop (keep small to stay fast)
+    for _ in range(4):
+        resp = _openai_client().chat.completions.create(
+            model=model,
+            messages=messages,
+            tools=tools,
+            tool_choice="auto",
+            temperature=0.2,
+        )
+        msg = resp.choices[0].message
+
+        tool_calls = getattr(msg, "tool_calls", None)
+        if not tool_calls:
+            answer = (msg.content or "").strip()
+            if initial_results:
+                answer += "\n\nSources:\n" + _format_sources(initial_results)
+            return answer or "I couldn't generate an answer from the available context."
+
+        # Append assistant message that requested tool calls
+        messages.append(
+            {
+                "role": "assistant",
+                "content": msg.content or "",
+                "tool_calls": [tc.model_dump() for tc in tool_calls],
+            }
+        )
+
+        # Execute tool calls and append results
+        for tc in tool_calls:
+            name = tc.function.name
+            args = json.loads(tc.function.arguments or "{}")
+            if name == "search_document":
+                tool_result = _tool_search_document(str(args.get("query", "")), int(args.get("k") or 5))
+            elif name == "list_tables":
+                tool_result = _list_tables_impl(
+                    query=(args.get("query") or ""),
+                    limit=int(args.get("limit") or 10),
+                    offset=int(args.get("offset") or 0),
+                )
+            elif name == "get_table":
+                tool_result = _get_table_impl(str(args.get("table_id", "")))
+            else:
+                tool_result = {"error": f"Unknown tool: {name}"}
+
+            messages.append(
+                {
+                    "role": "tool",
+                    "tool_call_id": tc.id,
+                    "content": json.dumps(tool_result),
+                }
+            )
+
+    # Fallback if the model keeps calling tools.
+    return (
+        "I wasn't able to finish within the tool-calling limit. "
+        "Try rephrasing your question or being more specific."
+    )
 
 
 def _load_heading_chunks() -> List[HeadingChunk]:
@@ -306,7 +547,7 @@ def ask(req: AskRequest) -> AskResponse:
             pass
         raise
 
-    results = [
+    results: List[AskResult] = [
         AskResult(
             content=c.page_content,
             section_index=c.metadata["section_index"],
@@ -316,77 +557,38 @@ def ask(req: AskRequest) -> AskResponse:
         )
         for c in chunks
     ]
-    return AskResponse(question=req.question, top_k=req.top_k, results=results)
+
+    # Generate an answer using a chat model + tool calling.
+    try:
+        answer = _llm_answer_with_tools(req.question, results, top_k=req.top_k)
+    except Exception as e:
+        # Surface auth issues cleanly.
+        try:
+            import openai  # type: ignore
+
+            if isinstance(e, openai.AuthenticationError):
+                raise HTTPException(
+                    status_code=503,
+                    detail=(
+                        "OpenAI authentication failed. Set OPENAI_API_KEY in .env "
+                        "and restart the server."
+                    ),
+                ) from e
+        except Exception:
+            pass
+        raise
+
+    return AskResponse(question=req.question, top_k=req.top_k, answer=answer, results=results)
 
 
 @app.get("/api/tables")
 def list_tables(query: Optional[str] = None, limit: int = 50, offset: int = 0) -> Dict[str, Any]:
-    limit = max(1, min(int(limit), 200))
-    offset = max(0, int(offset))
-    q_tokens = _tokenize(query or "")
-
-    tables = list(_tables_by_id().values())
-    summaries: List[Tuple[float, TableSummary]] = []
-    for t in tables:
-        headers = list(t.get("headers") or [])
-        rows = list(t.get("rows") or [])
-        row_count = len(rows)
-        column_count = len(headers) if headers else (len(rows[0]) if rows else 0)
-
-        haystack = " ".join(headers)
-        if rows:
-            # Only sample the first few rows to keep search fast.
-            sample_rows = rows[: min(10, len(rows))]
-            haystack += " " + " ".join(" ".join(map(str, r)) for r in sample_rows)
-
-        if q_tokens:
-            hay_tokens = set(_tokenize(haystack))
-            score = float(sum(1 for qt in q_tokens if qt in hay_tokens))
-            if score <= 0:
-                continue
-        else:
-            score = 1.0
-
-        summaries.append(
-            (
-                score,
-                TableSummary(
-                    table_id=str(t.get("table_id")),
-                    page_number=int(t.get("page_number") or 0),
-                    headers=[str(h) for h in headers],
-                    row_count=row_count,
-                    column_count=column_count,
-                ),
-            )
-        )
-
-    summaries.sort(key=lambda x: (x[0], x[1].page_number), reverse=True)
-    page = summaries[offset : offset + limit]
-
-    return {
-        "query": query or "",
-        "offset": offset,
-        "limit": limit,
-        "total": len(summaries),
-        "tables": [
-            {
-                "table_id": s.table_id,
-                "page_number": s.page_number,
-                "headers": s.headers,
-                "row_count": s.row_count,
-                "column_count": s.column_count,
-            }
-            for _, s in page
-        ],
-    }
+    return _list_tables_impl(query=query, limit=limit, offset=offset)
 
 
 @app.get("/api/tables/{table_id}")
 def get_table(table_id: str) -> Dict[str, Any]:
-    table = _tables_by_id().get(table_id)
-    if not table:
-        raise HTTPException(status_code=404, detail=f"Table not found: {table_id}")
-    return table
+    return _get_table_impl(table_id)
 
 
 if __name__ == "__main__":
