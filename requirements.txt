@@ -9,3 +9,4 @@ faiss-cpu
 numpy
 fastapi
 uvicorn[standard]
+langchain_openai
