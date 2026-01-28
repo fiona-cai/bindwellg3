@@ -8,15 +8,17 @@ from dataclasses import dataclass
 from functools import lru_cache
 from typing import Any, Dict, List, Optional, Tuple
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from retrieval.retrieval import retrieve_chunks
-
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
+
+from retrieval.retrieval import retrieve_chunks  # noqa: E402
+
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "heading-chunks.json")
 TABLES_PATH = os.path.join(BASE_DIR, "processed_document_tables.json")
@@ -282,8 +284,36 @@ def ask(req: AskRequest) -> AskResponse:
 
     # return AskResponse(question=req.question, top_k=req.top_k, results=results)
 
-    results = retrieve_chunks(req.question, k=req.top_k)
-    results = [AskResult(content=c["content"], section_index=c["metadata"]["section_index"], score=1.0, source=c["metadata"]["source"], snippet=c["content"]) for c in results]
+    try:
+        chunks = retrieve_chunks(req.question, k=req.top_k)
+    except Exception as e:
+        # Make missing API key errors much easier to understand in the UI.
+        try:
+            import openai  # type: ignore
+
+            if isinstance(e, openai.AuthenticationError):
+                raise HTTPException(
+                    status_code=503,
+                    detail=(
+                        "OpenAI authentication failed. Set OPENAI_API_KEY in .env "
+                        "and restart the server."
+                    ),
+                ) from e
+        except Exception:
+            # If OpenAI isn't installed or types differ, fall through.
+            pass
+        raise
+
+    results = [
+        AskResult(
+            content=c["content"],
+            section_index=c["metadata"]["section_index"],
+            score=1.0,
+            source=c["metadata"]["source"],
+            snippet=c["content"],
+        )
+        for c in chunks
+    ]
     return AskResponse(question=req.question, top_k=req.top_k, results=results)
 
 

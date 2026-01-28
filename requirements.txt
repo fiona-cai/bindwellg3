@@ -10,3 +10,4 @@ numpy
 fastapi
 uvicorn[standard]
 langchain_openai
+python-dotenv

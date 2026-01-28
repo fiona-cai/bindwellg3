@@ -1,8 +1,21 @@
+import os
+import sys
+
+from dotenv import load_dotenv
+
+_ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(_ROOT_DIR, ".env"))
+
+# macOS: allow process to continue when multiple OpenMP runtimes are loaded
+# (common with faiss/numpy/torch stacks). This is an unsafe workaround but
+# prevents hard crashes during local development.
+if sys.platform == "darwin":
+    os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+
 import json
 import faiss
 import numpy as np
 # from sentence_transformers import SentenceTransformer
-import os
 
 from langchain_openai import OpenAIEmbeddings
 

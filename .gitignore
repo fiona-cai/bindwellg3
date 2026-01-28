@@ -10,6 +10,11 @@ venv/
 env/
 .env/
 
+### Local env files (secrets)
+.env
+.env.*
+!.env.example
+
 ### Packaging/build
 build/
 dist/
