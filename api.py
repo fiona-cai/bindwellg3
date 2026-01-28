@@ -13,6 +13,8 @@ from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+from retrieval.retrieval import retrieve_chunks
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
@@ -251,33 +253,37 @@ def health() -> Dict[str, Any]:
 
 @app.post("/api/ask", response_model=AskResponse)
 def ask(req: AskRequest) -> AskResponse:
-    query_tokens = _tokenize(req.question)
-    chunks, term_freqs, doc_freqs, doc_lens, avgdl = _bm25_index()
-    n_docs = len(chunks)
-    if n_docs == 0:
-        raise HTTPException(status_code=500, detail="No heading chunks loaded")
+    # query_tokens = _tokenize(req.question)
+    # chunks, term_freqs, doc_freqs, doc_lens, avgdl = _bm25_index()
+    # n_docs = len(chunks)
+    # if n_docs == 0:
+    #     raise HTTPException(status_code=500, detail="No heading chunks loaded")
 
-    scored: List[Tuple[float, int]] = []
-    for i, (tf, dl) in enumerate(zip(term_freqs, doc_lens)):
-        s = _bm25_score(query_tokens, tf, dl, doc_freqs, n_docs, avgdl)
-        if s > 0:
-            scored.append((s, i))
+    # scored: List[Tuple[float, int]] = []
+    # for i, (tf, dl) in enumerate(zip(term_freqs, doc_lens)):
+    #     s = _bm25_score(query_tokens, tf, dl, doc_freqs, n_docs, avgdl)
+    #     if s > 0:
+    #         scored.append((s, i))
 
-    scored.sort(key=lambda x: x[0], reverse=True)
-    top = scored[: req.top_k]
-    results: List[AskResult] = []
-    for score, idx in top:
-        c = chunks[idx]
-        results.append(
-            AskResult(
-                section_index=c.section_index,
-                score=round(score, 6),
-                snippet=_make_snippet(c.content, query_tokens),
-                content=c.content,
-                source=c.source,
-            )
-        )
+    # scored.sort(key=lambda x: x[0], reverse=True)
+    # top = scored[: req.top_k]
+    # results: List[AskResult] = []
+    # for score, idx in top:
+    #     c = chunks[idx]
+    #     results.append(
+    #         AskResult(
+    #             section_index=c.section_index,
+    #             score=round(score, 6),
+    #             snippet=_make_snippet(c.content, query_tokens),
+    #             content=c.content,
+    #             source=c.source,
+    #         )
+    #     )
 
+    # return AskResponse(question=req.question, top_k=req.top_k, results=results)
+
+    results = retrieve_chunks(req.question, k=req.top_k)
+    results = [AskResult(content=c["content"], section_index=c["metadata"]["section_index"], score=1.0, source=c["metadata"]["source"], snippet=c["content"]) for c in results]
     return AskResponse(question=req.question, top_k=req.top_k, results=results)
 
 
@@ -357,7 +363,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "api:app",
         host=os.environ.get("HOST", "127.0.0.1"),
-        port=int(os.environ.get("PORT", "8000")),
+        port=int(os.environ.get("PORT", "8001")),
         reload=True,
     )
 
