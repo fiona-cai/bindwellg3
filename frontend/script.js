@@ -47,6 +47,25 @@ function _formatAskResponse(data) {
   return out.trim();
 }
 
+function _formatChatResponse(data) {
+  if (!data) return "No response.";
+  const answer = (data.answer || "").trim();
+  const citations = Array.isArray(data.citations) ? data.citations : [];
+  let out = "";
+  out += answer ? answer : "No answer returned.";
+  if (citations.length) {
+    out += "\n\nSources:\n";
+    // Show up to 8 citations to keep UI readable.
+    for (let i = 0; i < Math.min(8, citations.length); i++) {
+      const c = citations[i];
+      out += `- [${c.ref}] section ${c.section_index} (${c.source || "unknown"})\n`;
+    }
+  }
+  out += "\n\nTip: use /ask <question> to see raw retrieved chunks.";
+  out += "\nTip: use /tables [query] to browse extracted tables.";
+  return out.trim();
+}
+
 function _formatTablesList(data) {
   const tables = data && data.tables ? data.tables : [];
   if (!tables.length) return "No tables matched.";
@@ -85,6 +104,18 @@ async function sendMessage() {
   input.value = "";
 
   try {
+    // /ask <question> (debug: show retrieved chunks)
+    if (message.toLowerCase().startsWith("/ask")) {
+      const q = message.slice("/ask".length).trim();
+      if (!q) {
+        agentEl.innerText = "Usage: /ask <question>";
+        return;
+      }
+      const data = await _postJson("/api/ask", { question: q, top_k: 5 });
+      agentEl.innerText = _formatAskResponse(data);
+      return;
+    }
+
     // /tables [query]
     if (message.toLowerCase().startsWith("/tables")) {
       const q = message.slice("/tables".length).trim();
@@ -106,9 +137,9 @@ async function sendMessage() {
       return;
     }
 
-    // Default: ask question
-    const data = await _postJson("/api/ask", { question: message, top_k: 5 });
-    agentEl.innerText = _formatAskResponse(data);
+    // Default: chat (answer grounded in retrieved excerpts)
+    const data = await _postJson("/api/chat", { question: message, top_k: 5 });
+    agentEl.innerText = _formatChatResponse(data);
   } catch (err) {
     agentEl.innerText = `Error: ${err && err.message ? err.message : String(err)}`;
   }

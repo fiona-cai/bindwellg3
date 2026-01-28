@@ -18,10 +18,35 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 from retrieval.retrieval import retrieve_chunks  # noqa: E402
+from langchain_openai import ChatOpenAI  # noqa: E402
 
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "heading-chunks.json")
 TABLES_PATH = os.path.join(BASE_DIR, "processed_document_tables.json")
+
+SYSTEM_PROMPT = """You are a careful assistant answering questions about the 2026 EPA Pesticide General Permit (PGP) using ONLY the provided excerpts.
+
+Important:
+- Think through the problem step-by-step, but DO NOT reveal your internal reasoning.
+- If the excerpts do not contain enough information to answer, say so and ask a concise clarifying question.
+- Never invent permit requirements, thresholds, definitions, examples, or “typical” practices not present in the excerpts.
+- Do not mention specific pesticide products/ingredients, thresholds, timelines, or exemptions unless the excerpts explicitly state them.
+
+Reason (privately) in these steps:
+1) Identify the pesticide-related subject of the user’s question (e.g., pest/use pattern such as mosquito control, weed/algae, forest canopy; activity; permit requirement; reporting; NOI/NOT; monitoring; discharge conditions; listed species/ESA; etc.).
+2) Classify the question as general vs. specific (specific = asks about a particular requirement, form, threshold, who must do what, when, or where).
+3) Decide what subdetails would be needed to answer (e.g., operator/decision-maker, treatment area, waters of the U.S., use pattern, pesticide product changes, timing, reporting/records, applicability/coverage).
+4) Answer using only excerpt text as evidence.
+5) Provide citations as bracketed numbers like [1], [2] that correspond to the excerpt numbers provided.
+
+Output format:
+- Answer:
+  - Use bullet points for requirements/constraints.
+  - Every bullet MUST end with at least one citation like [1] or [2].
+  - If you cannot find explicit support in the excerpts for a point, do not include it.
+  - If the excerpts are insufficient overall, write: "I don’t have enough in the provided excerpts to answer." and ask 1-2 clarifying questions.
+- Citations: (list the bracketed citations you used; if none, write "none")
+"""
 
 
 STOPWORDS = {
@@ -95,6 +120,35 @@ class AskResponse(BaseModel):
     question: str
     top_k: int
     results: List[AskResult]
+
+
+class ChatRequest(BaseModel):
+    question: str = Field(..., min_length=1)
+    top_k: int = Field(5, ge=1, le=10)
+
+
+class ChatCitation(BaseModel):
+    ref: int
+    section_index: int
+    source: str
+
+
+class ChatResponse(BaseModel):
+    question: str
+    answer: str
+    citations: List[ChatCitation]
+    top_k: int
+
+
+class _GroundedAnswer(BaseModel):
+    """
+    Structured output schema to enforce format and grounding.
+    The model must cite excerpt numbers like [1] within each bullet.
+    """
+
+    insufficient: bool = False
+    answer_bullets: List[str] = Field(default_factory=list)
+    clarifying_questions: List[str] = Field(default_factory=list)
 
 
 def _load_heading_chunks() -> List[HeadingChunk]:
@@ -315,6 +369,107 @@ def ask(req: AskRequest) -> AskResponse:
         for c in chunks
     ]
     return AskResponse(question=req.question, top_k=req.top_k, results=results)
+
+
+def _build_excerpt_block(chunks: List[Dict[str, Any]]) -> Tuple[str, List[ChatCitation]]:
+    citations: List[ChatCitation] = []
+    parts: List[str] = []
+    for i, c in enumerate(chunks, start=1):
+        meta = c.get("metadata") or {}
+        section_index = int(meta.get("section_index") or 0)
+        source = str(meta.get("source") or "")
+        content = str(c.get("content") or "")
+        citations.append(ChatCitation(ref=i, section_index=section_index, source=source))
+        parts.append(
+            f"[{i}] (section {section_index}; source: {source})\n{content}".strip()
+        )
+    return "\n\n".join(parts).strip(), citations
+
+
+def _get_chat_model() -> ChatOpenAI:
+    model_name = os.environ.get("OPENAI_CHAT_MODEL", "gpt-4o-mini")
+    # Keep temperature low for faithful, excerpt-grounded answers.
+    return ChatOpenAI(model=model_name, temperature=0)
+
+
+_CITATION_RE = re.compile(r"\[(\d+)\]")
+
+
+def _format_grounded_answer(payload: _GroundedAnswer) -> str:
+    if payload.insufficient or not payload.answer_bullets:
+        questions = [q.strip() for q in (payload.clarifying_questions or []) if q.strip()]
+        if questions:
+            qs = "\n".join(f"- {q}" for q in questions[:2])
+            return "Answer: I don’t have enough in the provided excerpts to answer.\n\nClarifying questions:\n" + qs + "\n\nCitations: none"
+        return "Answer: I don’t have enough in the provided excerpts to answer.\n\nCitations: none"
+
+    bullets = [b.strip() for b in payload.answer_bullets if b and b.strip()]
+    bullets = bullets[:8]
+    if not bullets:
+        return "Answer: I don’t have enough in the provided excerpts to answer.\n\nCitations: none"
+
+    # Enforce: every bullet must include at least one [n] citation.
+    cleaned: List[str] = []
+    for b in bullets:
+        if not _CITATION_RE.search(b):
+            # If the model forgot citations, degrade safely instead of hallucinating.
+            continue
+        cleaned.append(b)
+
+    if not cleaned:
+        return "Answer: I don’t have enough in the provided excerpts to answer.\n\nCitations: none"
+
+    used = sorted({int(m.group(1)) for b in cleaned for m in _CITATION_RE.finditer(b)})
+    used_str = ", ".join(f"[{n}]" for n in used) if used else "none"
+    out = "Answer:\n" + "\n".join(f"- {b}" for b in cleaned) + f"\n\nCitations: {used_str}"
+    return out.strip()
+
+
+def _answer_with_llm(question: str, excerpts: str) -> str:
+    llm = _get_chat_model()
+    user_msg = (
+        "User question:\n"
+        f"{question}\n\n"
+        "Excerpts (numbered for citation):\n"
+        f"{excerpts}\n"
+    )
+    # Constrain the model to a structured output to enforce:
+    # - bullet points
+    # - per-bullet citations
+    structured = llm.with_structured_output(_GroundedAnswer)
+    payload = structured.invoke([("system", SYSTEM_PROMPT), ("human", user_msg)])
+    if isinstance(payload, dict):
+        payload = _GroundedAnswer(**payload)
+    return _format_grounded_answer(payload)
+
+
+@app.post("/api/chat", response_model=ChatResponse)
+def chat(req: ChatRequest) -> ChatResponse:
+    try:
+        chunks = retrieve_chunks(req.question, k=req.top_k)
+    except Exception as e:
+        # Make missing API key errors much easier to understand in the UI.
+        try:
+            import openai  # type: ignore
+
+            if isinstance(e, openai.AuthenticationError):
+                raise HTTPException(
+                    status_code=503,
+                    detail=(
+                        "OpenAI authentication failed. Set OPENAI_API_KEY in .env "
+                        "and restart the server."
+                    ),
+                ) from e
+        except Exception:
+            pass
+        raise
+
+    excerpts, citations = _build_excerpt_block(list(chunks))
+    if not excerpts:
+        return ChatResponse(question=req.question, answer="Answer: I couldn't find any relevant excerpts.\nCitations: none", citations=[], top_k=req.top_k)
+
+    answer = _answer_with_llm(req.question, excerpts)
+    return ChatResponse(question=req.question, answer=answer, citations=citations, top_k=req.top_k)
 
 
 @app.get("/api/tables")
