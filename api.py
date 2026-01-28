@@ -13,7 +13,7 @@ from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from retrieval.retrieval import retrieve_chunks
+from retrieval_langchain.retrieval import retrieve_chunks
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -283,7 +283,7 @@ def ask(req: AskRequest) -> AskResponse:
     # return AskResponse(question=req.question, top_k=req.top_k, results=results)
 
     results = retrieve_chunks(req.question, k=req.top_k)
-    results = [AskResult(content=c["content"], section_index=c["metadata"]["section_index"], score=1.0, source=c["metadata"]["source"], snippet=c["content"]) for c in results]
+    results = [AskResult(content=c.page_content, section_index=c.metadata["section_index"], score=1.0, source=c.metadata["source"], snippet=c.page_content) for c in results]
     return AskResponse(question=req.question, top_k=req.top_k, results=results)
 
 

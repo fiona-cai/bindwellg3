@@ -1,7 +1,8 @@
 import json
-import faiss
+# import faiss
 import numpy as np
 # from sentence_transformers import SentenceTransformer
+from langchain_community.vectorstores import FAISS
 import os
 
 from langchain_openai import OpenAIEmbeddings

@@ -10,3 +10,6 @@ numpy
 fastapi
 uvicorn[standard]
 langchain_openai
+langchain_classic
+flashrank
+rank_bm25
