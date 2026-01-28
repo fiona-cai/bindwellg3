@@ -160,104 +160,12 @@ class _GroundedAnswer(BaseModel):
     clarifying_questions: List[str] = Field(default_factory=list)
 
 
-def _load_heading_chunks() -> List[HeadingChunk]:
-    if not os.path.exists(HEADING_CHUNKS_PATH):
-        raise FileNotFoundError(f"Missing file: {HEADING_CHUNKS_PATH}")
-    with open(HEADING_CHUNKS_PATH, "r", encoding="utf-8") as f:
-        raw = json.load(f)
-    chunks: List[HeadingChunk] = []
-    for item in raw:
-        meta = item.get("metadata") or {}
-        chunks.append(
-            HeadingChunk(
-                section_index=int(meta.get("section_index") or 0),
-                source=str(meta.get("source") or ""),
-                content=str(item.get("content") or ""),
-            )
-        )
-    return chunks
-
-
 def _load_tables() -> List[Dict[str, Any]]:
     if not os.path.exists(TABLES_PATH):
         raise FileNotFoundError(f"Missing file: {TABLES_PATH}")
     with open(TABLES_PATH, "r", encoding="utf-8") as f:
         raw = json.load(f)
     return list(raw.get("tables") or [])
-
-
-@lru_cache(maxsize=1)
-def _bm25_index() -> Tuple[List[HeadingChunk], List[Dict[str, int]], Dict[str, int], List[int], float]:
-    """
-    Returns:
-      - chunks
-      - term_freqs per doc: [{term: tf}]
-      - doc_freqs: {term: df}
-      - doc_lens: [len(tokens)]
-      - avgdl
-    """
-    chunks = _load_heading_chunks()
-    term_freqs: List[Dict[str, int]] = []
-    doc_freqs: Dict[str, int] = {}
-    doc_lens: List[int] = []
-
-    for c in chunks:
-        tokens = _tokenize(c.content)
-        doc_lens.append(len(tokens))
-        tf: Dict[str, int] = {}
-        for t in tokens:
-            tf[t] = tf.get(t, 0) + 1
-        term_freqs.append(tf)
-        for t in tf.keys():
-            doc_freqs[t] = doc_freqs.get(t, 0) + 1
-
-    avgdl = (sum(doc_lens) / len(doc_lens)) if doc_lens else 0.0
-    return chunks, term_freqs, doc_freqs, doc_lens, avgdl
-
-
-def _bm25_score(query_tokens: List[str], doc_tf: Dict[str, int], doc_len: int, doc_freqs: Dict[str, int], n_docs: int, avgdl: float) -> float:
-    # Standard-ish BM25 parameters.
-    k1 = 1.5
-    b = 0.75
-    score = 0.0
-    for t in query_tokens:
-        df = doc_freqs.get(t, 0)
-        if df == 0:
-            continue
-        idf = math.log(1.0 + (n_docs - df + 0.5) / (df + 0.5))
-        tf = doc_tf.get(t, 0)
-        if tf == 0:
-            continue
-        denom = tf + k1 * (1.0 - b + b * (doc_len / (avgdl or 1.0)))
-        score += idf * (tf * (k1 + 1.0)) / (denom or 1.0)
-    return float(score)
-
-
-def _make_snippet(text: str, query_tokens: List[str], max_len: int = 240) -> str:
-    s = re.sub(r"\s+", " ", (text or "")).strip()
-    if not s:
-        return ""
-    if not query_tokens:
-        return (s[:max_len] + ("…" if len(s) > max_len else ""))
-
-    lower = s.lower()
-    best_pos = None
-    for t in query_tokens[:10]:
-        pos = lower.find(t)
-        if pos != -1 and (best_pos is None or pos < best_pos):
-            best_pos = pos
-    if best_pos is None:
-        return (s[:max_len] + ("…" if len(s) > max_len else ""))
-
-    start = max(0, best_pos - max_len // 3)
-    end = min(len(s), start + max_len)
-    snippet = s[start:end].strip()
-    if start > 0:
-        snippet = "…" + snippet
-    if end < len(s):
-        snippet = snippet + "…"
-    return snippet
-
 
 @lru_cache(maxsize=1)
 def _tables_by_id() -> Dict[str, Dict[str, Any]]:
@@ -308,7 +216,7 @@ def script_js() -> FileResponse:
 @app.get("/health")
 def health() -> Dict[str, Any]:
     # Helpful for quick sanity checks.
-    chunks, _, _, _, _ = _bm25_index()
+    chunks = retrieve_chunks("Find the 5 most important things in the PGP Document", k=5)
     return {
         "ok": True,
         "heading_chunks": len(chunks),
@@ -451,15 +359,30 @@ def _answer_with_llm(question: str, excerpts: str) -> str:
         payload = _GroundedAnswer(**payload)
     return _format_grounded_answer(payload)
 
+def query_modified_get_chunks(question: str, k: int = 10):
+    llm = _get_chat_model()
+    clarify_prompt = (
+        "Rewrite the following question to be more specific and include any clarifying details that would help a retrieval system find the most relevant excerpts from the EPA PGP Legal Document. "
+        "If the question is already specific, no need to modify it.\n\n"
+        f"Question: {question}\n\nMore specific version:"
+    )
+    clarified_question = llm.invoke(clarify_prompt).content.strip()
+    # Fallback if LLM fails
+    if not clarified_question:
+        clarified_question = question
+    chunks = retrieve_chunks(clarified_question, k=k)
+    return chunks, clarified_question
+
 
 @app.post("/api/chat", response_model=ChatResponse)
+
 def chat(req: ChatRequest) -> ChatResponse:
     try:
-        chunks = retrieve_chunks(req.question, k=req.top_k)
+        chunks, clarified_question = query_modified_get_chunks(req.question, k=req.top_k)
+        print("Clarifying question: ", clarified_question)
     except Exception as e:
         try:
             import openai  # type: ignore
-
             if isinstance(e, openai.AuthenticationError):
                 raise HTTPException(
                     status_code=503,
@@ -500,7 +423,6 @@ def chat(req: ChatRequest) -> ChatResponse:
         retrieved_sections=retrieved_sections,
         top_k=req.top_k,
     )
-
 
 
 @app.get("/api/tables")

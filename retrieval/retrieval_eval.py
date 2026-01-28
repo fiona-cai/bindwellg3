@@ -9,6 +9,10 @@ from retrieval_langchain import retrieve_chunks
 
 from deepeval import evaluate
 
+import os
+
+os.environ["CONFIDENT_METRIC_LOGGING_VERBOSE"] = 0
+
 
 def generate_testcase(question, expected_output):
     retrieved_responses = retrieve_chunks(question, k=5)
@@ -36,7 +40,20 @@ test1 = generate_testcase("When is adverse incident notification not required un
                         identified on the FIFRA label, except as required in Part 6.4.3, Notification for
                         Adverse Incident to Threatened or Endangered Species or Critical Habit""")
 
-print(evaluate(
-    test_cases=[test1],
-    metrics=[contextual_precision, contextual_recall, contextual_relevancy]
-))
+# print(evaluate(
+#     test_cases=[test1],
+#     metrics=[contextual_precision, contextual_recall, contextual_relevancy]
+# ))
+
+
+contextual_precision.measure(test1)
+print("Score: ", contextual_precision.score)
+print("Reason: ", contextual_precision.reason)
+
+contextual_recall.measure(test1)
+print("Score: ", contextual_recall.score)
+print("Reason: ", contextual_recall.reason)
+
+contextual_relevancy.measure(test1)
+print("Score: ", contextual_relevancy.score)
+print("Reason: ", contextual_relevancy.reason)
