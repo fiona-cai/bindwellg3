@@ -44,3 +44,76 @@ h1 {
   flex: 1;
   padding: 10px;
 }
+
+/* Modal Styles <33*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-box {
+  position: relative;
+  background: #fff;
+  max-width: 600px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  overflow-y: auto;
+  max-height: 80%;
+}
+
+.modal-box h3 {
+  margin-top: 0;
+}
+
+.modal-box button {
+  margin-top: 15px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.evidence-section p {
+  margin: 5px 0;
+}
+
+.evidence-btn {
+  margin-top: 5px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Make each evidence section scrollable if too long */
+.evidence-section {
+  max-height: 120px;       /* each section will be limited in height */
+  overflow-y: auto;        /* add scroll if content exceeds */
+  padding: 5px;
+  margin-bottom: 10px;
+  border-left: 3px solid #3b82f6; /* subtle blue highlight */
+  background: #f9fafb;     /* light background for readability */
+  border-radius: 4px;
+}
+
+/* Optional: smooth scrolling inside sections */
+.evidence-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.evidence-section::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}

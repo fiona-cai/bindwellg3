@@ -134,12 +134,19 @@ class ChatCitation(BaseModel):
     section_index: int
     source: str
 
+class RetrievedSection(BaseModel):
+    section_index: int
+    source: str
+    content: str
+
 
 class ChatResponse(BaseModel):
     question: str
     answer: str
     citations: List[ChatCitation]
+    retrieved_sections: List[RetrievedSection]
     top_k: int
+
 
 
 class _GroundedAnswer(BaseModel):
@@ -450,7 +457,6 @@ def chat(req: ChatRequest) -> ChatResponse:
     try:
         chunks = retrieve_chunks(req.question, k=req.top_k)
     except Exception as e:
-        # Make missing API key errors much easier to understand in the UI.
         try:
             import openai  # type: ignore
 
@@ -468,10 +474,33 @@ def chat(req: ChatRequest) -> ChatResponse:
 
     excerpts, citations = _build_excerpt_block(list(chunks))
     if not excerpts:
-        return ChatResponse(question=req.question, answer="Answer: I couldn't find any relevant excerpts.\nCitations: none", citations=[], top_k=req.top_k)
+        return ChatResponse(
+            question=req.question,
+            answer="Answer: I couldn't find any relevant excerpts.\nCitations: none",
+            citations=[],
+            retrieved_sections=[],
+            top_k=req.top_k,
+        )
 
     answer = _answer_with_llm(req.question, excerpts)
-    return ChatResponse(question=req.question, answer=answer, citations=citations, top_k=req.top_k)
+
+    retrieved_sections = [
+        RetrievedSection(
+            section_index=int(c.metadata.get("section_index", 0)),
+            source=str(c.metadata.get("source", "")),
+            content=c.page_content,
+        )
+        for c in chunks[:3]
+    ]
+
+    return ChatResponse(
+        question=req.question,
+        answer=answer,
+        citations=citations,
+        retrieved_sections=retrieved_sections,
+        top_k=req.top_k,
+    )
+
 
 
 @app.get("/api/tables")

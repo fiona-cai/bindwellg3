@@ -102,6 +102,48 @@ function _formatTableDetail(t) {
   return out.trim();
 }
 
+// Modal helper for showing retrieved evidence 
+function _createEvidenceModal(sections) {
+  const modal = document.createElement("div");
+  modal.className = "modal";
+
+  const overlay = document.createElement("div");
+  overlay.className = "modal-overlay";
+
+  const box = document.createElement("div");
+  box.className = "modal-box";
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerText = "Close";
+  closeBtn.onclick = () => modal.remove();
+
+  const title = document.createElement("h3");
+  title.innerText = "Retrieved Evidence";
+
+  box.appendChild(title);
+
+  sections.forEach((s, i) => {
+    const sec = document.createElement("div");
+    sec.className = "evidence-section";
+    sec.innerHTML = `
+      <strong>Section ${s.section_index}</strong><br/>
+      <em>${s.source}</em>
+      <p>${s.content}</p>
+      <hr/>
+    `;
+    box.appendChild(sec);
+  });
+
+  box.appendChild(closeBtn);
+  modal.appendChild(overlay);
+  modal.appendChild(box);
+
+  overlay.onclick = () => modal.remove();
+
+  document.body.appendChild(modal);
+}
+
+
 async function sendMessage() {
   const input = document.getElementById("user-input");
   const message = (input.value || "").trim();
@@ -146,8 +188,25 @@ async function sendMessage() {
     }
 
     // Default: chat (answer grounded in retrieved excerpts)
-    const data = await _postJson("/api/chat", { question: message, top_k: 5 });
-    agentEl.innerText = _formatChatResponse(data);
+const data = await _postJson("/api/chat", { question: message, top_k: 5 });
+
+// show the main answer
+agentEl.innerText = _formatChatResponse(data);
+
+// add "Show retrieved evidence" button if evidence exists
+if (Array.isArray(data.retrieved_sections) && data.retrieved_sections.length) {
+  const btn = document.createElement("button");
+  btn.innerText = "Show retrieved evidence";
+  btn.className = "evidence-btn";
+
+  btn.onclick = () => {
+    _createEvidenceModal(data.retrieved_sections);
+  };
+
+  agentEl.appendChild(document.createElement("br"));
+  agentEl.appendChild(btn);
+}
+
   } catch (err) {
     agentEl.innerText = `Error: ${err && err.message ? err.message : String(err)}`;
   }
