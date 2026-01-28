@@ -7,3 +7,5 @@ pandas>=2.0.0
 sentence-transformers
 faiss-cpu
 numpy
+fastapi
+uvicorn[standard]
