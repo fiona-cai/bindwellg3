@@ -1,3 +1,19 @@
+// Chat history array to store messages (if needed for future use)
+let chat_history = [];
+
+// Clear chat history on page reload
+window.onload = async function() {
+  chat_history = [];
+  // Optionally clear chat UI as well
+  const chatContainer = document.getElementById("chat-container");
+  if (chatContainer) chatContainer.innerHTML = "";
+  // Clear server-side chat history
+  try {
+    await fetch("/api/clear_chat_history", { method: "POST" });
+  } catch (e) {
+    // Ignore errors
+  }
+};
 function _appendMessage(text, role) {
   const chatContainer = document.getElementById("chat-container");
   const el = document.createElement("div");

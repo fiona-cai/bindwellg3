@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
+from fastapi import Request
 from pydantic import BaseModel, Field
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,6 +20,7 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 from langchain_core.documents import Document  # noqa: E402
 from langchain_openai import ChatOpenAI  # noqa: E402
+import openai  # noqa: E402
 
 from retrieval.retrieval_langchain import retrieve_chunks  # noqa: E402
 
@@ -33,6 +35,7 @@ Important:
 - If the excerpts do not contain enough information to answer, say so and ask a concise clarifying question.
 - Never invent permit requirements, thresholds, definitions, examples, or “typical” practices not present in the excerpts.
 - Do not mention specific pesticide products/ingredients, thresholds, timelines, or exemptions unless the excerpts explicitly state them.
+- Do not deviate from the user's question topic even if the document contains additional irrelevant information.
 
 Reason (privately) in these steps:
 1) Identify the pesticide-related subject of the user’s question (e.g., pest/use pattern such as mosquito control, weed/algae, forest canopy; activity; permit requirement; reporting; NOI/NOT; monitoring; discharge conditions; listed species/ESA; etc.).
@@ -342,40 +345,153 @@ def _format_grounded_answer(payload: _GroundedAnswer) -> str:
     return out.strip()
 
 
+chat_history = []
+
+@app.post("/api/clear_chat_history")
+async def clear_chat_history(request: Request):
+    global chat_history
+    chat_history = []
+    return {"ok": True, "message": "Chat history cleared."}
+
 def _answer_with_llm(question: str, excerpts: str) -> str:
+    # Agent loop: the LLM may request more excerpts by calling the
+    # `retrieve_excerpts` tool (implemented below). The loop allows up
+    # to 5 tool calls to gather evidence before producing a final
+    # grounded answer using the structured output schema.
     llm = _get_chat_model()
+
+    # Aggregate excerpts returned by tool calls (start with provided excerpts)
+    aggregated_excerpts = excerpts or ""
+
+    # Keep a short history for the LLM to reference
+    messages = [("system", SYSTEM_PROMPT)]
+    messages.extend(chat_history)
+
+    max_tool_calls = 5
+    for i in range(max_tool_calls):
+        # Build messages for OpenAI ChatCompletion (function-calling)
+        def to_openai_role(r: str) -> str:
+            if r == "human":
+                return "user"
+            if r == "assistant":
+                return "assistant"
+            return r
+
+        openai_messages: List[Dict[str, Any]] = []
+        openai_messages.append({"role": "system", "content": SYSTEM_PROMPT})
+        for role, content in messages:
+            openai_messages.append({"role": to_openai_role(role), "content": content})
+        # Add current context and ask whether to call tool
+        decision_prompt = (
+            "Decide whether to call the retrieval tool. If you cannot answer the question with the given excerpts, return a function call to 'retrieve_excerpts' with a JSON argument {\"question\": <short query>, \"k\": <int>} using OpenAI function-calling. "
+            "The question you ask each time calling the tool should be different and should be refined so it is more likely to find the content."
+            "Make sure you can concretely answer the question before returning."
+            "Otherwise, return a normal assistant response with the final answer."
+        )
+        openai_messages.append({"role": "user", "content": f"{decision_prompt}\nUser question: {question}\n\nCurrent excerpts:\n{aggregated_excerpts[:4000]}"})
+
+        functions_def = [
+            {
+                "name": "retrieve_excerpts",
+                "description": "Retrieve document excerpts for a short query",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "question": {"type": "string"},
+                        "k": {"type": "integer"},
+                    },
+                    "required": ["question"],
+                },
+            }
+        ]
+
+        try:
+            resp = openai.ChatCompletion.create(
+                model=os.environ.get("OPENAI_CHAT_MODEL", "gpt-4o-mini"),
+                messages=openai_messages,
+                functions=functions_def,
+                function_call="auto",
+                temperature=0,
+            )
+        except Exception:
+            break
+
+        choice = resp.choices[0]
+        msg = choice.message
+
+        # If model decided to call our function, perform the call
+        if msg.get("function_call"):
+            print("Calling function")
+            fn_name = msg["function_call"]["name"]
+            fn_args_str = msg["function_call"].get("arguments") or "{}"
+            try:
+                fn_args = json.loads(fn_args_str)
+            except Exception:
+                fn_args = {}
+            q = fn_args.get("question")
+            k = int(fn_args.get("k", 5))
+            tool_excerpts, tool_citations, _ = retrieve_excerpts(q, k=k)
+            # Append the function result back into messages
+            messages.append(("assistant", f"<function_call name=retrieve_excerpts args={fn_args_str}>"))
+            func_content = json.dumps({"excerpts": tool_excerpts, "citations": [c.dict() for c in tool_citations]})
+            openai_messages.append({"role": "function", "name": "retrieve_excerpts", "content": func_content})
+            # Update aggregated excerpts
+            if tool_excerpts:
+                aggregated_excerpts = tool_excerpts.strip()
+            # Continue loop to let the model decide again
+            continue
+
+        # Otherwise model returned a normal assistant message (we'll treat as ready)
+        assistant_content = msg.get("content") or ""
+        messages.append(("assistant", assistant_content))
+        break
+
+    # Produce final structured grounded answer using all aggregated excerpts
     user_msg = (
         "User question:\n"
         f"{question}\n\n"
         "Excerpts (numbered for citation):\n"
-        f"{excerpts}\n"
+        f"{aggregated_excerpts}\n"
     )
-    # Constrain the model to a structured output to enforce:
-    # - bullet points
-    # - per-bullet citations
+    
+    # print(aggregated_excerpts)
     structured = llm.with_structured_output(_GroundedAnswer)
     payload = structured.invoke([("system", SYSTEM_PROMPT), ("human", user_msg)])
     if isinstance(payload, dict):
         payload = _GroundedAnswer(**payload)
-    return _format_grounded_answer(payload)
+
+    answer = _format_grounded_answer(payload)
+    chat_history.append(("human", question))
+    chat_history.append(("assistant", answer))
+    return answer
 
 def query_modified_get_chunks(question: str, k: int = 10):
     llm = _get_chat_model()
-    # clarify_prompt = (
-    #     "Rewrite the following question to be more specific."
-    #     "Include any clarifying details that would help a retrieval system find the most relevant excerpts "
-    #     "from the EPA PGP (Pesticide General Permit) Legal Document. You do not need to include any names of the document in the modified question."
-    #     "If the question is already specific, no need to modify it.\n\n"
-    #     f"Question: {question}\n\nMore specific version:"
-    # )
-    # clarified_question = llm.invoke(clarify_prompt).content.strip()
-    # # Fallback if LLM fails
-    # if not clarified_question:
-    #     clarified_question = question
+    clarify_prompt = (
+        "If the question is asking for something that requires information from before, then rewrite the question to address what was asked from before."
+        "You are looking at the EPA PGP (Pesticide General Permit) Legal Document. Your new question should not contain the words EPA Pesticide General Permit or similar."
+        "If the chat history is not empty, and the question refers to it, then modify. Otherwise, DO NOT MODIFY THE QUESTION AT ALL"
+        "Keep modified responses under 20 words."
+    )
+    messages = [("system", clarify_prompt)]
+    messages.extend(chat_history)
+    print(chat_history)
+    messages.append(("human", f"Question: {question}"))
+    clarified_question = llm.invoke(messages).content.strip()
+    # Fallback if LLM fails
+    if not clarified_question:
+        clarified_question = question
 
-    clarified_question = question
+    print("Clarifying question: ", clarified_question)
     chunks = retrieve_chunks(clarified_question, k=k)
     return chunks, clarified_question
+
+
+def retrieve_excerpts(question: str, k: int = 10):
+    """Tool wrapper the agent can call: returns (excerpts:str, citations:List[ChatCitation], chunks:List[Document])"""
+    chunks, clarified = query_modified_get_chunks(question, k=k)
+    excerpts, citations = _build_excerpt_block(list(chunks))
+    return excerpts, citations, chunks
 
 
 @app.post("/api/chat", response_model=ChatResponse)
