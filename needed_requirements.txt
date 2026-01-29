@@ -6,3 +6,4 @@ langchain-openai
 langchain-text-splitteres
 deepeval
 FlashRank
+langchain_huggingface

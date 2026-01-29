@@ -4,6 +4,8 @@ import numpy as np
 from langchain_community.vectorstores import FAISS
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
+from sentence_transformers import CrossEncoder
+
 
 from langchain_classic.retrievers import EnsembleRetriever
 import os
@@ -70,11 +72,31 @@ else:
 bm25 = BM25Retriever.from_documents(docs)
 bm25.k = 5
 
+def rerank(query, docs, model_name, top_k=5, device="cpu", threshold=0.22):
+    model = CrossEncoder(model_name, device=device)
+
+    ranks = model.rank(query, [doc.page_content for doc in docs])
+    
+    sorted_ranks = sorted(ranks, key=lambda x : x["score"], reverse=True)
+
+    results = []
+
+    print(sorted_ranks)
+
+    for d in sorted_ranks[:top_k]:
+        corpus_id = d["corpus_id"]
+        if (d["score"] > threshold):
+            results.append(docs[corpus_id])
+    
+    return results
+
+
+
 # 4. Query function !
 
 def retrieve_chunks(question, k=10):
     # query_embedding = model.encode([question]).astype("float32")
-    sample_rerank_k = 20
+    sample_rerank_k = 50
     bm25.k = sample_rerank_k
     similarity_retriever = faiss_store.as_retriever(
                                 search_type="similarity",
@@ -99,14 +121,20 @@ def retrieve_chunks(question, k=10):
 
     # results = hybrid_retriever.invoke(question)
 
-    compressor = FlashrankRerank(top_n=k)
-    compression_retriever = ContextualCompressionRetriever(
-        base_compressor=compressor, base_retriever=hybrid_retriever
-    )
+    # compressor = FlashrankRerank(top_n=k)
+    #reranker_model_name = "BAAI/bge-reranker-base"
+    reranker_model_name = "BAAI/bge-reranker-large"
+    stage_one_docs = hybrid_retriever.invoke(question)
 
-    results = compression_retriever.invoke(
-        question
-    )
+    results = rerank(question, stage_one_docs, reranker_model_name,
+                        top_k=k, device="cpu")
+    # compression_retriever = ContextualCompressionRetriever(
+    #     base_compressor=compressor, base_retriever=hybrid_retriever
+    # )
+
+    # results = compression_retriever.invoke(
+    #     question
+    # )
 
     # print(results)
 
@@ -121,11 +149,12 @@ if __name__ == "__main__":
     # question = "What pesticide restrictions apply under the 2026 PGP?"
     #question = "For what activities are eligible for the Pesticide General Permit?"
 
-    question = "What are options I have if I can't get a PGP permit?"
+    question = "What are alternative permits I can get and describe their coverage."
+    # question = "What are the types of pesticides covered in PGP?"
     # question = "What are alternative permits I can get and their requirements?"
     #question = "What are rules for mosquito control?"
 
-    results = retrieve_chunks(question, k=20)
+    results = retrieve_chunks(question, k=5)
     
     print(f"Question asked: {question}")
 
