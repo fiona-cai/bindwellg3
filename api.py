@@ -361,15 +361,19 @@ def _answer_with_llm(question: str, excerpts: str) -> str:
 
 def query_modified_get_chunks(question: str, k: int = 10):
     llm = _get_chat_model()
-    clarify_prompt = (
-        "Rewrite the following question to be more specific and include any clarifying details that would help a retrieval system find the most relevant excerpts from the EPA PGP Legal Document. "
-        "If the question is already specific, no need to modify it.\n\n"
-        f"Question: {question}\n\nMore specific version:"
-    )
-    clarified_question = llm.invoke(clarify_prompt).content.strip()
-    # Fallback if LLM fails
-    if not clarified_question:
-        clarified_question = question
+    # clarify_prompt = (
+    #     "Rewrite the following question to be more specific."
+    #     "Include any clarifying details that would help a retrieval system find the most relevant excerpts "
+    #     "from the EPA PGP (Pesticide General Permit) Legal Document. You do not need to include any names of the document in the modified question."
+    #     "If the question is already specific, no need to modify it.\n\n"
+    #     f"Question: {question}\n\nMore specific version:"
+    # )
+    # clarified_question = llm.invoke(clarify_prompt).content.strip()
+    # # Fallback if LLM fails
+    # if not clarified_question:
+    #     clarified_question = question
+
+    clarified_question = question
     chunks = retrieve_chunks(clarified_question, k=k)
     return chunks, clarified_question
 

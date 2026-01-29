@@ -76,14 +76,25 @@ def retrieve_chunks(question, k=10):
     # query_embedding = model.encode([question]).astype("float32")
     sample_rerank_k = 20
     bm25.k = sample_rerank_k
+    similarity_retriever = faiss_store.as_retriever(
+                                search_type="similarity",
+                                search_kwargs={
+                                    "k": sample_rerank_k,
+                                    "score_threshold": 0.2
+                            })
+
+    # MMR is maximal marginal relevance - looks for diversity in information
+    mmr_retriever = faiss_store.as_retriever(
+                                search_type="mmr",
+                                search_kwargs={
+                                    "k": sample_rerank_k,
+                                    "fetch_k": 2 * sample_rerank_k, # fetch alot more documents for diversity
+                                    "score_threshold": 0.2,
+                                    "lambda_mult": 0.2
+                            })
     hybrid_retriever = EnsembleRetriever(
-        retrievers=[bm25, 
-                    faiss_store.as_retriever(
-                        search_kwargs={
-                            "k": sample_rerank_k,
-                            "score_threshold": 0.2
-                        })],
-        weights=[0.2, 0.8] 
+        retrievers=[bm25, similarity_retriever, mmr_retriever],
+        weights=[0.2, 0.7, 0.1] 
     )
 
     # results = hybrid_retriever.invoke(question)
