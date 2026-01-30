@@ -6,6 +6,7 @@ from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 from sentence_transformers import CrossEncoder
 
+from config import GENERATE_FAST, SAMPLE_RERANK, SLOW_RERANKER_MODEL_NAME
 
 from langchain_classic.retrievers import EnsembleRetriever
 import os
@@ -18,7 +19,7 @@ from langchain_openai import OpenAIEmbeddings
 
 # 1. Load chunked document.....
 
-chunked_file_path = "heading-chunks.json"
+chunked_file_path = "./data/heading-chunks-w-title.json"
 # chunked_file_path = "chunks_char.json"
 
 with open(chunked_file_path, "r") as f:
@@ -28,7 +29,7 @@ with open(chunked_file_path, "r") as f:
 embedding_model = OpenAIEmbeddings(
         model="text-embedding-3-large",
 )
-save_faiss_index_name = "embed_faiss_store_langchain.bin"
+save_faiss_index_name = "official_faiss_store_with_tables"
 faiss_store = None
 
 docs = [Document(page_content=chunk["content"], metadata=chunk["metadata"]) for chunk in chunks]
@@ -72,7 +73,7 @@ else:
 bm25 = BM25Retriever.from_documents(docs)
 bm25.k = 5
 
-def rerank(query, docs, model_name, top_k=5, device="cpu", threshold=0.22):
+def rerank(query, docs, model_name, top_k=5, device="cpu", threshold=0.20):
     model = CrossEncoder(model_name, device=device)
 
     ranks = model.rank(query, [doc.page_content for doc in docs])
@@ -96,7 +97,7 @@ def rerank(query, docs, model_name, top_k=5, device="cpu", threshold=0.22):
 
 def retrieve_chunks(question, k=10):
     # query_embedding = model.encode([question]).astype("float32")
-    sample_rerank_k = 50
+    sample_rerank_k = SAMPLE_RERANK
     bm25.k = sample_rerank_k
     similarity_retriever = faiss_store.as_retriever(
                                 search_type="similarity",
@@ -119,22 +120,22 @@ def retrieve_chunks(question, k=10):
         weights=[0.2, 0.7, 0.1] 
     )
 
-    # results = hybrid_retriever.invoke(question)
+    if GENERATE_FAST:
+        compressor = FlashrankRerank(top_n=k)
 
-    # compressor = FlashrankRerank(top_n=k)
-    #reranker_model_name = "BAAI/bge-reranker-base"
-    reranker_model_name = "BAAI/bge-reranker-large"
-    stage_one_docs = hybrid_retriever.invoke(question)
+        compression_retriever = ContextualCompressionRetriever(
+            base_compressor=compressor, base_retriever=hybrid_retriever
+        )
 
-    results = rerank(question, stage_one_docs, reranker_model_name,
-                        top_k=k, device="cpu")
-    # compression_retriever = ContextualCompressionRetriever(
-    #     base_compressor=compressor, base_retriever=hybrid_retriever
-    # )
+        results = compression_retriever.invoke(
+            question
+        )
+    else:
+        reranker_model_name = SLOW_RERANKER_MODEL_NAME
+        stage_one_docs = hybrid_retriever.invoke(question)
 
-    # results = compression_retriever.invoke(
-    #     question
-    # )
+        results = rerank(question, stage_one_docs, reranker_model_name,
+                            top_k=k, device="cpu")
 
     # print(results)
 

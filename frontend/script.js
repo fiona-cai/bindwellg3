@@ -82,7 +82,7 @@ function _formatChatResponse(data) {
     // Show up to 8 citations to keep UI readable.
     for (let i = 0; i < Math.min(8, citations.length); i++) {
       const c = citations[i];
-      out += `- [${c.ref}] section ${c.section_index} (${c.source || "unknown"})\n`;
+      out += `- [${c.ref}] ${c.heading_title} (${c.source || "unknown"})\n`;
     }
   }
   out += "\n\nTip: use /ask <question> to see raw retrieved chunks.";

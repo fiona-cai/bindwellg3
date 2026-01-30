@@ -11,7 +11,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 import pandas as pd
 
 file_path = "./2026-pgp.pdf"
-out_path = "./heading-chunks.json"
+out_path = "./heading-chunks-w-title.json"
 
 loader = PyPDFLoader(file_path)
 docs = loader.load()
@@ -29,7 +29,10 @@ def chunk_by_heading():
     # Convert to LangChain Document objects with basic metadata
     lc_documents = []
     for i, sec in enumerate(sections):
-        meta = {"source": file_path, "section_index": i + 1}
+        first_line = sec.split("\n")[0]
+        title = re.split(r'(?<=\D)\.', first_line)[0]
+        print(f"Title: {title}")
+        meta = {"source": file_path, "section_index": i + 1, "heading_title": title}
         lc_documents.append({"content": sec, "metadata": meta})
         # lc_documents.append(LangChainDocument(page_content=sec, metadata=meta))
 
@@ -230,8 +233,57 @@ class PDFDocumentProcessor:
                                 "column_index": 0,
                                 **filldown_stats,
                             },
+                            # table_title will be filled below if a caption is found
+                            "table_title": None,
                         }
                     )
+
+                    # Attempt to find a nearby caption (e.g., "Table 1: Title") just above the table
+                    try:
+                        bbox = table.bbox if hasattr(table, 'bbox') else None
+                        if bbox:
+                            # bbox format: (x0, top, x1, bottom)
+                            table_top = bbox[1]
+                            table_x0, table_x1 = bbox[0], bbox[2]
+
+                            # Collect words that are above the table within a reasonable vertical window
+                            words = page.extract_words()
+                            # Candidate words: those whose bottom is <= table_top + small_margin and >= table_top - search_height
+                            search_height = 80
+                            small_margin = 8
+                            candidate_words = [w for w in words
+                                               if w.get('bottom', 0) <= table_top + small_margin
+                                               and w.get('bottom', 0) >= table_top - search_height
+                                               and (w.get('x0', 0) <= table_x1 and w.get('x1', 0) >= table_x0)]
+
+                            # Group words by approximate line (top coordinate)
+                            lines = {}
+                            for w in candidate_words:
+                                top_key = int(round(w.get('top', 0)))
+                                lines.setdefault(top_key, []).append(w)
+
+                            # Search each line (closest to table first) for a caption pattern
+                            caption = None
+                            for top in sorted(lines.keys(), reverse=True):
+                                line_words = sorted(lines[top], key=lambda x: x.get('x0', 0))
+                                line_text = " ".join([w.get('text', '') for w in line_words]).strip()
+                                # Common caption patterns: Table 1: Title, TABLE 1 - Title, Table 1 Title
+                                m = re.match(r'(?i)^\s*(table)\s*\d+\s*[:\-–—]?\s*(.+)', line_text)
+                                if m:
+                                    caption = m.group(2).strip()
+                                    break
+                                # Sometimes captions are written like 'Table: Title' or just 'Table Title'
+                                m2 = re.match(r'(?i)^\s*(table)\s*[:\-–—]?\s*(.+)', line_text)
+                                if m2:
+                                    caption = m2.group(2).strip()
+                                    break
+
+                            if caption:
+                                table_obj.metadata['table_title'] = caption
+
+                    except Exception:
+                        # Non-fatal: if caption detection fails, keep metadata.table_title as None
+                        pass
                     
                     extracted_tables.append(table_obj)
                     
@@ -369,14 +421,28 @@ class PDFDocumentProcessor:
     
     def get_structured_output(self) -> Dict[str, Any]:
         """Get structured output for ML/RAG pipeline"""
+        # Aggregate detected table titles
+        titles = []
+        for t in self.tables:
+            tt = t.metadata.get('table_title') if isinstance(t.metadata, dict) else None
+            if tt and tt.strip():
+                titles.append(tt.strip())
+
+        # Keep unique while preserving order
+        seen = set()
+        unique_titles = [x for x in titles if not (x in seen or seen.add(x))]
+
+        doc_meta = {
+            "file_path": self.file_path,
+            "total_sections": len(self.sections),
+            "total_tables": len(self.tables),
+            "chunk_size": self.chunk_size,
+            "chunk_overlap": self.chunk_overlap,
+            "table_titles": unique_titles[0],
+        }
+
         return {
-            "document_metadata": {
-                "file_path": self.file_path,
-                "total_sections": len(self.sections),
-                "total_tables": len(self.tables),
-                "chunk_size": self.chunk_size,
-                "chunk_overlap": self.chunk_overlap
-            },
+            "document_metadata": doc_meta,
             "sections": [asdict(section) for section in self.sections],
             "tables": [asdict(table) for table in self.tables]
         }
@@ -438,4 +504,5 @@ def main():
 
 
 if __name__ == "__main__":
+    #chunk_by_heading()
     main()

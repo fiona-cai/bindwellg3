@@ -1,4 +1,13 @@
 {
+  "document_metadata": {
+    "file_path": "./2026-pgp.pdf",
+    "total_sections": 0,
+    "total_tables": 48,
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "table_titles": "1. Decision-makers Required to Submit NOIs"
+  },
+  "sections": [],
   "tables": [
     {
       "table_id": "table_p1_t1",
@@ -45,7 +54,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -131,7 +141,8 @@
           "column_index": 0,
           "filled": 6,
           "applied": true
-        }
+        },
+        "table_title": "1. Decision-makers Required to Submit NOIs"
       }
     },
     {
@@ -182,7 +193,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": "2. NOI Submittal Deadlines and Discharge Authorization Dates for Discharges from the"
       }
     },
     {
@@ -223,7 +235,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": "3. NOI Change of Information Submittal Deadlines and Discharge Authorization Dates"
       }
     },
     {
@@ -276,7 +289,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": "1: Applicable Recordkeeping and Annual Reporting Requirements for"
       }
     },
     {
@@ -345,7 +359,8 @@
           "column_index": 0,
           "filled": 2,
           "applied": true
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -454,7 +469,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -514,7 +530,8 @@
           "column_index": 0,
           "filled": 2,
           "applied": true
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -607,7 +624,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": "Footnotes"
       }
     },
     {
@@ -712,7 +730,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -850,7 +869,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -976,7 +996,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1096,7 +1117,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1231,7 +1253,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1372,7 +1395,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1510,7 +1534,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1630,7 +1655,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1657,7 +1683,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1693,7 +1720,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1720,7 +1748,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1806,7 +1835,8 @@
           "column_index": 0,
           "filled": 6,
           "applied": true
-        }
+        },
+        "table_title": "1. Decision-Makers Required to Submit NOIs"
       }
     },
     {
@@ -1847,7 +1877,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": "2. NOI Submittal Deadlines and Discharge Authorization Dates for"
       }
     },
     {
@@ -1883,7 +1914,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1924,7 +1956,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": "3. NOI Change of Information Submittal Deadlines and Discharge"
       }
     },
     {
@@ -1957,7 +1990,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -1993,7 +2027,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2020,7 +2055,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2056,7 +2092,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2089,7 +2126,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2116,7 +2154,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2182,7 +2221,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2215,7 +2255,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2242,7 +2283,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2356,7 +2398,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2383,7 +2426,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2446,7 +2490,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2539,7 +2584,8 @@
           "column_index": 0,
           "filled": 1,
           "applied": true
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2632,7 +2678,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2743,7 +2790,8 @@
           "column_index": 0,
           "filled": 1,
           "applied": true
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2776,7 +2824,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2803,7 +2852,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2857,7 +2907,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -2926,7 +2977,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -3001,7 +3053,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -3082,7 +3135,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -3109,7 +3163,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -3190,7 +3245,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     },
     {
@@ -3280,7 +3336,8 @@
           "column_index": 0,
           "filled": 0,
           "applied": false
-        }
+        },
+        "table_title": null
       }
     }
   ]

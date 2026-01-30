@@ -24,13 +24,15 @@ import openai  # noqa: E402
 
 from retrieval.retrieval_langchain import retrieve_chunks  # noqa: E402
 
+from config import MODIFY_QUERY
+
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
-HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "heading-chunks.json")
+HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "data", "heading-chunks.json")
 TABLES_PATH = os.path.join(BASE_DIR, "processed_document_tables.json")
 
 SYSTEM_PROMPT = """You are a careful assistant answering questions about the 2026 EPA Pesticide General Permit (PGP) using ONLY the provided excerpts.
 
-Important:
+Important:"
 - Think through the problem step-by-step, but DO NOT reveal your internal reasoning.
 - If the excerpts do not contain enough information to answer, say so and ask a concise clarifying question.
 - Never invent permit requirements, thresholds, definitions, examples, or “typical” practices not present in the excerpts.
@@ -136,6 +138,7 @@ class ChatCitation(BaseModel):
     ref: int
     section_index: int
     source: str
+    heading_title: str
 
 class RetrievedSection(BaseModel):
     section_index: int
@@ -297,11 +300,12 @@ def _build_excerpt_block(chunks: List[Document]) -> Tuple[str, List[ChatCitation
     for i, c in enumerate(chunks, start=1):
         meta = c.metadata or {}
         section_index = int(meta.get("section_index") or 0)
+        heading_title = meta.get("heading_title") or "Unknown heading"
         source = str(meta.get("source") or "")
         content = str(c.page_content or "")
-        citations.append(ChatCitation(ref=i, section_index=section_index, source=source))
+        citations.append(ChatCitation(ref=i, section_index=section_index, source=source, heading_title=heading_title))
         parts.append(
-            f"[{i}] (section {section_index}; source: {source})\n{content}".strip()
+            f"[{i}] {heading_title}; source: {source})\n{content}".strip()
         )
     return "\n\n".join(parts).strip(), citations
 
@@ -466,20 +470,23 @@ def _answer_with_llm(question: str, excerpts: str) -> str:
     return answer
 
 def query_modified_get_chunks(question: str, k: int = 10):
-    llm = _get_chat_model()
-    clarify_prompt = (
-        "If the question is asking for something that requires information from before, then rewrite the question to address what was asked from before."
-        "You are looking at the EPA PGP (Pesticide General Permit) Legal Document. Your new question should not contain the words EPA Pesticide General Permit or similar."
-        "If the chat history is not empty, and the question refers to it, then modify. Otherwise, DO NOT MODIFY THE QUESTION AT ALL"
-        "Keep modified responses under 20 words."
-    )
-    messages = [("system", clarify_prompt)]
-    messages.extend(chat_history)
-    print(chat_history)
-    messages.append(("human", f"Question: {question}"))
-    clarified_question = llm.invoke(messages).content.strip()
-    # Fallback if LLM fails
-    if not clarified_question:
+    if MODIFY_QUERY:
+        llm = _get_chat_model()
+        clarify_prompt = (
+            "If the question is asking for something that requires information from before, then rewrite the question to address what was asked from before."
+            "You are looking at the EPA PGP (Pesticide General Permit) Legal Document. Your new question should not contain the words EPA Pesticide General Permit or similar."
+            "If the chat history is not empty, and the question refers to it, then modify. Otherwise, DO NOT MODIFY THE QUESTION AT ALL"
+            "Keep modified responses under 20 words."
+        )
+        messages = [("system", clarify_prompt)]
+        messages.extend(chat_history)
+        print(chat_history)
+        messages.append(("human", f"Question: {question}"))
+        clarified_question = llm.invoke(messages).content.strip()
+        # Fallback if LLM fails
+        if not clarified_question:
+            clarified_question = question
+    else:
         clarified_question = question
 
     print("Clarifying question: ", clarified_question)
