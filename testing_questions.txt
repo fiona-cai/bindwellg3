@@ -1,0 +1,113 @@
+Question 1 — Keyword-Based --------------------------
+Question:
+Under Part 6.4.1.1, what information must an Operator provide when making the 24-hour adverse incident notification to EPA?
+Type: Keyword
+Key terms triggered: “Part 6.4.1.1”, “24-hour adverse incident notification”, “information must include”
+
+Why this is a good test:
+- Forces precise retrieval of a clearly enumerated list (items a–i).
+- Tests whether the agent can stay within the correct subsection and not mix in 30-day reporting or spill reporting requirements.
+
+Failure modes it catches:
+- Hallucinating requirements not listed
+- Mixing in Part 6.4.2 (30-day report) or FIFRA reporting
+- Over-summarizing instead of listing required elements
+
+Question 2 — Semantic (Paraphrase) --------------------
+
+Question:
+When are Operators required to revise Pest Management Measures, even if no spill has occurred?
+Type: Semantic
+Underlying source: Part 6.1(b)–(e)
+
+Why this is a good test:
+- Does not use the phrase “Situations Requiring Revision of Pest Management Measures.”
+- Requires the model to semantically understand that monitoring failures, inspections, inadequacy, and adverse incidents all trigger revisions.
+
+Failure modes it catches:
+- Only mentioning spills (6.1(a))
+- Missing inspection- or monitoring-based triggers
+- Treating corrective action as optional instead of mandatory
+
+Question 3 — Many-Meanings / Segmentation --------------------------
+
+Question:
+If a pesticide spill occurs but does not result in an adverse incident, what reporting or documentation obligations apply, and under which parts of the permit?
+Type: Many-meanings (segmentation required)
+Ambiguous term: “spill”
+
+Why this is a good test:
+- “Spill” appears in multiple regulatory contexts:
+- Part 6.5.1 (NRC notification)
+- Part 6.5.2 (30-day documentation)
+- Part 6.4 (only if it results in an adverse incident)
+- The model must separate spill reporting from adverse incident reporting.
+
+Failure modes it catches:
+- Automatically invoking 24-hour adverse incident reporting
+- Ignoring NRC notification thresholds
+- Failing to mention 30-day documentation retention
+
+Question 4 — Many-Meanings + Role-Based Reasoning ------------------
+Question:
+How do recordkeeping and annual reporting obligations differ between a small-entity Decision-maker and a large-entity Decision-maker who both submit an NOI?
+- Type: Many-meanings (role & classification segmentation)
+Ambiguous concept: “Decision-maker reporting requirements”
+
+Why this is a good test:
+- Requires segmentation across:
+- Entity size (small vs large)
+- Obligation type (recordkeeping vs annual reporting)
+- Permit sections (Parts 7.3, 7.4, 7.6, 7.7)
+- Mimics real consultant questions like “What applies to my client?”
+
+Failure modes it catches:
+-Treating all Decision-makers the same
+-Missing PDMP or annual report obligations for large entities
+- Confusing NOI submission with annual reporting triggers
+
+
+Question 5 — Many-Meanings / Routing & Submission Logic --------------
+
+Question:
+If EPA’s NPDES eReporting Tool (NeT) is unavailable, where must a Decision-maker submit an NOI or annual report, and how does this differ from where adverse incident reports are sent?
+Type: Many-meanings (submission routing & document type segmentation)
+
+Why this is a good test:
+- The question intentionally bundles multiple document types:-
+- NOI / NOT / annual reports
+- Adverse incident reports
+- The agent must correctly segment:
+- EPA Headquarters submission (Part 8.1)
+- EPA Regional Office + state/tribal agency submission (Part 6.4 via Part 8.2)
+
+Failure modes it catches:
+-Sending everything to EPA Headquarters
+- Confusing NeT unavailability with adverse incident routing
+- Missing the requirement to notify state or tribal pesticide lead agencies
+
+Question 6 — Semantic + Geographic Reasoning -------------
+
+Question:
+Where should an Operator located in California send written correspondence related to discharges under this permit that is not an NOI, NOT, annual report, or adverse incident report?
+Type: Semantic (paraphrased + geographic lookup)
+
+Why this is a good test:
+- Does not quote “Part 8.2” or “EPA Regional Addresses” directly.
+- Requires the model to:
+- Recognize this is “all other written correspondence”
+- Identify the correct EPA Region
+- Retrieve the correct regional mailing address (Region 9 – San Francisco)
+
+Failure modes it catches:
+- Defaulting to EPA Headquarters incorrectly
+- Choosing the wrong EPA Region
+- Ignoring the distinction between report types
+[also cuz Clients frequently ask “Which office do we send this to?” and the answer depends on both document type and location.]
+
+Question 7 - Evaluation Question ------------------
+
+Question:
+An operator plans a pesticide application in New Mexico that will discharge to a Tier 3 Outstanding Natural Resource Water (ONRW) for ecosystem restoration purposes. 
+Under the PGP, is the operator eligible for coverage, and what materials must be submitted, to whom, and for what purpose before the discharge occurs?
+Question Type:- Many-meanings / Semantic (regulatory eligibility + submission + purpose)
