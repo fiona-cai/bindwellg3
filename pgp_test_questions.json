@@ -26,5 +26,45 @@
   {
     "question": "An operator plans a pesticide application in New Mexico that will discharge to a Tier 3 Outstanding Natural Resource Water (ONRW) for ecosystem restoration purposes. Under the PGP, is the operator eligible for coverage, and what materials must be submitted, to whom, and for what purpose before the discharge occurs?",
     "type": "Many-meanings / Semantic (evaluation)"
+  },
+  {
+    "question": "Where must a Decision-maker submit a Notice of Termination if EPA’s NPDES eReporting Tool is unavailable?",
+    "type": "Keyword"
+  },
+  {
+    "question": "If an adverse incident occurs during a pesticide application, which agencies must receive the written report and within what context is this requirement triggered?",
+    "type": "Semantic"
+  },
+  {
+    "question": "How does the submission destination differ between an annual report and an adverse incident report when electronic reporting is not possible?",
+    "type": "Many-meanings"
+  },
+  {
+    "question": "Which EPA office should receive written correspondence related to pesticide discharges from an operator located in Texas that is not an NOI, NOT, annual report, or adverse incident report?",
+    "type": "Semantic"
+  },
+  {
+    "question": "What role do EPA Regional Offices play in handling written correspondence under the PGP, and how does this role vary by geographic location?",
+    "type": "Many-meanings"
+  },
+  {
+    "question": "Are pesticide discharges to Tier 3 Outstanding Natural Resource Waters eligible for coverage under the PGP?",
+    "type": "Keyword"
+  },
+  {
+    "question": "Under what conditions may a discharge to a Tier 3 Outstanding Natural Resource Water be authorized, and what is the underlying regulatory justification?",
+    "type": "Semantic"
+  },
+  {
+    "question": "What materials must be submitted for a pesticide discharge project in New Mexico involving an ONRW, and which authority evaluates these materials before coverage is granted?",
+    "type": "Many-meanings"
+  },
+  {
+    "question": "How does the purpose of a pesticide application affect eligibility for coverage when the receiving waterbody is an Outstanding Natural Resource Water?",
+    "type": "Semantic"
+  },
+  {
+    "question": "If a pesticide application is intended for ecosystem restoration but may temporarily affect water quality standards, how is eligibility for permit coverage determined and by whom?",
+    "type": "Many-meanings"
   }
 ]
