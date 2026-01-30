@@ -1,0 +1,30 @@
+[
+  {
+    "question": "Under Part 6.4.1.1, what information must an Operator provide when making the 24-hour adverse incident notification to EPA?",
+    "type": "Keyword"
+  },
+  {
+    "question": "When are Operators required to revise Pest Management Measures, even if no spill has occurred?",
+    "type": "Semantic"
+  },
+  {
+    "question": "If a pesticide spill occurs but does not result in an adverse incident, what reporting or documentation obligations apply, and under which parts of the permit?",
+    "type": "Many-meanings / Segmentation"
+  },
+  {
+    "question": "How do recordkeeping and annual reporting obligations differ between a small-entity Decision-maker and a large-entity Decision-maker who both submit an NOI?",
+    "type": "Many-meanings / Role-based reasoning"
+  },
+  {
+    "question": "If EPA’s NPDES eReporting Tool (NeT) is unavailable, where must a Decision-maker submit an NOI or annual report, and how does this differ from where adverse incident reports are sent?",
+    "type": "Many-meanings / Routing and submission logic"
+  },
+  {
+    "question": "Where should an Operator located in California send written correspondence related to discharges under this permit that is not an NOI, NOT, annual report, or adverse incident report?",
+    "type": "Semantic / Geographic reasoning"
+  },
+  {
+    "question": "An operator plans a pesticide application in New Mexico that will discharge to a Tier 3 Outstanding Natural Resource Water (ONRW) for ecosystem restoration purposes. Under the PGP, is the operator eligible for coverage, and what materials must be submitted, to whom, and for what purpose before the discharge occurs?",
+    "type": "Many-meanings / Semantic (evaluation)"
+  }
+]
