@@ -63,6 +63,13 @@ GET /api/tables - to list tables in document
 ✅ **Evaluation** [retrieval_eval.py](retrieval_eval.py)
 - Uses deepeval to test over a set of 20+ questions we gathered in [pgp_test_questions.json](pgp_test_questions.json)
 
-⭐ Answer Relevancy: 92.31% - how well can the LLM answer the question with knowledge of retrieved text
 
-⭐ Faithfulness: 96.15% - how well grounded LLM responses are in terms of retrieved text
+| Metric            | Percentage of Tests |
+| ------------------| --------------------|
+| Answer Relevancy  | 92.31%              |
+| Faithfulness      | 96.15%              |
+
+
+⭐ Answer Relevancy - how well can the LLM answer the question with knowledge of retrieved text
+
+⭐ Faithfulness - how well grounded LLM responses are in terms of retrieved text
