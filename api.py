@@ -549,7 +549,7 @@ def chat(req: ChatRequest) -> ChatResponse:
             heading_title=str(c.metadata.get("heading_title", "")),
             content=c.page_content,
         )
-        for c in chunks[:3]
+        for c in chunks[: req.top_k]
     ]
 
     return ChatResponse(
