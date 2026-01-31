@@ -1,9 +1,0 @@
-langchain
-langchain-classic
-langchain-community
-langchain-core
-langchain-openai
-langchain-text-splitteres
-deepeval
-FlashRank
-langchain_huggingface

@@ -24,7 +24,7 @@ import openai  # noqa: E402
 
 from retrieval.retrieval_langchain import retrieve_chunks  # noqa: E402
 
-from config import MODIFY_QUERY
+from config import MODIFY_QUERY, APP_HOST, APP_PORT
 
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "data", "heading-chunks.json")
@@ -232,35 +232,6 @@ def health() -> Dict[str, Any]:
 
 @app.post("/api/ask", response_model=AskResponse)
 def ask(req: AskRequest) -> AskResponse:
-    # query_tokens = _tokenize(req.question)
-    # chunks, term_freqs, doc_freqs, doc_lens, avgdl = _bm25_index()
-    # n_docs = len(chunks)
-    # if n_docs == 0:
-    #     raise HTTPException(status_code=500, detail="No heading chunks loaded")
-
-    # scored: List[Tuple[float, int]] = []
-    # for i, (tf, dl) in enumerate(zip(term_freqs, doc_lens)):
-    #     s = _bm25_score(query_tokens, tf, dl, doc_freqs, n_docs, avgdl)
-    #     if s > 0:
-    #         scored.append((s, i))
-
-    # scored.sort(key=lambda x: x[0], reverse=True)
-    # top = scored[: req.top_k]
-    # results: List[AskResult] = []
-    # for score, idx in top:
-    #     c = chunks[idx]
-    #     results.append(
-    #         AskResult(
-    #             section_index=c.section_index,
-    #             score=round(score, 6),
-    #             snippet=_make_snippet(c.content, query_tokens),
-    #             content=c.content,
-    #             source=c.source,
-    #         )
-    #     )
-
-    # return AskResponse(question=req.question, top_k=req.top_k, results=results)
-
     try:
         chunks = retrieve_chunks(req.question, k=req.top_k)
     except Exception as e:
@@ -370,85 +341,6 @@ def _answer_with_llm(question: str, excerpts: str) -> str:
     # Keep a short history for the LLM to reference
     messages = [("system", SYSTEM_PROMPT)]
     messages.extend(chat_history)
-
-    max_tool_calls = 5
-    for i in range(max_tool_calls):
-        # Build messages for OpenAI ChatCompletion (function-calling)
-        def to_openai_role(r: str) -> str:
-            if r == "human":
-                return "user"
-            if r == "assistant":
-                return "assistant"
-            return r
-
-        openai_messages: List[Dict[str, Any]] = []
-        openai_messages.append({"role": "system", "content": SYSTEM_PROMPT})
-        for role, content in messages:
-            openai_messages.append({"role": to_openai_role(role), "content": content})
-        # Add current context and ask whether to call tool
-        decision_prompt = (
-            "Decide whether to call the retrieval tool. If you cannot answer the question with the given excerpts, return a function call to 'retrieve_excerpts' with a JSON argument {\"question\": <short query>, \"k\": <int>} using OpenAI function-calling. "
-            "The question you ask each time calling the tool should be different and should be refined so it is more likely to find the content."
-            "Make sure you can concretely answer the question before returning."
-            "Otherwise, return a normal assistant response with the final answer."
-        )
-        openai_messages.append({"role": "user", "content": f"{decision_prompt}\nUser question: {question}\n\nCurrent excerpts:\n{aggregated_excerpts[:4000]}"})
-
-        functions_def = [
-            {
-                "name": "retrieve_excerpts",
-                "description": "Retrieve document excerpts for a short query",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "question": {"type": "string"},
-                        "k": {"type": "integer"},
-                    },
-                    "required": ["question"],
-                },
-            }
-        ]
-
-        try:
-            resp = openai.ChatCompletion.create(
-                model=os.environ.get("OPENAI_CHAT_MODEL", "gpt-4o-mini"),
-                messages=openai_messages,
-                functions=functions_def,
-                function_call="auto",
-                temperature=0,
-            )
-        except Exception:
-            break
-
-        choice = resp.choices[0]
-        msg = choice.message
-
-        # If model decided to call our function, perform the call
-        if msg.get("function_call"):
-            print("Calling function")
-            fn_name = msg["function_call"]["name"]
-            fn_args_str = msg["function_call"].get("arguments") or "{}"
-            try:
-                fn_args = json.loads(fn_args_str)
-            except Exception:
-                fn_args = {}
-            q = fn_args.get("question")
-            k = int(fn_args.get("k", 5))
-            tool_excerpts, tool_citations, _ = retrieve_excerpts(q, k=k)
-            # Append the function result back into messages
-            messages.append(("assistant", f"<function_call name=retrieve_excerpts args={fn_args_str}>"))
-            func_content = json.dumps({"excerpts": tool_excerpts, "citations": [c.dict() for c in tool_citations]})
-            openai_messages.append({"role": "function", "name": "retrieve_excerpts", "content": func_content})
-            # Update aggregated excerpts
-            if tool_excerpts:
-                aggregated_excerpts = tool_excerpts.strip()
-            # Continue loop to let the model decide again
-            continue
-
-        # Otherwise model returned a normal assistant message (we'll treat as ready)
-        assistant_content = msg.get("content") or ""
-        messages.append(("assistant", assistant_content))
-        break
 
     # Produce final structured grounded answer using all aggregated excerpts
     user_msg = (
@@ -635,8 +527,8 @@ if __name__ == "__main__":
 
     uvicorn.run(
         "api:app",
-        host=os.environ.get("HOST", "127.0.0.1"),
-        port=int(os.environ.get("PORT", "8001")),
+        host=os.environ.get("HOST", APP_HOST),
+        port=int(os.environ.get("PORT", APP_PORT)),
         reload=True,
     )
 

@@ -9,6 +9,7 @@ venv/
 .venv/
 env/
 .env/
+new_venv/
 
 ### Local env files (secrets)
 .env
