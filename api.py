@@ -143,6 +143,7 @@ class ChatCitation(BaseModel):
 class RetrievedSection(BaseModel):
     section_index: int
     source: str
+    heading_title: str
     content: str
 
 
@@ -545,6 +546,7 @@ def chat(req: ChatRequest) -> ChatResponse:
         RetrievedSection(
             section_index=int(c.metadata.get("section_index", 0)),
             source=str(c.metadata.get("source", "")),
+            heading_title=str(c.metadata.get("heading_title", "")),
             content=c.page_content,
         )
         for c in chunks[:3]

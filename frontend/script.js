@@ -188,7 +188,8 @@ function _createEvidenceModal(sections) {
     sec.className = "evidence-card evidence-card--collapsed";
     const header = document.createElement("div");
     header.className = "evidence-card-header";
-    header.innerHTML = `<strong>Section ${s.section_index}</strong> &middot; <em>${_escapeHtml(s.source || "")}</em>`;
+    const title = (s.heading_title && s.heading_title.trim()) ? _escapeHtml(s.heading_title.trim()) : `Section ${s.section_index}`;
+    header.innerHTML = `<strong>${title}</strong>${(s.source && s.source.trim()) ? ` &middot; <em>${_escapeHtml(s.source)}</em>` : ""}`;
     const body = document.createElement("div");
     body.className = "evidence-card-body";
     body.innerHTML = `<p>${_escapeHtml(s.content || "")}</p>`;
