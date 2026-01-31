@@ -20,15 +20,16 @@ INFO:     Application startup complete.
 ``` 
 is shown.
 
-[!CAUTION]
-You do not need to launch the index.html file seperately for the frontend. The FastAPI server serves the index.html, style.css, and script.js files.
+> [!CAUTION]
+> You do not need to launch the index.html file seperately for the frontend. The FastAPI server serves the index.html, style.css, and script.js files.
 
-[!NOTE]
-You will need to create an OpenAI API Key to use this project.
+> [!NOTE]
+> You will need to create an OpenAI API Key to use this project.
 
 ## Information about codebase
 
-🔍 ML and Retrieval
+🔍 **ML and Retrieval**
+
 Go to:
 [retrieval/retrieval_langchain.py](retrieval/retrieval_langchain.py)
 - Ingests all documents into FAISS Index
@@ -40,9 +41,9 @@ Go to:
      - experimented with a lightweight, fast reranker (FlashRerank) and a larger, more accurate reranker (BGE Reranker)
      - Notable improvement in performance with previously ranked 5th or below documents moving to 1st and 2nd spot (desired)
 
-💻 Frontend code - [frontend/index.html](frontend/index.html)
+💻 **Frontend code** - [frontend/index.html](frontend/index.html)
 
-🔧 Backend code - [api.py](api.py)
+🔧 **Backend code** - [api.py](api.py)
 - contains call to LLM to synthesize response from the retrieved excerpts
 - call for retrieving documents (method exposed from retrieval)
 - various endpoints to facilitate communication with frontend
@@ -50,7 +51,7 @@ Ex. POST /api/chat - for LLM based chat responses
 POST /api/ask - for raw retrieved text excerpts
 GET /api/tables - to list tables in document
 
-📄 Data and Document Processing
+📄 **Data and Document Processing**
 
 [chunk_by_heading.py](data/chunk_by_heading.py) - Chunks the document by title heading
 - we reasoned this would be the most effective way to avoid data fragmentation as well as keep reasonable chunk size
@@ -59,8 +60,9 @@ GET /api/tables - to list tables in document
 
 [prepare_table_data.py](data/prepare_table_data.py) - appends to table data to rest of text chunks
 
-✅ Evaluation [retrieval_eval.py](retrieval_eval.py)
+✅ **Evaluation** [retrieval_eval.py](retrieval_eval.py)
 - Uses deepeval to test over a set of 20+ questions we gathered in [pgp_test_questions.json](pgp_test_questions.json)
 
 ⭐ Answer Relevancy: 92.31% - how well can the LLM answer the question with knowledge of retrieved text
+
 ⭐ Faithfulness: 96.15% - how well grounded LLM responses are in terms of retrieved text
