@@ -28,7 +28,7 @@ from config import MODIFY_QUERY, APP_HOST, APP_PORT
 
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 HEADING_CHUNKS_PATH = os.path.join(BASE_DIR, "data", "heading-chunks.json")
-TABLES_PATH = os.path.join(BASE_DIR, "processed_document_tables.json")
+TABLES_PATH = os.path.join(BASE_DIR, "data", "processed_document_tables.json")
 
 SYSTEM_PROMPT = """You are a careful assistant answering questions about the 2026 EPA Pesticide General Permit (PGP) using ONLY the provided excerpts.
 
