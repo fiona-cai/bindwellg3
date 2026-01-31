@@ -327,8 +327,15 @@ def _format_grounded_answer(payload: _GroundedAnswer) -> str:
             return "Answer: I don’t have enough in the provided excerpts to answer.\n\nClarifying questions:\n" + qs + "\n\nCitations: none"
         return "Answer: I don’t have enough in the provided excerpts to answer.\n\nCitations: none"
 
-    bullets = [b.strip() for b in payload.answer_bullets if b and b.strip()]
-    bullets = bullets[:8]
+    def _bullet_text(s: str) -> str:
+        t = s.strip()
+        # Avoid double bullets: LLM often returns "- item; [1]" but we add "- " when formatting.
+        if t.startswith("-"):
+            t = t.lstrip("-").strip()
+        return t
+
+    bullets = [_bullet_text(b) for b in payload.answer_bullets if b and b.strip()]
+    bullets = [b for b in bullets if b][:8]
     if not bullets:
         return "Answer: I don’t have enough in the provided excerpts to answer.\n\nCitations: none"
 
