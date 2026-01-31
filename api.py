@@ -143,6 +143,7 @@ class ChatCitation(BaseModel):
 class RetrievedSection(BaseModel):
     section_index: int
     source: str
+    heading_title: str
     content: str
 
 
@@ -298,8 +299,15 @@ def _format_grounded_answer(payload: _GroundedAnswer) -> str:
             return "Answer: I don’t have enough in the provided excerpts to answer.\n\nClarifying questions:\n" + qs + "\n\nCitations: none"
         return "Answer: I don’t have enough in the provided excerpts to answer.\n\nCitations: none"
 
-    bullets = [b.strip() for b in payload.answer_bullets if b and b.strip()]
-    bullets = bullets[:8]
+    def _bullet_text(s: str) -> str:
+        t = s.strip()
+        # Avoid double bullets: LLM often returns "- item; [1]" but we add "- " when formatting.
+        if t.startswith("-"):
+            t = t.lstrip("-").strip()
+        return t
+
+    bullets = [_bullet_text(b) for b in payload.answer_bullets if b and b.strip()]
+    bullets = [b for b in bullets if b][:8]
     if not bullets:
         return "Answer: I don’t have enough in the provided excerpts to answer.\n\nCitations: none"
 
@@ -430,9 +438,10 @@ def chat(req: ChatRequest) -> ChatResponse:
         RetrievedSection(
             section_index=int(c.metadata.get("section_index", 0)),
             source=str(c.metadata.get("source", "")),
+            heading_title=str(c.metadata.get("heading_title", "")),
             content=c.page_content,
         )
-        for c in chunks[:3]
+        for c in chunks[: req.top_k]
     ]
 
     return ChatResponse(

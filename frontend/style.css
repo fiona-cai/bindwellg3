@@ -33,6 +33,15 @@ h1 {
   text-align: left;
 }
 
+.message ul {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.message li {
+  margin: 0.25em 0;
+}
+
 #input-container {
   max-width: 800px;
   margin: 15px auto 0;
@@ -86,8 +95,66 @@ h1 {
   cursor: pointer;
 }
 
-.evidence-section p {
-  margin: 5px 0;
+/* Collapsible evidence cards: folded by default */
+.evidence-card {
+  margin-bottom: 10px;
+  border-left: 3px solid #3b82f6;
+  background: #f9fafb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.evidence-card-header {
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+}
+
+.evidence-card-title {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.evidence-card-header::after {
+  content: "▶";
+  font-size: 0.75rem;
+  color: #6b7280;
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.evidence-card.evidence-card--collapsed .evidence-card-header::after {
+  transform: rotate(0deg);
+}
+
+.evidence-card:not(.evidence-card--collapsed) .evidence-card-header::after {
+  transform: rotate(90deg);
+}
+
+.evidence-card-body {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0 12px 12px;
+  transition: max-height 0.25s ease, padding 0.25s ease, opacity 0.2s ease;
+}
+
+.evidence-card.evidence-card--collapsed .evidence-card-body {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.evidence-card-body p {
+  margin: 5px 0 0;
 }
 
 .evidence-btn {
@@ -97,23 +164,12 @@ h1 {
   cursor: pointer;
 }
 
-/* Make each evidence section scrollable if too long */
-.evidence-section {
-  max-height: 120px;       /* each section will be limited in height */
-  overflow-y: auto;        /* add scroll if content exceeds */
-  padding: 5px;
-  margin-bottom: 10px;
-  border-left: 3px solid #3b82f6; /* subtle blue highlight */
-  background: #f9fafb;     /* light background for readability */
-  border-radius: 4px;
-}
-
-/* Optional: smooth scrolling inside sections */
-.evidence-section::-webkit-scrollbar {
+/* Scrollable body when expanded */
+.evidence-card-body::-webkit-scrollbar {
   width: 6px;
 }
 
-.evidence-section::-webkit-scrollbar-thumb {
+.evidence-card-body::-webkit-scrollbar-thumb {
   background-color: rgba(0,0,0,0.2);
   border-radius: 3px;
 }

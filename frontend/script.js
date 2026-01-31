@@ -14,6 +14,41 @@ window.onload = async function() {
     // Ignore errors
   }
 };
+function _escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+/** Turn text with "- item" lines into HTML with real <ul>/<li> bullets. */
+function _textToHtmlWithBullets(text) {
+  if (!text || !text.trim()) return "";
+  const lines = text.split("\n");
+  let html = "";
+  let inList = false;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith("- ")) {
+      const bulletContent = trimmed.slice(2);
+      if (!inList) {
+        html += "<ul>";
+        inList = true;
+      }
+      html += "<li>" + _escapeHtml(bulletContent) + "</li>";
+    } else {
+      if (inList) {
+        html += "</ul>";
+        inList = false;
+      }
+      html += _escapeHtml(line) + "<br/>";
+    }
+  }
+  if (inList) html += "</ul>";
+  return html;
+}
+
 function _appendMessage(text, role) {
   const chatContainer = document.getElementById("chat-container");
   const el = document.createElement("div");
@@ -22,6 +57,16 @@ function _appendMessage(text, role) {
   chatContainer.appendChild(el);
   chatContainer.scrollTop = chatContainer.scrollHeight;
   return el;
+}
+
+/** Set message content, rendering lines that start with "- " as real bullet lists. */
+function _setMessageContent(el, text) {
+  const hasBullets = /(^|\n)-\s+/.test(text || "");
+  if (hasBullets) {
+    el.innerHTML = _textToHtmlWithBullets(text);
+  } else {
+    el.innerText = text;
+  }
 }
 
 async function _postJson(url, body) {
@@ -140,13 +185,19 @@ function _createEvidenceModal(sections) {
 
   sections.forEach((s, i) => {
     const sec = document.createElement("div");
-    sec.className = "evidence-section";
-    sec.innerHTML = `
-      <strong>Section ${s.section_index}</strong><br/>
-      <em>${s.source}</em>
-      <p>${s.content}</p>
-      <hr/>
-    `;
+    sec.className = "evidence-card evidence-card--collapsed";
+    const header = document.createElement("div");
+    header.className = "evidence-card-header";
+    const titleText = (s.heading_title && s.heading_title.trim()) ? _escapeHtml(s.heading_title.trim()) : `Section ${s.section_index}`;
+    header.innerHTML = `<span class="evidence-card-title"><strong>${titleText}</strong>${(s.source && s.source.trim()) ? ` &middot; <em>${_escapeHtml(s.source)}</em>` : ""}</span>`;
+    const body = document.createElement("div");
+    body.className = "evidence-card-body";
+    body.innerHTML = `<p>${_escapeHtml(s.content || "")}</p>`;
+    header.addEventListener("click", () => {
+      sec.classList.toggle("evidence-card--collapsed");
+    });
+    sec.appendChild(header);
+    sec.appendChild(body);
     box.appendChild(sec);
   });
 
@@ -178,7 +229,7 @@ async function sendMessage() {
         return;
       }
       const data = await _postJson("/api/ask", { question: q, top_k: 5 });
-      agentEl.innerText = _formatAskResponse(data);
+      _setMessageContent(agentEl, _formatAskResponse(data));
       return;
     }
 
@@ -187,7 +238,7 @@ async function sendMessage() {
       const q = message.slice("/tables".length).trim();
       const url = "/api/tables?limit=10" + (q ? `&query=${encodeURIComponent(q)}` : "");
       const data = await _getJson(url);
-      agentEl.innerText = _formatTablesList(data);
+      _setMessageContent(agentEl, _formatTablesList(data));
       return;
     }
 
@@ -199,7 +250,7 @@ async function sendMessage() {
         return;
       }
       const data = await _getJson(`/api/tables/${encodeURIComponent(id)}`);
-      agentEl.innerText = _formatTableDetail(data);
+      _setMessageContent(agentEl, _formatTableDetail(data));
       return;
     }
 
@@ -207,7 +258,7 @@ async function sendMessage() {
 const data = await _postJson("/api/chat", { question: message, top_k: 5 });
 
 // show the main answer
-agentEl.innerText = _formatChatResponse(data);
+_setMessageContent(agentEl, _formatChatResponse(data));
 
 // add "Show retrieved evidence" button if evidence exists
 if (Array.isArray(data.retrieved_sections) && data.retrieved_sections.length) {
