@@ -185,13 +185,18 @@ function _createEvidenceModal(sections) {
 
   sections.forEach((s, i) => {
     const sec = document.createElement("div");
-    sec.className = "evidence-section";
-    sec.innerHTML = `
-      <strong>Section ${s.section_index}</strong><br/>
-      <em>${s.source}</em>
-      <p>${s.content}</p>
-      <hr/>
-    `;
+    sec.className = "evidence-card evidence-card--collapsed";
+    const header = document.createElement("div");
+    header.className = "evidence-card-header";
+    header.innerHTML = `<strong>Section ${s.section_index}</strong> &middot; <em>${_escapeHtml(s.source || "")}</em>`;
+    const body = document.createElement("div");
+    body.className = "evidence-card-body";
+    body.innerHTML = `<p>${_escapeHtml(s.content || "")}</p>`;
+    header.addEventListener("click", () => {
+      sec.classList.toggle("evidence-card--collapsed");
+    });
+    sec.appendChild(header);
+    sec.appendChild(body);
     box.appendChild(sec);
   });
 
