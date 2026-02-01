@@ -1,18 +1,21 @@
-## Installation of Dependencies
+# EPA Consultant Agent
 
-To install the required libaries to run the project, run:
-```
+RAG-based Q&A agent over EPA documents (e.g. NPDES Pesticide General Permit), with hybrid retrieval, reranking, and table support.
+
+## Installation
+
+Install dependencies:
+```bash
 pip install -r requirements.txt
 ```
 
-## Usage Details
+## Usage
 
-To view our application and chat with our agent, run in the root directory:
-```
+From the project root, start the server:
+```bash
 python api.py
 ```
-and a FastAPI server will launch. When the server process completes loading, you can click on the link
-to launch the app. The link should be 127.0.0.1:8001. (APP_HOST and APP_PORT can be changed in ```config.py```)
+A FastAPI server will start. Once you see startup complete, open **http://127.0.0.1:8001** in your browser. (Host and port can be changed in `config.py`.)
 
 Wait until
 ```
@@ -20,13 +23,11 @@ INFO:     Application startup complete.
 ``` 
 is shown.
 
-> [!CAUTION]
-> You do not need to launch the index.html file seperately for the frontend. The FastAPI server serves the index.html, style.css, and script.js files.
+> **Note:** The FastAPI server serves the frontend (index.html, style.css, script.js). You do not need to open `index.html` separately.
 
-> [!NOTE]
-> You will need to create an OpenAI API Key to use this project.
+> **OpenAI API key** is required; set it in your environment before running.
 
-## Information about codebase
+## Codebase overview
 
 🔍 **ML and Retrieval**
 
@@ -51,17 +52,17 @@ Ex. POST /api/chat - for LLM based chat responses
 POST /api/ask - for raw retrieved text excerpts
 GET /api/tables - to list tables in document
 
-📄 **Data and Document Processing**
+📄 **Data and document processing**
 
-[chunk_by_heading.py](data/chunk_by_heading.py) - Chunks the document by title heading
+[data/chunk_by_heading.py](data/chunk_by_heading.py) — chunks the document by title/heading
 - we reasoned this would be the most effective way to avoid data fragmentation as well as keep reasonable chunk size
 
-[document_processor.py](data/document_processor.py) - Gets all tables and outputs JSON with table headers and rows as lists with their indexes matching for each column
+[data/document_processor.py](data/document_processor.py) — extracts tables to JSON (headers and rows).
 
-[prepare_table_data.py](data/prepare_table_data.py) - appends to table data to rest of text chunks
+[data/prepare_table_data.py](data/prepare_table_data.py) — appends table data to text chunks.
 
-✅ **Evaluation** [retrieval_eval.py](retrieval_eval.py)
-- Uses deepeval to test over a set of 20+ questions we gathered in [pgp_test_questions.json](pgp_test_questions.json)
+✅ **Evaluation** — [retrieval/retrieval_eval.py](retrieval/retrieval_eval.py)
+- Uses deepeval over 20+ questions in [pgp_test_questions.json](pgp_test_questions.json)
 
 
 | Metric            | Percentage of Tests |
