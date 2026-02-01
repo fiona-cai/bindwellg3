@@ -5,7 +5,7 @@ import json
 import re
 
 file_path = "../2026-pgp.pdf"
-out_path = "./heading-csshunks-w-title.json"
+out_path = "./heading-chunks-w-title.json"
 
 def chunk_by_heading():
     loader = PyPDFLoader(file_path)
